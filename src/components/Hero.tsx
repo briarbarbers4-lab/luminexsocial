@@ -56,35 +56,18 @@ export default function Hero() {
   };
 
   return (
-    <section ref={heroRef} className="relative min-h-screen bg-primary-dark overflow-hidden flex items-center">
-      <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/20 via-primary-dark to-primary-dark"></div>
-
+    <section ref={heroRef} className="relative min-h-screen bg-transparent overflow-hidden flex items-center">
       {/* Spline 3D Background - Lazy loaded for performance */}
       {showSpline && (
         <Suspense fallback={null}>
           <div className="absolute inset-0 z-0" style={{ pointerEvents: 'none' }}>
             <SplineViewer
-              url="https://prod.spline.design/dEUj-2nGYwdlEXUW/scene.splinecode"
+              url="https://prod.spline.design/1KADGSUZkyBQVBMc/scene.splinecode"
               className="w-full h-full"
             />
           </div>
         </Suspense>
       )}
-
-      {/* Parallax background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-royal-blue/30 rounded-full blur-3xl animate-pulse parallax-slow"
-          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-        ></div>
-        <div 
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-royal-blue/20 rounded-full blur-3xl animate-pulse parallax-fast"
-          style={{ 
-            animationDelay: '1s',
-            transform: `translateY(${scrollY * 0.3}px)` 
-          }}
-        ></div>
-      </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-20">
         <div className="max-w-5xl mx-auto text-center">

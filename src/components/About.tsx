@@ -65,7 +65,7 @@ export default function About() {
                 What sets us apart is our passion for storytelling combined with cutting-edge technology. We don't just create content; we craft experiences. We don't just automate tasks; we build intelligent systems that work while you sleep. Every project is approached with fresh creativity and data-driven strategy.
               </p>
               <p>
-                Our client-focused approach means we're not satisfied until you're thriving. We take time to understand your unique challenges, your vision, and your goals—then we deliver solutions that exceed expectations. Your success is our success.
+                Our client-focused approach means we're not satisfied until you're thriving. We take time to understand your unique challenges, your vision, and your goals and then we deliver solutions that exceed expectations. Your success is our success.
               </p>
             </div>
 
@@ -194,7 +194,7 @@ export default function About() {
           <h3 className="text-2xl md:text-3xl font-bold font-coolvetica text-white">
             Ready to transform your digital presence?
           </h3>
-          <p className="text-secondary-text font-inter max-w-2xl mx-auto">
+          <p className="text-secondary-text font-inter text-white max-w-2xl mx-auto">
             Let's work together to turn your vision into reality. Get in touch today.
           </p>
           <button className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-primary-blue text-white font-inter font-semibold rounded-lg hover:shadow-[0_0_25px_rgba(13,33,161,0.4)] hover:scale-105 transition-all duration-300">
