@@ -175,19 +175,18 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {subServices.map((service, index) => {
               const Icon = service.icon;
+              const staggerClass = `stagger-item stagger-item-${(index % 6) + 1}`;
               return (
                 <div
                   key={index}
                   className={`group relative rounded-2xl p-8 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(13,33,161,0.4)] cursor-pointer ${
-                    isVisible
-                      ? 'opacity-100 translate-y-0'
-                      : 'opacity-0 translate-y-10'
+                    isVisible ? staggerClass : 'opacity-0 translate-y-10'
                   }`}
                   style={{
                     background: 'rgba(13, 33, 161, 0.05)',
                     backdropFilter: 'blur(10px)',
                     border: '1.5px solid rgba(13, 33, 161, 0.2)',
-                    transition: isVisible ? `all 0.6s ease-out ${index * 0.08}s` : 'all 0.6s ease-out',
+                    transition: isVisible ? `all 0.6s ease-out` : 'all 0.6s ease-out',
                   }}
                 >
                   {/* Glow on hover */}

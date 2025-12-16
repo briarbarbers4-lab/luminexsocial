@@ -72,11 +72,12 @@ export default function Navigation() {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`font-montreal font-medium transition-all duration-300 relative group ${
+                  className={`font-montreal font-medium transition-all duration-300 relative group focus-ring ${
                     location.pathname === link.path
                       ? 'text-royal-blue'
                       : 'text-soft-white/80 hover:text-soft-white'
                   }`}
+                  aria-current={location.pathname === link.path ? 'page' : undefined}
                 >
                   {link.name}
                   {location.pathname === link.path && (
@@ -91,7 +92,8 @@ export default function Navigation() {
             <div className="flex items-center gap-4">
               <Link
                 to="/contact"
-                className="hidden md:flex ripple items-center gap-2 px-6 py-2.5 bg-royal-blue text-soft-white font-montreal font-semibold rounded-full hover:shadow-[0_0_20px_rgba(13,33,161,0.4)] transition-all duration-300 hover:scale-105"
+                className="hidden md:flex btn-premium btn-ripple btn-glow-pulse items-center gap-2 px-6 py-2.5 bg-royal-blue text-soft-white font-montreal font-semibold rounded-full focus-ring transition-all duration-300"
+                aria-label="Get Started - Contact Us"
               >
                 Get Started
               </Link>
@@ -99,8 +101,9 @@ export default function Navigation() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden p-2 hover:bg-royal-blue/10 rounded-lg transition-colors"
-                aria-label="Toggle menu"
+                className="md:hidden p-2 hover:bg-royal-blue/10 rounded-lg transition-colors focus-ring"
+                aria-label={isOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isOpen}
               >
                 {isOpen ? (
                   <X className="w-6 h-6 text-soft-white" />
@@ -136,11 +139,12 @@ export default function Navigation() {
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`font-coolvetica text-4xl font-bold transition-all duration-300 ${
+                className={`font-coolvetica text-4xl font-bold transition-all duration-300 focus-ring rounded px-4 py-2 ${
                   location.pathname === link.path
                     ? 'text-royal-blue scale-110'
                     : 'text-soft-white/70 hover:text-soft-white'
                 }`}
+                aria-current={location.pathname === link.path ? 'page' : undefined}
                 style={{
                   animation: isOpen
                     ? `slideInMenu 0.5s ease-out ${index * 0.08}s forwards`
@@ -157,7 +161,8 @@ export default function Navigation() {
           <Link
             to="/contact"
             onClick={() => setIsOpen(false)}
-            className="ripple px-8 py-3 bg-royal-blue text-soft-white font-montreal font-semibold rounded-full hover:shadow-[0_0_30px_rgba(13,33,161,0.5)] transition-all duration-300 hover:scale-105 inline-block"
+            className="btn-premium btn-ripple px-8 py-3 bg-royal-blue text-soft-white font-montreal font-semibold rounded-full focus-ring transition-all duration-300 inline-block"
+            aria-label="Get Started - Contact Us"
             style={{
               animation: isOpen ? 'slideInMenu 0.5s ease-out 0.48s forwards' : 'none',
               opacity: isOpen ? 1 : 0,

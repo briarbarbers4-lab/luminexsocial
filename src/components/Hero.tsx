@@ -1,18 +1,31 @@
 import { Sparkles, Play } from 'lucide-react';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, lazy, Suspense } from 'react';
+
+// Lazy load Spline viewer to avoid blocking main thread
+const SplineViewer = lazy(() => import('./SplineViewer'));
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
+  const [showSpline, setShowSpline] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
-  // Parallax effect
+  // Parallax effect with passive listener for smooth scrolling
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Load Spline after page has rendered and settled
+    const splineTimer = setTimeout(() => {
+      setShowSpline(true);
+    }, 1500);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(splineTimer);
+    };
   }, []);
 
   // Magnetic button effect
@@ -52,6 +65,18 @@ export default function Hero() {
     <section ref={heroRef} className="relative min-h-screen bg-primary-dark overflow-hidden flex items-center">
       <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/20 via-primary-dark to-primary-dark"></div>
 
+      {/* Spline 3D Background - Lazy loaded for performance */}
+      {showSpline && (
+        <Suspense fallback={null}>
+          <div className="absolute inset-0 -z-10" style={{ pointerEvents: 'none' }}>
+            <SplineViewer
+              url="https://prod.spline.design/dEUj-2nGYwdlEXUW/scene.splinecode"
+              className="w-full h-full"
+            />
+          </div>
+        </Suspense>
+      )}
+
       {/* Parallax background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
@@ -88,18 +113,20 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <button 
-              className="magnetic-button ripple group px-8 py-4 bg-royal-blue text-soft-white font-montreal font-semibold rounded-full hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(13,33,161,0.5)] flex items-center gap-2"
+              className="btn-premium btn-ripple btn-glow-pulse group px-8 py-4 bg-royal-blue text-soft-white font-montreal font-semibold rounded-full focus-ring transition-all duration-300 flex items-center gap-2"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
+              aria-label="Start Your Project"
             >
               Start Your Project
               <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
             </button>
 
             <button 
-              className="magnetic-button ripple group px-8 py-4 bg-transparent text-soft-white font-montreal font-semibold rounded-full border-2 border-royal-blue/50 hover:border-royal-blue hover:bg-royal-blue/10 backdrop-blur-sm transition-all duration-300 flex items-center gap-2"
+              className="btn-premium btn-ripple group px-8 py-4 bg-transparent text-soft-white font-montreal font-semibold rounded-full border-2 border-royal-blue/50 hover:border-royal-blue hover:bg-royal-blue/10 backdrop-blur-sm focus-ring transition-all duration-300 flex items-center gap-2"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
+              aria-label="View Our Work"
             >
               <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
               View Our Work

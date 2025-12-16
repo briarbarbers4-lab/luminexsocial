@@ -55,9 +55,10 @@ export default function CTA() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <button 
-              className="magnetic-button ripple group px-10 py-5 bg-soft-white text-primary-dark font-montreal font-bold text-lg rounded-full hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(247,248,252,0.3)] inline-flex items-center gap-3 mb-8"
+              className="btn-premium btn-ripple btn-glow-pulse group px-10 py-5 bg-soft-white text-primary-dark font-montreal font-bold text-lg rounded-full focus-ring transition-all duration-300 inline-flex items-center gap-3 mb-8"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
+              aria-label="Get Started Today"
             >
               Get Started Today
               <Sparkles className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />

@@ -80,7 +80,7 @@ export default function Portfolio() {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              className={`tilt-card group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ${
+              className={`tilt-card group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 stagger-item stagger-item-${(index % 6) + 1} ${
                 project.size === 'large' ? 'md:col-span-2 md:row-span-2' :
                 project.size === 'medium' ? 'md:col-span-2' : ''
               } ${
@@ -104,7 +104,7 @@ export default function Portfolio() {
                 <h3 className="font-montreal text-2xl text-soft-white mb-4 text-center">
                   {project.title}
                 </h3>
-                <button className="ripple flex items-center gap-2 px-6 py-3 bg-royal-blue text-soft-white rounded-full font-inter hover:scale-105 transition-transform duration-300">
+                <button className="btn-premium btn-ripple flex items-center gap-2 px-6 py-3 bg-royal-blue text-soft-white rounded-full font-inter focus-ring">
                   View Case Study
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>

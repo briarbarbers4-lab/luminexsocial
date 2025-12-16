@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useInView } from '../hooks/useInView';
+import { useScrollRevealAnimation } from '../hooks/useScrollAnimations';
 
 const stats = [
   { number: 500, suffix: '+', label: 'Projects Completed' },
@@ -33,7 +34,7 @@ function AnimatedCounter({ end, suffix, shouldAnimate }: { end: number; suffix: 
   }, [end, shouldAnimate]);
 
   return (
-    <span className="font-coolvetica text-5xl md:text-6xl text-royal-blue">
+    <span className="font-coolvetica text-5xl md:text-6xl text-royal-blue animate-counter">
       {count}{suffix}
     </span>
   );
@@ -42,17 +43,20 @@ function AnimatedCounter({ end, suffix, shouldAnimate }: { end: number; suffix: 
 export default function Stats() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { threshold: 0.3 });
+  const { ref: contentRef, isVisible } = useScrollRevealAnimation({ threshold: 0.2 });
 
   return (
     <section ref={sectionRef} className="py-24 md:py-32 bg-primary-dark relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-royal-blue/5 to-transparent"></div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container mx-auto px-6 md:px-12 relative z-10" ref={contentRef}>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center p-8 rounded-2xl"
+              className={`text-center p-8 rounded-2xl stagger-item stagger-item-${(index % 4) + 1} transition-all duration-700 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
               style={{
                 background: 'rgba(13, 33, 161, 0.1)',
                 backdropFilter: 'blur(10px)',

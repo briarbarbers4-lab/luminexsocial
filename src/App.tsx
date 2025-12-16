@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import ScrollProgress from './components/ScrollProgress';
 import Footer from './components/Footer';
+import CustomCursor from './components/CustomCursor';
 
 // Page Components
 import HomePage from './pages/HomePage';
@@ -14,6 +15,7 @@ import BlogPage from './pages/BlogPage';
 function App() {
   return (
     <Router>
+      <CustomCursor />
       <div className="min-h-screen bg-primary-dark">
         <Navigation />
         <ScrollProgress />
