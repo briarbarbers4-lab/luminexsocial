@@ -62,7 +62,7 @@ export default function Hero() {
         <Suspense fallback={null}>
           <div className="absolute inset-0 z-0" style={{ pointerEvents: 'none' }}>
             <SplineViewer
-              url="https://prod.spline.design/1KADGSUZkyBQVBMc/scene.splinecode"
+              url="https://prod.spline.design/0hiJ0Y-RBzuVrj1W/scene.splinecode"
               className="w-full h-full"
             />
           </div>
