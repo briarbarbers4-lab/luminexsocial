@@ -12,7 +12,7 @@ const teamMembers = [
     name: 'Ayyan Khattak',
     role: 'Co-Founder & CEO',
     bio: 'AI Automation Expert and visionary leader driving innovation.',
-    image: 'c:\Users\darks\Desktop\Pic.jpg',
+    image: '',
   },
   {
     name: 'Furqan Shahid',
