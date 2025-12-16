@@ -140,11 +140,7 @@ export default function Contact() {
         {/* Header Section */}
         <div
           ref={contentRef as any}
-          className={`text-center mb-16 md:mb-20 transition-all duration-1000 ${
-            contentVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-10'
-          }`}
+          className={`text-center mb-16 md:mb-20 transition-all duration-1000 opacity-100 translate-y-0`}
         >
           <div className="inline-block px-8 py-12 md:py-16 rounded-3xl bg-gradient-to-r from-primary-blue/20 via-primary-blue/10 to-transparent border border-primary-blue/30 max-w-4xl">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-coolvetica text-white mb-4 leading-tight">
@@ -161,11 +157,7 @@ export default function Contact() {
           {/* Left Column - Contact Form */}
           <div
             ref={formRef as any}
-            className={`transition-all duration-1000 ${
-              formVisible
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-10'
-            }`}
+            className={`transition-all duration-1000 opacity-100 translate-y-0`}
           >
             <div className="p-8 md:p-10 rounded-2xl backdrop-blur-md border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02]">
               <h3 className="text-2xl md:text-3xl font-bold font-coolvetica text-white mb-8">
@@ -312,11 +304,7 @@ export default function Contact() {
           {/* Right Column - Contact Information */}
           <div
             ref={infoRef as any}
-            className={`transition-all duration-1000 ${
-              infoVisible
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-10'
-            }`}
+            className={`transition-all duration-1000 opacity-100 translate-y-0`}
           >
             <div className="space-y-6">
               {/* Email */}

@@ -86,11 +86,7 @@ export default function FAQ() {
             {faqItems.map((item, index) => (
               <div
                 key={item.id}
-                className={`transition-all duration-700 ${
-                  isVisible
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-10'
-                }`}
+                className={`transition-all duration-700 opacity-100 translate-y-0`}
                 style={{ transitionDelay: isVisible ? `${index * 75}ms` : '0ms' }}
               >
                 <button

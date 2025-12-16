@@ -32,7 +32,7 @@ export default function AboutPage() {
         <section ref={storyRef} className="py-20 border-t border-soft-white/10">
           <div className="container mx-auto px-6 md:px-12">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className={`space-y-6 scroll-slide-in-left ${storyVisible ? '' : 'opacity-0'}`}>
+              <div className={`space-y-6 opacity-100`}>
                 <h2 className="font-coolvetica text-4xl md:text-5xl text-soft-white font-bold">
                   Our <span className="text-royal-blue">Story</span>
                 </h2>
@@ -44,7 +44,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className={`relative scroll-slide-in-right ${storyVisible ? '' : 'opacity-0'}`}>
+              <div className={`relative opacity-100`}>
                 <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/20 to-royal-blue/5 rounded-2xl blur-xl" />
                 <div className="relative bg-gradient-to-br from-royal-blue/10 to-transparent border border-royal-blue/20 rounded-2xl p-8 backdrop-blur-md glass-premium">
                   <div className="space-y-4">
@@ -85,7 +85,7 @@ export default function AboutPage() {
         {/* Team Section */}
         <section ref={teamRef} className="py-20 border-t border-soft-white/10">
           <div className="container mx-auto px-6 md:px-12">
-            <div className={`text-center mb-16 scroll-fade-in ${teamVisible ? '' : 'opacity-0'}`}>
+            <div className={`text-center mb-16 opacity-100`}>
               <h2 className="font-coolvetica text-4xl md:text-5xl text-soft-white font-bold mb-4">
                 Meet Our <span className="text-royal-blue">Team</span>
               </h2>
@@ -101,9 +101,7 @@ export default function AboutPage() {
               ].map((member, index) => (
                 <div
                   key={index}
-                  className={`group relative stagger-item stagger-item-${(index % 4) + 1} transition-all duration-700 ${
-                    teamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                  }`}
+                  className={`group relative stagger-item stagger-item-${(index % 4) + 1} transition-all duration-700 opacity-100 translate-y-0`}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/10 to-transparent rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
                   <div className="relative bg-gradient-to-br from-royal-blue/5 to-transparent border border-royal-blue/20 rounded-xl p-6 text-center hover:border-royal-blue/40 transition-all duration-300 glass-premium">
@@ -129,9 +127,7 @@ export default function AboutPage() {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className={`text-center p-8 bg-gradient-to-br from-royal-blue/5 to-transparent border border-royal-blue/20 rounded-xl hover:border-royal-blue/40 stagger-item stagger-item-${(index % 4) + 1} transition-all duration-700 ${
-                    statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                  } glass-premium`}
+                  className={`text-center p-8 bg-gradient-to-br from-royal-blue/5 to-transparent border border-royal-blue/20 rounded-xl hover:border-royal-blue/40 stagger-item stagger-item-${(index % 4) + 1} transition-all duration-700 opacity-100 translate-y-0 glass-premium`}
                 >
                   <p className="text-4xl md:text-5xl font-bold text-royal-blue font-coolvetica animate-counter">{stat.number}</p>
                   <p className="text-soft-white/60 mt-3">{stat.label}</p>
@@ -144,7 +140,7 @@ export default function AboutPage() {
         {/* Why Choose Us */}
         <section ref={whyRef} className="py-20 border-t border-soft-white/10">
           <div className="container mx-auto px-6 md:px-12">
-            <div className={`text-center mb-16 scroll-fade-in ${whyVisible ? '' : 'opacity-0'}`}>
+            <div className={`text-center mb-16 opacity-100`}>
               <h2 className="font-coolvetica text-4xl md:text-5xl text-soft-white font-bold mb-4">
                 Why Choose <span className="text-royal-blue">Us</span>
               </h2>
@@ -162,9 +158,7 @@ export default function AboutPage() {
               ].map((reason, index) => (
                 <div
                   key={index}
-                  className={`p-8 bg-gradient-to-br from-royal-blue/5 to-transparent border border-royal-blue/20 rounded-xl hover:border-royal-blue/40 hover:shadow-lg hover:shadow-royal-blue/10 stagger-item stagger-item-${(index % 6) + 1} transition-all duration-700 ${
-                    whyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                  } glass-premium`}
+                  className={`p-8 bg-gradient-to-br from-royal-blue/5 to-transparent border border-royal-blue/20 rounded-xl hover:border-royal-blue/40 hover:shadow-lg hover:shadow-royal-blue/10 stagger-item stagger-item-${(index % 6) + 1} transition-all duration-700 opacity-100 translate-y-0 glass-premium`}
                 >
                   <h3 className="text-xl font-bold text-soft-white mb-3">{reason.title}</h3>
                   <p className="text-soft-white/60">{reason.description}</p>

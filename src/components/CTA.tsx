@@ -36,24 +36,18 @@ export default function CTA() {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 
-            className={`font-coolvetica text-5xl md:text-6xl lg:text-7xl text-soft-white mb-6 leading-tight transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+            className={`font-coolvetica text-5xl md:text-6xl lg:text-7xl text-soft-white mb-6 leading-tight transition-all duration-700 opacity-100 translate-y-0`}
           >
             Ready to Transform Your Content?
           </h2>
 
           <p 
-            className={`font-montreal text-2xl md:text-3xl text-soft-white/90 mb-12 transition-all duration-700 delay-150 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+            className={`font-montreal text-2xl md:text-3xl text-soft-white/90 mb-12 transition-all duration-700 delay-150 opacity-100 translate-y-0`}
           >
             Let's create something amazing together
           </p>
 
-          <div className={`transition-all duration-700 delay-300 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
+          <div className={`transition-all duration-700 delay-300 opacity-100 translate-y-0`}>
             <button 
               className="btn-premium btn-ripple btn-glow-pulse group px-10 py-5 bg-soft-white text-primary-dark font-montreal font-bold text-lg rounded-full focus-ring transition-all duration-300 inline-flex items-center gap-3 mb-8"
               onMouseMove={handleMouseMove}
@@ -66,9 +60,7 @@ export default function CTA() {
           </div>
 
           <p 
-            className={`font-inter text-soft-white/80 transition-all duration-700 delay-500 ${
-              isVisible ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`font-inter text-soft-white/80 transition-all duration-700 delay-500 opacity-100`}
           >
             Free consultation • No commitment required
           </p>
