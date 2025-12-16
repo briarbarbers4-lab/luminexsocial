@@ -60,11 +60,7 @@ export default function Process() {
             {steps.map((step, index) => (
               <div 
                 key={index} 
-                className={`relative transition-all duration-500 ${
-                  isVisible
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-10'
-                }`}
+                className={`relative transition-all duration-500 opacity-100 translate-y-0`}
                 style={{
                   transitionDelay: isVisible ? `${index * 0.15}s` : '0s',
                 }}

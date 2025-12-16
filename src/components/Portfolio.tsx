@@ -83,11 +83,7 @@ export default function Portfolio() {
               className={`tilt-card group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 stagger-item stagger-item-${(index % 6) + 1} ${
                 project.size === 'large' ? 'md:col-span-2 md:row-span-2' :
                 project.size === 'medium' ? 'md:col-span-2' : ''
-              } ${
-                isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-10'
-              }`}
+              } opacity-100 translate-y-0`}
               style={{
                 background: 'rgba(11, 13, 18, 0.95)',
                 backdropFilter: 'blur(10px)',

@@ -66,9 +66,7 @@ export default function Testimonials() {
 
         <div className="max-w-4xl mx-auto mb-16">
           <div
-            className={`relative p-12 md:p-16 rounded-3xl transition-all duration-500 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+            className={`relative p-12 md:p-16 rounded-3xl transition-all duration-500 opacity-100 translate-y-0`}
             style={{
               background: 'rgba(11, 13, 18, 0.95)',
               backdropFilter: 'blur(10px)',

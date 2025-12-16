@@ -49,23 +49,17 @@ export default function Navigation() {
     <>
       {/* Desktop Navigation */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
         } ${isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'}`}
+        style={{
+          borderRadius: '50px',
+          backdropFilter: 'blur(10px)',
+        }}
       >
-        <div className="container mx-auto px-6 md:px-12 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-royal-blue to-royal-blue/70 flex items-center justify-center">
-                <span className="font-coolvetica text-lg text-soft-white font-bold">L</span>
-              </div>
-              <span className="font-coolvetica text-xl text-soft-white font-bold hidden sm:inline">
-                Luminex
-              </span>
-            </div>
-
-            {/* Desktop Menu */}
+        <div className="px-8 md:px-12 py-3">
+          <div className="flex items-center justify-center">
+            {/* Desktop Menu - Centered */}
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <Link
@@ -89,10 +83,10 @@ export default function Navigation() {
             </nav>
 
             {/* Desktop CTA and Mobile Menu Button */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 md:hidden">
               <Link
                 to="/contact"
-                className="hidden md:flex btn-premium btn-ripple btn-glow-pulse items-center gap-2 px-6 py-2.5 bg-royal-blue text-soft-white font-montreal font-semibold rounded-full focus-ring transition-all duration-300"
+                className="btn-premium btn-ripple btn-glow-pulse px-4 py-2 bg-royal-blue text-soft-white font-montreal font-semibold rounded-full focus-ring transition-all duration-300 text-sm"
                 aria-label="Get Started - Contact Us"
               >
                 Get Started

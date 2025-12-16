@@ -7,7 +7,7 @@ const SplineViewer = lazy(() => import('./SplineViewer'));
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
-  const [showSpline, setShowSpline] = useState(false);
+  const [showSpline, setShowSpline] = useState(true); // Show immediately
   const heroRef = useRef<HTMLElement>(null);
 
   // Parallax effect with passive listener for smooth scrolling
@@ -18,14 +18,8 @@ export default function Hero() {
   useThrottledScroll(handleScroll, 16); // ~60 FPS
 
   useEffect(() => {
-    // Load Spline after page has rendered and settled
-    const splineTimer = setTimeout(() => {
-      setShowSpline(true);
-    }, 1500);
-
-    return () => {
-      clearTimeout(splineTimer);
-    };
+    // Spline loads immediately
+    setShowSpline(true);
   }, []);
 
   // Magnetic button effect

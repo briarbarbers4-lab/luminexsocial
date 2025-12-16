@@ -204,11 +204,7 @@ export default function Blog() {
             <a 
               key={post.id}
               href={`#blog-${post.id}`}
-              className={`group transition-all duration-700 delay-${index * 100} ${
-                isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-10'
-              }`}
+              className={`group transition-all duration-700 opacity-100 translate-y-0`}
               style={{ transitionDelay: isVisible ? `${300 + index * 75}ms` : '0ms' }}
             >
               <div 

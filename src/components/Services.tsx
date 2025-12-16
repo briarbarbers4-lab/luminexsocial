@@ -81,18 +81,12 @@ export default function Services() {
             return (
               <div
                 key={index}
-                className={`group relative rounded-3xl overflow-hidden transition-all duration-500 cursor-pointer ${
-                  isVisible
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-10'
-                } ${
-                  index === 0 ? 'animate-float' : 'animate-float-delay-1'
-                }`}
+                className={`group relative rounded-3xl overflow-hidden transition-all duration-500 cursor-pointer opacity-100 translate-y-0 animate-float`}
                 style={{
                   background: 'rgba(11, 13, 18, 0.95)',
                   backdropFilter: 'blur(10px)',
                   border: '1px solid rgba(247, 248, 252, 0.1)',
-                  transition: isVisible ? `all 0.6s ease-out ${index * 0.15}s` : 'all 0.6s ease-out',
+                  transition: `all 0.6s ease-out ${index * 0.15}s`,
                   minHeight: isExpanded ? 'auto' : '320px',
                 }}
                 onClick={() => setExpandedService(isExpanded ? null : index)}

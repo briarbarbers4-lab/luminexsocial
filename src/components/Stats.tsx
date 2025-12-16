@@ -54,9 +54,7 @@ export default function Stats() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`text-center p-8 rounded-2xl stagger-item stagger-item-${(index % 4) + 1} transition-all duration-700 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`text-center p-8 rounded-2xl stagger-item stagger-item-${(index % 4) + 1} transition-all duration-700 opacity-100 translate-y-0`}
               style={{
                 background: 'rgba(13, 33, 161, 0.1)',
                 backdropFilter: 'blur(10px)',
