@@ -74,12 +74,9 @@ export default function CustomCursor() {
         }}
       />
 
-      {/* Hide default cursor */}
+      {/* Hide default cursor - only on body */}
       <style>{`
-        * {
-          cursor: none;
-        }
-        a, button, [role="button"] {
+        body {
           cursor: none;
         }
       `}</style>

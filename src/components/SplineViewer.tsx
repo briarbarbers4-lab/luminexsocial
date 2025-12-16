@@ -69,20 +69,18 @@ export default function SplineViewer({ url, className = '' }: SplineViewerProps)
         height: '100%',
         backgroundColor: 'transparent',
         pointerEvents: isLoaded ? 'auto' : 'none',
-        opacity: isLoaded ? 1 : 0.5,
+        opacity: 1,
         transition: 'opacity 0.3s ease-out',
       }}
     >
-      {isLoaded && (
-        <spline-viewer
-          url={url}
-          style={{
-            width: '100%',
-            height: '100%',
-            display: 'block',
-          }}
-        />
-      )}
+      <spline-viewer
+        url={url}
+        style={{
+          width: '100%',
+          height: '100%',
+          display: 'block',
+        }}
+      />
     </div>
   );
 }

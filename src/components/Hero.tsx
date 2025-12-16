@@ -68,7 +68,7 @@ export default function Hero() {
       {/* Spline 3D Background - Lazy loaded for performance */}
       {showSpline && (
         <Suspense fallback={null}>
-          <div className="absolute inset-0 -z-10" style={{ pointerEvents: 'none' }}>
+          <div className="absolute inset-0 z-0" style={{ pointerEvents: 'none' }}>
             <SplineViewer
               url="https://prod.spline.design/dEUj-2nGYwdlEXUW/scene.splinecode"
               className="w-full h-full"
@@ -92,7 +92,7 @@ export default function Hero() {
         ></div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container mx-auto px-6 md:px-12 relative z-20">
         <div className="max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-royal-blue/10 backdrop-blur-sm border border-royal-blue/20 mb-8 animate-fade-in">
             <Sparkles className="w-4 h-4 text-royal-blue" />
