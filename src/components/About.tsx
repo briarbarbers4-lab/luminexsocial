@@ -2,38 +2,26 @@ import { Users, Award, Globe, Zap, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const stats = [
-  { icon: Zap, label: 'Years of Experience', value: '7+', color: 'from-blue-500' },
-  { icon: Users, label: 'Team Members', value: '25+', color: 'from-purple-500' },
-  { icon: Globe, label: 'Industries Served', value: '40+', color: 'from-pink-500' },
-  { icon: Award, label: 'Awards Won', value: '15+', color: 'from-emerald-500' },
+  { icon: Zap, label: 'Years of Experience', value: '5+', color: 'from-blue-500' },
+  { icon: Users, label: 'Projects Completed', value: '25+', color: 'from-purple-500' },
+  { icon: Globe, label: 'Industries Served', value: '10+', color: 'from-pink-500' },
 ];
 
 const teamMembers = [
   {
-    name: 'Alex Rivera',
-    role: 'Creative Director',
-    bio: 'Digital storyteller obsessed with creating content that converts.',
-    image: '👤',
+    name: 'Ayyan Khattak',
+    role: 'Co-Founder & CEO',
+    bio: 'AI Automation Expert and visionary leader driving innovation.',
+    image: 'c:\Users\darks\Desktop\Pic.jpg',
   },
   {
-    name: 'Jordan Chen',
-    role: 'AI Specialist',
-    bio: 'Building intelligent systems that transform business workflows.',
-    image: '👨‍💻',
-  },
-  {
-    name: 'Sam Williams',
-    role: 'Strategy Lead',
-    bio: 'Data-driven strategist focused on measurable results.',
-    image: '👩‍💼',
-  },
-  {
-    name: 'Taylor Brooks',
-    role: 'Client Success Manager',
-    bio: 'Dedicated to ensuring every client achieves their goals.',
-    image: '🤝',
+    name: 'Furqan Shahid',
+    role: 'Co-Founder & CEO',
+    bio: 'Content Creation and Video Editing expert and creative strategist.',
+    image: '',
   },
 ];
+
 
 export default function About() {
   const { ref: contentRef, isVisible: contentVisible } = useScrollReveal();
@@ -64,14 +52,14 @@ export default function About() {
               <h2 className="text-4xl md:text-5xl font-bold font-coolvetica text-white leading-tight">
                 Who We Are
               </h2>
-              <p className="text-lg md:text-xl text-primary-blue font-neue-montreal">
+              <p className="text-lg md:text-xl text-white font-neue-montreal">
                 Your Partner in Digital Excellence
               </p>
             </div>
 
-            <div className="space-y-4 text-secondary-text font-inter leading-relaxed">
+            <div className="space-y-4 text-secondary-text font-inter text-white leading-relaxed">
               <p>
-                Luminex Social isn't just another agency—we're a team of digital pioneers dedicated to transforming how businesses connect with their audiences. With expertise spanning AI automation, content creation, and strategic marketing, we've helped 200+ brands unlock their true potential.
+                Luminex Social isn't just another agency! We're a team of digital pioneers dedicated to transforming how businesses connect with their audiences. With expertise spanning AI automation, content creation, and strategic marketing, we've helped 200+ brands unlock their true potential.
               </p>
               <p>
                 What sets us apart is our passion for storytelling combined with cutting-edge technology. We don't just create content; we craft experiences. We don't just automate tasks; we build intelligent systems that work while you sleep. Every project is approached with fresh creativity and data-driven strategy.
@@ -146,7 +134,7 @@ export default function About() {
             <h3 className="text-3xl md:text-4xl font-bold font-coolvetica text-white">
               Meet Our Team
             </h3>
-            <p className="text-secondary-text font-inter">
+            <p className="text-secondary-text font-inter text-white">
               Talented individuals united by a passion for excellence and innovation
             </p>
           </div>
