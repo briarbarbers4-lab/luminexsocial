@@ -1,5 +1,6 @@
 import { Sparkles, Play } from 'lucide-react';
-import { useEffect, useState, useRef, lazy, Suspense } from 'react';
+import { useEffect, useState, useRef, lazy, Suspense, useCallback } from 'react';
+import { useThrottledScroll } from '../hooks/useThrottledScroll';
 
 // Lazy load Spline viewer to avoid blocking main thread
 const SplineViewer = lazy(() => import('./SplineViewer'));
@@ -10,20 +11,19 @@ export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
 
   // Parallax effect with passive listener for smooth scrolling
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+  const handleScroll = useCallback((scrollY: number) => {
+    setScrollY(scrollY);
+  }, []);
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
+  useThrottledScroll(handleScroll, 16); // ~60 FPS
+
+  useEffect(() => {
     // Load Spline after page has rendered and settled
     const splineTimer = setTimeout(() => {
       setShowSpline(true);
     }, 1500);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       clearTimeout(splineTimer);
     };
   }, []);

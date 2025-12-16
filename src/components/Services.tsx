@@ -9,7 +9,7 @@ const mainServices = [
     description: 'Streamline your workflow with intelligent automation that saves time and scales your operations effortlessly.',
     fullDescription: 'Transform repetitive tasks into automated workflows. From customer service to content scheduling, we build intelligent systems that save you time and scale your business effortlessly.',
     features: [
-      'Custom AI Assistants & Voice Agents', ,
+      'Custom AI Assistants & Voice Agents',
       'Social Media Automation',
       'Lead Generation & Qualification',
       'Email Marketing Automation',

@@ -43,7 +43,7 @@ export default function About() {
   return (
     <section className="relative py-20 md:py-32 bg-primary-dark overflow-hidden">
       {/* Animated background orbs */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-blue/5 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-primary-blue/3 rounded-full blur-3xl"></div>
       </div>
