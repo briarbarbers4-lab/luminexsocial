@@ -1,9 +1,9 @@
 import { Facebook, Twitter, Instagram, Linkedin, Mail } from 'lucide-react';
 
 const footerLinks = {
-  services: ['AI Automation', 'Video Editing', 'Content Creation', 'Consulting'],
+  services: ['AI Automation', 'Video Editing', 'Content Creation'],
   company: ['About Us', 'Our Process', 'Case Studies', 'Careers'],
-  contact: ['hello@luminexsocial.com', '+1 (555) 123-4567', 'Schedule a Call', 'Support'],
+  contact: ['ayyan@luminexsocial.com', '+923145659189', 'Schedule a Call', 'Support'],
 };
 
 const socialLinks = [
@@ -28,9 +28,15 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-royal-blue rounded-lg flex items-center justify-center">
-                <span className="font-coolvetica text-2xl text-soft-white">L</span>
-              </div>
+              <a href="/" className="block">
+                <div className="w-10 h-10 bg-royal-blue rounded-lg flex items-center justify-center overflow-hidden">
+                  <img 
+                    src="https://ik.imagekit.io/luminexsocial/Logo_V1.png?updatedAt=1765875231435" 
+                    alt="Luminex Social Logo" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </a>
               <span className="font-coolvetica text-2xl text-soft-white">Luminex Social</span>
             </div>
             <p className="font-inter text-deep-purple mb-6 max-w-md">
