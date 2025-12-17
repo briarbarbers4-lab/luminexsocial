@@ -1,0 +1,386 @@
+COMPLETELY FIX Hero Section and Navigation - Use the CORRECT Spline animation:
+
+=== CRITICAL: USE THIS EXACT SPLINE URL ===
+https://prod.spline.design/jmsyyAFVhJVBXZuC/scene.splinecode
+
+NOT the current one in the screenshot. This is the correct interactive Spline you provided.
+
+=== NAVIGATION HEADER REDESIGN ===
+
+1. REMOVE "Luminex" branding from header completely
+
+2. CREATE COMPACT CENTERED HEADER:
+   Structure:
+   - Position: fixed
+   - Top: 24px
+   - Left: 50% with transform: translateX(-50%) to center
+   - Max-width: 580px (compact, just nav + button)
+   - Height: 56px
+   - z-index: 1000 (always on top)
+
+3. GLASSMORPHIC PILL DESIGN:
+   background: rgba(11, 13, 18, 0.7);
+   backdrop-filter: blur(24px) saturate(180%);
+   border: 1px solid rgba(247, 248, 252, 0.12);
+   border-radius: 100px;
+   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+   padding: 8px 16px;
+
+4. HEADER CONTENT LAYOUT:
+   Display: flex, align-items: center, justify-content: space-between
+   
+   LEFT SIDE - Nav Links:
+   - Links: Home, Services, Work, Process, Contact
+   - Font: Neue Montreal, 14px, medium
+   - Color: rgba(247, 248, 252, 0.8)
+   - Hover: color: #0D21A1 (Royal Blue)
+   - Gap: 28px between links
+   - Transition: 0.2s ease
+   
+   RIGHT SIDE - CTA Button:
+   - Text: "Get Started"
+   - Background: #0D21A1 (Royal Blue solid)
+   - Color: #F7F8FC
+   - Font: Neue Montreal, 14px, semi-bold
+   - Padding: 10px 24px
+   - Border-radius: 50px
+   - Hover: scale(1.05) + box-shadow: 0 0 24px rgba(13, 33, 161, 0.6)
+   - Transition: 0.3s ease
+
+5. MOBILE HEADER (< 768px):
+   - Width: calc(100% - 32px)
+   - Hamburger menu icon (right side)
+   - Logo can appear on mobile if needed (left side)
+   - Full-screen menu overlay when opened
+
+=== HERO SECTION COMPLETE REDESIGN ===
+
+1. FULL VIEWPORT SPLINE BACKGROUND:
+   
+   HTML Structure:
+```html
+   <section class="hero-container">
+     <!-- Full viewport Spline - YOUR correct animation -->
+     <div class="spline-wrapper">
+       <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.21/build/spline-viewer.js"></script>
+       <spline-viewer url="https://prod.spline.design/jmsyyAFVhJVBXZuC/scene.splinecode"></spline-viewer>
+     </div>
+     
+     <!-- Minimal vignette overlay for text readability -->
+     <div class="hero-vignette"></div>
+     
+     <!-- Hero content -->
+     <div class="hero-content-wrapper">
+       <!-- Content here -->
+     </div>
+   </section>
+```
+
+2. CSS FOR SPLINE (CRITICAL):
+```css
+   .hero-container {
+     position: relative;
+     width: 100vw;
+     height: 100vh;
+     overflow: hidden;
+     margin: 0;
+     padding: 0;
+   }
+   
+   .spline-wrapper {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     z-index: 1;
+   }
+   
+   .spline-wrapper spline-viewer {
+     width: 100%;
+     height: 100%;
+     display: block;
+     border: none;
+     outline: none;
+   }
+   
+   /* Minimal vignette - only darken edges slightly for text readability */
+   .hero-vignette {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: radial-gradient(
+       ellipse 80% 60% at 50% 50%,
+       transparent 0%,
+       transparent 40%,
+       rgba(11, 13, 18, 0.15) 70%,
+       rgba(11, 13, 18, 0.35) 100%
+     );
+     z-index: 2;
+     pointer-events: none;
+   }
+   
+   .hero-content-wrapper {
+     position: relative;
+     z-index: 3;
+     height: 100vh;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     padding: 0 40px;
+     pointer-events: none; /* Allow Spline interaction */
+   }
+   
+   .hero-content-wrapper > * {
+     pointer-events: auto; /* Re-enable clicks on content */
+   }
+```
+
+3. REMOVE ALL BLOCKING OVERLAYS:
+   - NO solid dark overlays covering Spline
+   - NO heavy gradients blocking the 3D scene
+   - Only use minimal vignette at edges
+   - Spline should be clearly visible and interactive
+
+4. HERO CONTENT (Centered Layout):
+   
+   Container:
+   - Max-width: 1000px
+   - Text-align: center
+   - All content centered
+   
+   Badge (Top):
+   <div class="hero-badge">
+     ✨ AI-Powered Content Solutions
+   </div>
+````
+   Style:
+   - Background: rgba(13, 33, 161, 0.12)
+   - Backdrop-filter: blur(12px)
+   - Border: 1px solid rgba(13, 33, 161, 0.3)
+   - Border-radius: 50px
+   - Padding: 10px 24px
+   - Font: Inter, 14px, medium
+   - Color: #F7F8FC
+   - Display: inline-flex, align-items: center
+   - Gap: 8px
+   - Margin-bottom: 32px
+   - Add subtle glow: box-shadow: 0 0 20px rgba(13, 33, 161, 0.3)
+Main Headline (H1):
+   Transform Your Brand With AI & Video
+Style:
+
+Font: Coolvetica
+Size: 80px (desktop), 48px (mobile)
+Weight: Bold
+Color: #F7F8FC
+Line-height: 1.1
+Letter-spacing: -0.02em
+Margin-bottom: 24px
+Text-shadow: 0 4px 30px rgba(11, 13, 18, 0.8), 0 0 60px rgba(13, 33, 161, 0.4)
+Animation: fade in + scale from 0.95 (0.8s ease-out, delay 0.3s)
+
+Subheading (H2):
+   AI Automation & Video Editing That Scales Your Business While You Sleep
+Style:
+
+Font: Neue Montreal
+Size: 26px (desktop), 20px (mobile)
+Weight: Medium (500)
+Color: rgba(247, 248, 252, 0.9)
+Line-height: 1.4
+Max-width: 800px
+Margin: 0 auto 20px
+Text-shadow: 0 2px 20px rgba(11, 13, 18, 0.7)
+Animation: fade up (delay 0.5s)
+
+Body Text (P):
+   We help businesses automate workflows, create scroll-stopping video content, and build AI-powered systems that drive real results. From concept to conversion—we handle it all.
+Style:
+
+Font: Inter
+Size: 18px (desktop), 16px (mobile)
+Weight: Regular (400)
+Color: rgba(247, 248, 252, 0.75)
+Line-height: 1.6
+Max-width: 700px
+Margin: 0 auto 48px
+Text-shadow: 0 2px 15px rgba(11, 13, 18, 0.6)
+Animation: fade up (delay 0.7s)
+
+
+CTA BUTTONS:
+
+html   <div class="hero-cta-buttons">
+     <button class="cta-primary">Start Your Project ✨</button>
+     <button class="cta-secondary">View Our Work</button>
+   </div>
+Container:
+
+Display: flex
+Gap: 20px
+Justify-content: center
+Margin-bottom: 60px
+Animation: fade up (delay 0.9s)
+
+Primary Button:
+
+Background: #0D21A1 (Royal Blue solid)
+Color: #F7F8FC
+Font: Neue Montreal, 18px, semi-bold
+Padding: 18px 40px
+Border-radius: 12px
+Border: none
+Cursor: pointer
+Transition: all 0.3s ease
+Hover:
+
+transform: scale(1.05) translateY(-2px)
+box-shadow: 0 8px 40px rgba(13, 33, 161, 0.6)
+
+
+Add subtle pulse animation (2s loop)
+
+Secondary Button:
+
+Background: rgba(247, 248, 252, 0.08)
+Backdrop-filter: blur(12px)
+Border: 1.5px solid rgba(247, 248, 252, 0.2)
+Color: #F7F8FC
+Font: Neue Montreal, 18px, semi-bold
+Padding: 18px 40px
+Border-radius: 12px
+Cursor: pointer
+Transition: all 0.3s ease
+Hover:
+
+Background: rgba(13, 33, 161, 0.8)
+Border: 1.5px solid rgba(13, 33, 161, 0.6)
+transform: scale(1.05) translateY(-2px)
+box-shadow: 0 8px 40px rgba(13, 33, 161, 0.4)
+
+
+
+
+TRUST INDICATORS (Optional):
+
+html   <div class="trust-indicators">
+     <span>500+ Projects Delivered</span>
+     <span class="divider">•</span>
+     <span>98% Client Satisfaction</span>
+     <span class="divider">•</span>
+     <span>50+ Happy Clients</span>
+   </div>
+Style:
+
+Display: flex, gap: 20px, justify-content: center
+Font: Inter, 14px, medium
+Color: rgba(247, 248, 252, 0.6)
+Divider color: rgba(13, 33, 161, 0.5)
+Animation: fade in (delay 1.1s)
+
+
+SCROLL INDICATOR (Bottom):
+
+html   <div class="scroll-indicator">
+     <span>Scroll to explore</span>
+     <svg class="arrow-down"><!-- down arrow icon --></svg>
+   </div>
+Style:
+
+Position: absolute, bottom: 40px, left: 50%
+Transform: translateX(-50%)
+Display: flex, flex-direction: column, align-items: center
+Gap: 8px
+Font: Inter, 12px, uppercase, tracking: 0.1em
+Color: rgba(247, 248, 252, 0.5)
+Animation: bounce (2s infinite)
+Arrow icon: Royal Blue with glow
+
+=== MOBILE OPTIMIZATION ===
+For screens < 768px:
+
+Header:
+
+Width: calc(100% - 32px)
+Show hamburger menu
+Hide nav links (show in menu)
+
+
+Hero Content:
+
+Headline: 48px → 40px
+Subheading: 26px → 20px
+Body: 18px → 16px
+Padding: 0 24px
+CTAs: Stack vertically, full-width buttons
+Reduce Spline interaction complexity if possible
+
+
+Badge: Smaller text (12px)
+Trust indicators: Stack or wrap to 2 lines
+
+=== ANIMATIONS ===
+Page Load Sequence:
+
+Spline loads (0-0.5s)
+Badge fades in (0.3s)
+Headline fades + scales in (0.5s)
+Subheading fades up (0.7s)
+Body text fades up (0.9s)
+CTA buttons fade up (1.1s)
+Trust indicators fade in (1.3s)
+Scroll indicator appears with bounce (1.5s)
+
+Continuous:
+
+Primary CTA: Subtle pulse (2s loop)
+Scroll indicator: Bounce animation (2s loop)
+Optional: Headline subtle glow pulse
+
+=== TECHNICAL REQUIREMENTS ===
+
+Spline MUST be interactive:
+
+User can click and drag to rotate
+Touch-enabled on mobile
+Smooth 60fps interactions
+
+
+Performance:
+
+Lazy load Spline viewer
+Optimize for mobile
+Fallback gradient if Spline fails to load
+
+
+Accessibility:
+
+All buttons have proper focus states (Royal Blue outline)
+Keyboard navigation works
+Screen reader friendly labels
+
+
+Ensure NO conflicts:
+
+Spline interaction works (not blocked by overlays)
+Content clicks work (buttons, links)
+Proper z-index layering
+
+
+
+=== FINAL RESULT SHOULD HAVE ===
+✅ YOUR Spline animation (jmsyyAFVhJVBXZuC) filling entire viewport
+✅ Spline clearly visible and interactive (not covered by dark overlay)
+✅ Compact, centered, rounded header with NO Luminex branding
+✅ Hero content centered, readable, with proper text shadows
+✅ Smooth animations on page load
+✅ Royal Blue (#0D21A1) used throughout for accents
+✅ Premium glassmorphic effects
+✅ Fully responsive
+✅ No gaps at edges - edge to edge design
+BUILD THIS HERO SECTION FROM SCRATCH. Replace the current one completely.
+Use React with Tailwind CSS. Make it pixel-perfect and premium.

@@ -1,123 +1,189 @@
-import { Sparkles, Play } from 'lucide-react';
-import { useEffect, useState, useRef, lazy, Suspense, useCallback } from 'react';
-import { useThrottledScroll } from '../hooks/useThrottledScroll';
-
-// Lazy load Spline viewer to avoid blocking main thread
-const SplineViewer = lazy(() => import('./SplineViewer'));
+import { Sparkles, Play, ChevronDown } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function Hero() {
-  const [scrollY, setScrollY] = useState(0);
-  const [showSpline, setShowSpline] = useState(true); // Show immediately
-  const heroRef = useRef<HTMLElement>(null);
-
-  // Parallax effect with passive listener for smooth scrolling
-  const handleScroll = useCallback((scrollY: number) => {
-    setScrollY(scrollY);
-  }, []);
-
-  useThrottledScroll(handleScroll, 16); // ~60 FPS
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Spline loads immediately
-    setShowSpline(true);
+    const timer = setTimeout(() => setIsLoaded(true), 300);
+    return () => clearTimeout(timer);
   }, []);
 
-  // Magnetic button effect
-  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const button = e.currentTarget;
-    const rect = button.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    
-    const distance = Math.sqrt(x * x + y * y);
-    const maxDistance = 100;
-    
-    if (distance < maxDistance) {
-      const strength = (maxDistance - distance) / maxDistance;
-      button.style.transform = `translate(${x * strength * 0.3}px, ${y * strength * 0.3}px) scale(1.05)`;
-    }
-  };
-
-  const handleMouseLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.style.transform = 'translate(0, 0) scale(1)';
-  };
-
-  // Text reveal animation with word-by-word stagger
-  const splitText = (text: string) => {
-    return text.split(' ').map((word, i) => (
-      <span
-        key={i}
-        className={`word-reveal word-reveal-${Math.min(i + 1, 8)} inline-block`}
-      >
-        {word}&nbsp;
-      </span>
-    ));
-  };
-
   return (
-    <section ref={heroRef} className="relative min-h-screen bg-transparent overflow-hidden flex items-center">
-      {/* Spline 3D Background - Lazy loaded for performance */}
-      {showSpline && (
-        <Suspense fallback={null}>
-          <div className="absolute inset-0 z-0" style={{ pointerEvents: 'none' }}>
-            <SplineViewer
-              url="https://prod.spline.design/0hiJ0Y-RBzuVrj1W/scene.splinecode"
-              className="w-full h-full"
-            />
-          </div>
-        </Suspense>
-      )}
+    <section className="relative w-screen h-screen overflow-hidden m-0 p-0" data-testid="section-hero">
+      <div className="absolute top-0 left-0 w-full h-full z-[1]">
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.21/build/spline-viewer.js"></script>
+        <spline-viewer 
+          url="https://prod.spline.design/jmsyyAFVhJVBXZuC/scene.splinecode"
+          style={{ width: '100%', height: '100%', display: 'block', border: 'none', outline: 'none' }}
+        ></spline-viewer>
+      </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-20">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-royal-blue/10 backdrop-blur-sm border border-royal-blue/20 mb-8 animate-fade-in">
-            <Sparkles className="w-4 h-4 text-royal-blue" />
-            <span className="text-sm font-inter text-soft-white">AI-Powered Content Solutions</span>
+      <div 
+        className="absolute top-0 left-0 w-full h-full z-[2] pointer-events-none"
+        style={{
+          background: `radial-gradient(
+            ellipse 80% 60% at 50% 50%,
+            transparent 0%,
+            transparent 40%,
+            rgba(11, 13, 18, 0.15) 70%,
+            rgba(11, 13, 18, 0.35) 100%
+          )`
+        }}
+      />
+
+      <div className="relative z-[3] h-screen flex flex-col items-center justify-center px-6 md:px-10 pointer-events-none">
+        <div className="max-w-[1000px] text-center">
+          <div 
+            className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full mb-8 transition-all duration-700 pointer-events-auto ${
+              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+            style={{
+              background: 'rgba(13, 33, 161, 0.12)',
+              backdropFilter: 'blur(12px)',
+              border: '1px solid rgba(13, 33, 161, 0.3)',
+              boxShadow: '0 0 20px rgba(13, 33, 161, 0.3)',
+              transitionDelay: '0.3s',
+            }}
+            data-testid="badge-hero"
+          >
+            <Sparkles className="w-4 h-4 text-soft-white" />
+            <span className="font-inter text-sm font-medium text-soft-white">AI-Powered Content Solutions</span>
           </div>
 
-          <h1 className="font-coolvetica text-6xl md:text-7xl lg:text-8xl mb-6 leading-tight tracking-tight">
-            <span className="text-gradient-royal">
-              {splitText('Amplify Your Digital Presence')}
-            </span>
+          <h1 
+            className={`font-coolvetica text-5xl md:text-6xl lg:text-[80px] font-bold text-soft-white leading-[1.1] tracking-[-0.02em] mb-6 transition-all duration-800 ${
+              isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
+            style={{
+              textShadow: '0 4px 30px rgba(11, 13, 18, 0.8), 0 0 60px rgba(13, 33, 161, 0.4)',
+              transitionDelay: '0.5s',
+            }}
+            data-testid="heading-hero-title"
+          >
+            Transform Your Brand With AI & Video
           </h1>
 
-          <p className="font-montreal text-2xl md:text-3xl text-deep-purple mb-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            AI-powered content creation that drives real results
+          <h2 
+            className={`font-montreal text-xl md:text-2xl lg:text-[26px] font-medium text-soft-white/90 leading-[1.4] max-w-[800px] mx-auto mb-5 transition-all duration-700 ${
+              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`}
+            style={{
+              textShadow: '0 2px 20px rgba(11, 13, 18, 0.7)',
+              transitionDelay: '0.7s',
+            }}
+            data-testid="heading-hero-subtitle"
+          >
+            AI Automation & Video Editing That Scales Your Business While You Sleep
+          </h2>
+
+          <p 
+            className={`font-inter text-base md:text-lg text-soft-white/75 leading-[1.6] max-w-[700px] mx-auto mb-12 transition-all duration-700 ${
+              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`}
+            style={{
+              textShadow: '0 2px 15px rgba(11, 13, 18, 0.6)',
+              transitionDelay: '0.9s',
+            }}
+            data-testid="text-hero-description"
+          >
+            We help businesses automate workflows, create scroll-stopping video content, and build AI-powered systems that drive real results. From concept to conversion—we handle it all.
           </p>
 
-          <p className="font-inter text-lg text-deep-purple/80 max-w-2xl mx-auto mb-12 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            We help brands create engaging content that connects with their audience through cutting-edge AI automation and professional video editing.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <div 
+            className={`flex flex-col sm:flex-row gap-5 justify-center mb-16 transition-all duration-700 pointer-events-auto ${
+              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`}
+            style={{ transitionDelay: '1.1s' }}
+          >
             <button 
-              className="btn-premium btn-ripple btn-glow-pulse group px-8 py-4 bg-royal-blue text-soft-white font-montreal font-semibold rounded-full focus-ring transition-all duration-300 flex items-center gap-2"
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              aria-label="Start Your Project"
+              className="group px-10 py-[18px] bg-royal-blue text-soft-white font-montreal text-lg font-semibold rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 btn-glow-pulse"
+              style={{
+                border: 'none',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 8px 40px rgba(13, 33, 161, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(13, 33, 161, 0.4)';
+              }}
+              data-testid="button-start-project"
             >
               Start Your Project
               <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
             </button>
 
             <button 
-              className="btn-premium btn-ripple group px-8 py-4 bg-transparent text-soft-white font-montreal font-semibold rounded-full border-2 border-royal-blue/50 hover:border-royal-blue hover:bg-royal-blue/10 backdrop-blur-sm focus-ring transition-all duration-300 flex items-center gap-2"
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              aria-label="View Our Work"
+              className="group px-10 py-[18px] text-soft-white font-montreal text-lg font-semibold rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-center gap-2"
+              style={{
+                background: 'rgba(247, 248, 252, 0.08)',
+                backdropFilter: 'blur(12px)',
+                border: '1.5px solid rgba(247, 248, 252, 0.2)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(13, 33, 161, 0.8)';
+                e.currentTarget.style.border = '1.5px solid rgba(13, 33, 161, 0.6)';
+                e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 8px 40px rgba(13, 33, 161, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(247, 248, 252, 0.08)';
+                e.currentTarget.style.border = '1.5px solid rgba(247, 248, 252, 0.2)';
+                e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+              data-testid="button-view-work"
             >
               <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
               View Our Work
             </button>
           </div>
+
+          <div 
+            className={`flex flex-wrap gap-5 justify-center transition-all duration-700 pointer-events-auto ${
+              isLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{ transitionDelay: '1.3s' }}
+            data-testid="trust-indicators"
+          >
+            <span className="font-inter text-sm font-medium text-soft-white/60">500+ Projects Delivered</span>
+            <span className="text-royal-blue/50">•</span>
+            <span className="font-inter text-sm font-medium text-soft-white/60">98% Client Satisfaction</span>
+            <span className="text-royal-blue/50">•</span>
+            <span className="font-inter text-sm font-medium text-soft-white/60">50+ Happy Clients</span>
+          </div>
         </div>
       </div>
 
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-royal-blue/50 rounded-full flex justify-center p-2">
-          <div className="w-1.5 h-3 bg-royal-blue rounded-full"></div>
-        </div>
+      <div 
+        className={`absolute bottom-10 left-1/2 -translate-x-1/2 z-[3] flex flex-col items-center gap-2 transition-all duration-700 ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+        style={{ transitionDelay: '1.5s' }}
+        data-testid="scroll-indicator"
+      >
+        <span 
+          className="font-inter text-xs uppercase tracking-[0.1em] text-soft-white/50"
+        >
+          Scroll to explore
+        </span>
+        <ChevronDown 
+          className="w-5 h-5 text-royal-blue animate-bounce"
+          style={{
+            filter: 'drop-shadow(0 0 8px rgba(13, 33, 161, 0.6))',
+          }}
+        />
       </div>
     </section>
   );
+}
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'spline-viewer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & { url?: string }, HTMLElement>;
+    }
+  }
 }
