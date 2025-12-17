@@ -84,16 +84,7 @@ export default function Navigation() {
 
           <Link
             to="/contact"
-            className="hidden lg:block px-6 py-2.5 bg-royal-blue text-soft-white font-montreal text-sm font-semibold rounded-full hover:scale-105 transition-all duration-300 ml-auto"
-            style={{
-              boxShadow: '0 0 0 rgba(13, 33, 161, 0)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = '0 0 24px rgba(13, 33, 161, 0.6)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = '0 0 0 rgba(13, 33, 161, 0)';
-            }}
+            className="hidden lg:block px-6 py-2.5 bg-royal-blue text-soft-white font-montreal text-sm font-semibold rounded-full hover:scale-105 hover:shadow-[0_0_24px_rgba(13,33,161,0.6)] transition-all duration-300 ml-auto"
             data-testid="button-get-started"
           >
             Get Started

@@ -2,10 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import ScrollProgress from './components/ScrollProgress';
 import Footer from './components/Footer';
-import FloatingLogo from './components/FloatingLogo';
 import BackgroundOverlay from './components/BackgroundOverlay';
 import AnimatedBackground from './components/AnimatedBackground';
-import Three3DBackground from './components/Three3DBackground';
 import BackToTop from './components/BackToTop';
 import SectionIndicators from './components/SectionIndicators';
 
@@ -22,8 +20,6 @@ function App() {
     <Router>
       <BackgroundOverlay />
       <AnimatedBackground />
-      <Three3DBackground />
-      <FloatingLogo />
       <div className="min-h-screen bg-transparent relative z-20">
         <Navigation />
         <ScrollProgress />

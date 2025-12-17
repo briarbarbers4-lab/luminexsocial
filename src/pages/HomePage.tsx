@@ -65,7 +65,6 @@ export default function HomePage() {
   return (
     <PageTransition>
       <section id="hero" className="relative">
-        <FloatingVideos section="hero" videoItems={floatingVideoData.slice(0, 2)} />
         <Hero />
       </section>
       <section id="videos">

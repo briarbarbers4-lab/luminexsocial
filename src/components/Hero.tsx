@@ -1,22 +1,25 @@
 import { Sparkles, Play, ChevronDown } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { lazy, Suspense } from 'react';
+import { Link } from 'react-router-dom';
+
+const SplineViewer = lazy(() => import('./SplineViewer'));
 
 export default function Hero() {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 300);
-    return () => clearTimeout(timer);
-  }, []);
+  const isLoaded = true;
 
   return (
     <section className="relative w-screen h-screen overflow-hidden m-0 p-0" data-testid="section-hero">
       <div className="absolute top-0 left-0 w-full h-full z-[1]">
-        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.21/build/spline-viewer.js"></script>
-        <spline-viewer 
-          url="https://prod.spline.design/jmsyyAFVhJVBXZuC/scene.splinecode"
-          style={{ width: '100%', height: '100%', display: 'block', border: 'none', outline: 'none' }}
-        ></spline-viewer>
+        <Suspense fallback={
+          <div className="w-full h-full bg-gradient-to-br from-[#0B0D12] via-[#131620] to-[#0B0D12] flex items-center justify-center">
+            <div className="w-20 h-20 border-4 border-royal-blue/30 border-t-royal-blue rounded-full animate-spin" />
+          </div>
+        }>
+          <SplineViewer
+            url="https://prod.spline.design/jmsyyAFVhJVBXZuC/scene.splinecode"
+            className="w-full h-full"
+          />
+        </Suspense>
       </div>
 
       <div 
@@ -32,7 +35,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-[3] h-screen flex flex-col items-center justify-center px-6 md:px-10 pointer-events-none">
+      <div className="absolute inset-0 z-[50] flex flex-col items-center justify-center px-6 md:px-10 pt-20 pointer-events-none">
         <div className="max-w-[1000px] text-center">
           <div 
             className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full mb-8 transition-all duration-700 pointer-events-auto ${
@@ -96,49 +99,23 @@ export default function Hero() {
             }`}
             style={{ transitionDelay: '1.1s' }}
           >
-            <button 
-              className="group px-10 py-[18px] bg-royal-blue text-soft-white font-montreal text-lg font-semibold rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 btn-glow-pulse"
-              style={{
-                border: 'none',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 8px 40px rgba(13, 33, 161, 0.6)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1) translateY(0)';
-                e.currentTarget.style.boxShadow = '0 0 20px rgba(13, 33, 161, 0.4)';
-              }}
+            <Link 
+              to="/contact"
+              className="group px-10 py-[18px] bg-royal-blue text-soft-white font-montreal text-lg font-semibold rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 btn-glow-pulse hover:scale-105 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(13,33,161,0.6)]"
               data-testid="button-start-project"
             >
               Start Your Project
               <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-            </button>
+            </Link>
 
-            <button 
-              className="group px-10 py-[18px] text-soft-white font-montreal text-lg font-semibold rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-center gap-2"
-              style={{
-                background: 'rgba(247, 248, 252, 0.08)',
-                backdropFilter: 'blur(12px)',
-                border: '1.5px solid rgba(247, 248, 252, 0.2)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(13, 33, 161, 0.8)';
-                e.currentTarget.style.border = '1.5px solid rgba(13, 33, 161, 0.6)';
-                e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 8px 40px rgba(13, 33, 161, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(247, 248, 252, 0.08)';
-                e.currentTarget.style.border = '1.5px solid rgba(247, 248, 252, 0.2)';
-                e.currentTarget.style.transform = 'scale(1) translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
+            <Link 
+              to="/portfolio"
+              className="group px-10 py-[18px] text-soft-white font-montreal text-lg font-semibold rounded-xl cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 bg-soft-white/[0.08] backdrop-blur-[12px] border border-soft-white/20 hover:bg-royal-blue/80 hover:border-royal-blue/60 hover:scale-105 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(13,33,161,0.4)]"
               data-testid="button-view-work"
             >
               <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
               View Our Work
-            </button>
+            </Link>
           </div>
 
           <div 
@@ -158,7 +135,7 @@ export default function Hero() {
       </div>
 
       <div 
-        className={`absolute bottom-10 left-1/2 -translate-x-1/2 z-[3] flex flex-col items-center gap-2 transition-all duration-700 ${
+        className={`absolute bottom-10 left-1/2 -translate-x-1/2 z-[50] flex flex-col items-center gap-2 transition-all duration-700 ${
           isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
         style={{ transitionDelay: '1.5s' }}
@@ -178,12 +155,4 @@ export default function Hero() {
       </div>
     </section>
   );
-}
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'spline-viewer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & { url?: string }, HTMLElement>;
-    }
-  }
 }
