@@ -46,23 +46,31 @@ export default function Stats() {
   const { ref: contentRef, isVisible } = useScrollRevealAnimation({ threshold: 0.2 });
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 bg-primary-dark relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-royal-blue/5 to-transparent"></div>
-
+    <section ref={sectionRef} className="py-32 md:py-48 bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 relative z-10" ref={contentRef}>
+        <div className="text-center mb-20">
+          <h2 className="font-coolvetica text-5xl md:text-6xl text-soft-white mb-4">
+            By The Numbers
+          </h2>
+          <p className="font-inter text-lg text-soft-white/70 max-w-2xl mx-auto">
+            Proven results that speak for themselves
+          </p>
+        </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`text-center p-8 rounded-2xl stagger-item stagger-item-${(index % 4) + 1} transition-all duration-700 opacity-100 translate-y-0`}
+              className={`text-center card-enter card-enter-${index + 1} p-8 rounded-2xl transition-all duration-700 hover:backdrop-blur-md hover:bg-royal-blue/10 group`}
               style={{
-                background: 'rgba(13, 33, 161, 0.1)',
-                backdropFilter: 'blur(10px)',
+                background: 'rgba(13, 33, 161, 0.05)',
+                backdropFilter: 'blur(20px)',
                 border: '1px solid rgba(247, 248, 252, 0.1)',
               }}
             >
-              <AnimatedCounter end={stat.number} suffix={stat.suffix} shouldAnimate={isInView} />
-              <p className="font-inter text-deep-purple mt-4 text-sm md:text-base">
+              <div className="count-up">
+                <AnimatedCounter end={stat.number} suffix={stat.suffix} shouldAnimate={isInView} />
+              </div>
+              <p className="font-inter text-soft-white/60 mt-4 text-sm md:text-base group-hover:text-soft-white/80 transition-colors">
                 {stat.label}
               </p>
             </div>

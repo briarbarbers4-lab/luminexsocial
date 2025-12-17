@@ -1,0 +1,133 @@
+export interface VideoItem {
+  id: number;
+  title: string;
+  client: string;
+  category: string;
+  thumbnail: string;
+  videoUrl: string;
+  viewCount: string;
+  platform: string;
+  objective: string;
+  results: string;
+  gridSize: 'large' | 'medium' | 'small';
+}
+
+export const videoItems: VideoItem[] = [
+  {
+    id: 1,
+    title: 'Product Launch Campaign',
+    client: 'TechBrand Inc',
+    category: 'Instagram Reel',
+    thumbnail: 'https://images.unsplash.com/photo-1611339555312-e607c04352fa?w=400&q=80',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp4',
+    viewCount: '2.5M',
+    platform: 'Instagram',
+    objective: 'Increase brand awareness and drive sales',
+    results: '45% increase in conversions, 3.2M views',
+    gridSize: 'large',
+  },
+  {
+    id: 2,
+    title: 'Behind The Scenes',
+    client: 'Creative Studios',
+    category: 'YouTube Short',
+    thumbnail: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=400&q=80',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerEscapes.mp4',
+    viewCount: '1.8M',
+    platform: 'YouTube',
+    objective: 'Humanize brand and build community',
+    results: '28% higher engagement rate',
+    gridSize: 'medium',
+  },
+  {
+    id: 3,
+    title: 'Customer Testimonial',
+    client: 'SaaS Solutions',
+    category: 'TikTok',
+    thumbnail: 'https://images.unsplash.com/photo-1533627332313-be7b99c9cda1?w=400&q=80',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerJoyrides.mp4',
+    viewCount: '950K',
+    platform: 'TikTok',
+    objective: 'Build social proof',
+    results: '12K conversions, 950K views',
+    gridSize: 'medium',
+  },
+  {
+    id: 4,
+    title: 'Viral Trend',
+    client: 'Fashion Brand',
+    category: 'Instagram Reel',
+    thumbnail: 'https://images.unsplash.com/photo-1516321318423-f06f70570ec0?w=400&q=80',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ElephantsDream.mp4',
+    viewCount: '5.2M',
+    platform: 'Instagram',
+    objective: 'Go viral and increase followers',
+    results: '5.2M views, 125K new followers',
+    gridSize: 'large',
+  },
+  {
+    id: 5,
+    title: 'Tutorial Series',
+    client: 'Tech Academy',
+    category: 'YouTube',
+    thumbnail: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/BigBuckBunny.mp4',
+    viewCount: '3.1M',
+    platform: 'YouTube',
+    objective: 'Drive subscriptions',
+    results: '3.1M views, 45K subscriptions',
+    gridSize: 'large',
+  },
+  {
+    id: 6,
+    title: 'Event Coverage',
+    client: 'Event Pro',
+    category: 'Instagram Story',
+    thumbnail: 'https://images.unsplash.com/photo-1489749798305-4fea3ba63d60?w=400&q=80',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/Sintel.mp4',
+    viewCount: '680K',
+    platform: 'Instagram',
+    objective: 'Real-time engagement',
+    results: '680K views, 8.5% engagement',
+    gridSize: 'medium',
+  },
+  {
+    id: 7,
+    title: 'Quick Tip',
+    client: 'Fitness Co',
+    category: 'TikTok Short',
+    thumbnail: 'https://images.unsplash.com/photo-1535016120754-188fbb627767?w=400&q=80',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/TearsOfSteel.mp4',
+    viewCount: '2.3M',
+    platform: 'TikTok',
+    objective: 'Build authority',
+    results: '2.3M views, 340K saves',
+    gridSize: 'small',
+  },
+  {
+    id: 8,
+    title: 'Product Demo',
+    client: 'Tech Tools',
+    category: 'YouTube',
+    thumbnail: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp4',
+    viewCount: '1.5M',
+    platform: 'YouTube',
+    objective: 'Drive sales',
+    results: '1.5M views, 240 sales',
+    gridSize: 'small',
+  },
+  {
+    id: 9,
+    title: 'Brand Story',
+    client: 'Luxury Brand',
+    category: 'Instagram',
+    thumbnail: 'https://images.unsplash.com/photo-1611534334873-3b71d6c85348?w=400&q=80',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerEscapes.mp4',
+    viewCount: '1.2M',
+    platform: 'Instagram',
+    objective: 'Build brand narrative',
+    results: '1.2M views, featured content',
+    gridSize: 'small',
+  },
+];

@@ -128,28 +128,19 @@ export default function Contact() {
   };
 
   return (
-    <section className="relative py-20 md:py-32 bg-primary-dark overflow-hidden">
-      {/* Animated background orbs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-0 w-96 h-96 bg-primary-blue/5 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary-blue/3 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/4 w-72 h-72 bg-primary-blue/4 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
-      </div>
-
+    <section className="relative py-32 md:py-48 bg-transparent overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
         {/* Header Section */}
         <div
           ref={contentRef as any}
-          className={`text-center mb-16 md:mb-20 transition-all duration-1000 opacity-100 translate-y-0`}
+          className={`text-center mb-20 transition-all duration-1000 opacity-100 translate-y-0`}
         >
-          <div className="inline-block px-8 py-12 md:py-16 rounded-3xl bg-gradient-to-r from-primary-blue/20 via-primary-blue/10 to-transparent border border-primary-blue/30 max-w-4xl">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-coolvetica text-white mb-4 leading-tight">
-              Let's Create Something Amazing
-            </h2>
-            <p className="text-lg md:text-xl text-primary-blue font-neue-montreal">
-              Get in touch for a free consultation
-            </p>
-          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-coolvetica text-soft-white mb-4 leading-tight">
+            Let's Create Something Amazing
+          </h2>
+          <p className="text-lg md:text-xl text-soft-white/70 font-inter max-w-2xl mx-auto">
+            Get in touch for a free consultation
+          </p>
         </div>
 
         {/* Contact Content */}
@@ -159,15 +150,15 @@ export default function Contact() {
             ref={formRef as any}
             className={`transition-all duration-1000 opacity-100 translate-y-0`}
           >
-            <div className="p-8 md:p-10 rounded-2xl backdrop-blur-md border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02]">
-              <h3 className="text-2xl md:text-3xl font-bold font-coolvetica text-white mb-8">
+            <div className="p-8 md:p-12 rounded-3xl backdrop-blur-md border border-royal-blue/20 bg-royal-blue/5 max-w-3xl mx-auto">
+              <h3 className="text-2xl md:text-3xl font-bold font-coolvetica text-soft-white mb-8">
                 Send us a Message
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Field */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-inter font-semibold text-white mb-2">
+                  <label htmlFor="name" className="block text-sm font-inter font-semibold text-soft-white mb-2">
                     Your Name *
                   </label>
                   <input
@@ -177,8 +168,8 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="John Doe"
-                    className={`w-full px-4 py-3 rounded-lg font-inter text-white bg-white/5 border transition-all duration-300 placeholder-white/40 focus:outline-none focus:bg-white/10 ${
-                      errors.name ? 'border-red-500' : 'border-white/10 focus:border-primary-blue'
+                    className={`w-full px-4 py-3 rounded-lg font-inter text-soft-white bg-soft-white/5 border transition-all duration-300 placeholder-soft-white/40 focus:outline-none focus:bg-soft-white/10 ${
+                      errors.name ? 'border-red-500' : 'border-soft-white/10 focus:border-royal-blue'
                     }`}
                   />
                   {errors.name && (
@@ -188,7 +179,7 @@ export default function Contact() {
 
                 {/* Email Field */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-inter font-semibold text-white mb-2">
+                  <label htmlFor="email" className="block text-sm font-inter font-semibold text-soft-white mb-2">
                     Email Address *
                   </label>
                   <input
@@ -198,8 +189,8 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="you@example.com"
-                    className={`w-full px-4 py-3 rounded-lg font-inter text-white bg-white/5 border transition-all duration-300 placeholder-white/40 focus:outline-none focus:bg-white/10 ${
-                      errors.email ? 'border-red-500' : 'border-white/10 focus:border-primary-blue'
+                    className={`w-full px-4 py-3 rounded-lg font-inter text-soft-white bg-soft-white/5 border transition-all duration-300 placeholder-soft-white/40 focus:outline-none focus:bg-soft-white/10 ${
+                      errors.email ? 'border-red-500' : 'border-soft-white/10 focus:border-royal-blue'
                     }`}
                   />
                   {errors.email && (
@@ -209,7 +200,7 @@ export default function Contact() {
 
                 {/* Phone Field */}
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-inter font-semibold text-white mb-2">
+                  <label htmlFor="phone" className="block text-sm font-inter font-semibold text-soft-white mb-2">
                     Phone Number (Optional)
                   </label>
                   <input
@@ -219,13 +210,13 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+1 (555) 000-0000"
-                    className="w-full px-4 py-3 rounded-lg font-inter text-white bg-white/5 border border-white/10 transition-all duration-300 placeholder-white/40 focus:outline-none focus:bg-white/10 focus:border-primary-blue"
+                    className="w-full px-4 py-3 rounded-lg font-inter text-soft-white bg-soft-white/5 border border-soft-white/10 transition-all duration-300 placeholder-soft-white/40 focus:outline-none focus:bg-soft-white/10 focus:border-royal-blue"
                   />
                 </div>
 
                 {/* Service Dropdown */}
                 <div>
-                  <label htmlFor="service" className="block text-sm font-inter font-semibold text-white mb-2">
+                  <label htmlFor="service" className="block text-sm font-inter font-semibold text-soft-white mb-2">
                     Service Interested In *
                   </label>
                   <select
@@ -233,8 +224,8 @@ export default function Contact() {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg font-inter text-white bg-white/5 border transition-all duration-300 focus:outline-none focus:bg-white/10 ${
-                      errors.service ? 'border-red-500' : 'border-white/10 focus:border-primary-blue'
+                    className={`w-full px-4 py-3 rounded-lg font-inter text-soft-white bg-soft-white/5 border transition-all duration-300 focus:outline-none focus:bg-soft-white/10 ${
+                      errors.service ? 'border-red-500' : 'border-soft-white/10 focus:border-royal-blue'
                     }`}
                   >
                     <option value="" className="bg-primary-dark">Select a service...</option>
@@ -251,7 +242,7 @@ export default function Contact() {
 
                 {/* Message Field */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-inter font-semibold text-white mb-2">
+                  <label htmlFor="message" className="block text-sm font-inter font-semibold text-soft-white mb-2">
                     Message *
                   </label>
                   <textarea
@@ -261,8 +252,8 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Tell us about your project..."
                     rows={5}
-                    className={`w-full px-4 py-3 rounded-lg font-inter text-white bg-white/5 border transition-all duration-300 placeholder-white/40 focus:outline-none focus:bg-white/10 resize-none ${
-                      errors.message ? 'border-red-500' : 'border-white/10 focus:border-primary-blue'
+                    className={`w-full px-4 py-3 rounded-lg font-inter text-soft-white bg-soft-white/5 border transition-all duration-300 placeholder-soft-white/40 focus:outline-none focus:bg-soft-white/10 resize-none ${
+                      errors.message ? 'border-red-500' : 'border-soft-white/10 focus:border-royal-blue'
                     }`}
                   />
                   {errors.message && (
@@ -274,13 +265,13 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-blue to-primary-blue/80 text-white font-inter font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(13,33,161,0.4)] hover:scale-105 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed"
+                  className="w-full group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-royal-blue to-royal-blue/80 text-soft-white font-inter font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(13,33,161,0.4)] hover:scale-105 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                     {!isSubmitting && <Send size={18} />}
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary-blue/0 via-white/20 to-primary-blue/0 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-royal-blue/0 via-soft-white/20 to-royal-blue/0 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
                 </button>
 
                 {/* Status Messages */}
@@ -308,16 +299,16 @@ export default function Contact() {
           >
             <div className="space-y-6">
               {/* Email */}
-              <div className="group p-6 md:p-8 rounded-2xl backdrop-blur-md border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] hover:border-primary-blue/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(13,33,161,0.2)]">
+              <div className="group stagger-list-item stagger-list-item-1 p-6 md:p-8 rounded-2xl backdrop-blur-md border border-royal-blue/20 bg-royal-blue/5 hover:border-royal-blue/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(13,33,161,0.2)]">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary-blue/20 text-primary-blue group-hover:bg-primary-blue/30 transition-colors">
+                  <div className="p-3 rounded-lg bg-royal-blue/20 text-royal-blue group-hover:bg-royal-blue/30 transition-colors">
                     <Mail size={24} />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-inter font-semibold text-secondary-text mb-2">Email</h4>
+                    <h4 className="text-sm font-inter font-semibold text-soft-white/70 mb-2">Email</h4>
                     <a
                       href="mailto:hello@luminexsocial.com"
-                      className="text-lg font-inter text-white hover:text-primary-blue transition-colors"
+                      className="text-lg font-inter text-soft-white hover:text-royal-blue transition-colors"
                     >
                       hello@luminexsocial.com
                     </a>
@@ -326,16 +317,16 @@ export default function Contact() {
               </div>
 
               {/* Phone */}
-              <div className="group p-6 md:p-8 rounded-2xl backdrop-blur-md border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] hover:border-primary-blue/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(13,33,161,0.2)]">
+              <div className="group stagger-list-item stagger-list-item-2 p-6 md:p-8 rounded-2xl backdrop-blur-md border border-royal-blue/20 bg-royal-blue/5 hover:border-royal-blue/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(13,33,161,0.2)]">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary-blue/20 text-primary-blue group-hover:bg-primary-blue/30 transition-colors">
+                  <div className="p-3 rounded-lg bg-royal-blue/20 text-royal-blue group-hover:bg-royal-blue/30 transition-colors">
                     <Phone size={24} />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-inter font-semibold text-secondary-text mb-2">Phone</h4>
+                    <h4 className="text-sm font-inter font-semibold text-soft-white/70 mb-2">Phone</h4>
                     <a
                       href="tel:+15551234567"
-                      className="text-lg font-inter text-white hover:text-primary-blue transition-colors"
+                      className="text-lg font-inter text-soft-white hover:text-royal-blue transition-colors"
                     >
                       +1 (555) 123-4567
                     </a>
@@ -344,14 +335,14 @@ export default function Contact() {
               </div>
 
               {/* Address */}
-              <div className="group p-6 md:p-8 rounded-2xl backdrop-blur-md border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] hover:border-primary-blue/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(13,33,161,0.2)]">
+              <div className="group stagger-list-item stagger-list-item-3 p-6 md:p-8 rounded-2xl backdrop-blur-md border border-royal-blue/20 bg-royal-blue/5 hover:border-royal-blue/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(13,33,161,0.2)]">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary-blue/20 text-primary-blue group-hover:bg-primary-blue/30 transition-colors">
+                  <div className="p-3 rounded-lg bg-royal-blue/20 text-royal-blue group-hover:bg-royal-blue/30 transition-colors">
                     <MapPin size={24} />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-inter font-semibold text-secondary-text mb-2">Office</h4>
-                    <p className="text-lg font-inter text-white">
+                    <h4 className="text-sm font-inter font-semibold text-soft-white/70 mb-2">Office</h4>
+                    <p className="text-lg font-inter text-soft-white">
                       San Francisco, CA<br />
                       United States
                     </p>
@@ -360,14 +351,14 @@ export default function Contact() {
               </div>
 
               {/* Business Hours */}
-              <div className="group p-6 md:p-8 rounded-2xl backdrop-blur-md border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] hover:border-primary-blue/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(13,33,161,0.2)]">
+              <div className="group stagger-list-item stagger-list-item-4 p-6 md:p-8 rounded-2xl backdrop-blur-md border border-royal-blue/20 bg-royal-blue/5 hover:border-royal-blue/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(13,33,161,0.2)]">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary-blue/20 text-primary-blue group-hover:bg-primary-blue/30 transition-colors">
+                  <div className="p-3 rounded-lg bg-royal-blue/20 text-royal-blue group-hover:bg-royal-blue/30 transition-colors">
                     <Clock size={24} />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-inter font-semibold text-secondary-text mb-2">Business Hours</h4>
-                    <div className="text-lg font-inter text-white space-y-1">
+                    <h4 className="text-sm font-inter font-semibold text-soft-white/70 mb-2">Business Hours</h4>
+                    <div className="text-lg font-inter text-soft-white space-y-1">
                       <p>Mon - Fri: 9:00 AM - 6:00 PM PT</p>
                       <p>Sat - Sun: Closed</p>
                     </div>
@@ -377,7 +368,7 @@ export default function Contact() {
 
               {/* Social Links */}
               <div className="space-y-4">
-                <h4 className="text-sm font-inter font-semibold text-secondary-text">Follow Us</h4>
+                <h4 className="text-sm font-inter font-semibold text-soft-white/70">Follow Us</h4>
                 <div className="flex gap-3">
                   {socialLinks.map((social, index) => {
                     const Icon = social.icon;
@@ -386,7 +377,7 @@ export default function Contact() {
                         key={index}
                         href={social.href}
                         aria-label={social.label}
-                        className="p-3 rounded-lg bg-white/5 border border-white/10 text-white hover:bg-primary-blue/20 hover:border-primary-blue/50 hover:text-primary-blue transition-all duration-300 transform hover:scale-110"
+                        className="p-3 rounded-lg bg-soft-white/5 border border-royal-blue/20 text-soft-white hover:bg-royal-blue/20 hover:border-royal-blue/50 hover:text-royal-blue transition-all duration-300 transform hover:scale-110"
                       >
                         <Icon size={20} />
                       </a>
@@ -396,29 +387,29 @@ export default function Contact() {
               </div>
 
               {/* Calendar Button */}
-              <button className="w-full group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-white/10 to-white/5 text-white font-inter font-semibold rounded-lg border border-white/20 overflow-hidden transition-all duration-300 hover:bg-primary-blue/20 hover:border-primary-blue/50 hover:shadow-[0_0_30px_rgba(13,33,161,0.3)]">
+              <button className="w-full group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-soft-white/10 to-soft-white/5 text-soft-white font-inter font-semibold rounded-lg border border-royal-blue/20 overflow-hidden transition-all duration-300 hover:bg-royal-blue/20 hover:border-royal-blue/50 hover:shadow-[0_0_30px_rgba(13,33,161,0.3)]">
                 <span className="relative z-10">Book a Meeting</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-blue/0 via-primary-blue/20 to-primary-blue/0 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-royal-blue/0 via-royal-blue/20 to-royal-blue/0 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
               </button>
             </div>
           </div>
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-16 md:mt-20 text-center space-y-4 py-12 px-6 md:px-12 rounded-2xl backdrop-blur-md border border-white/10 bg-gradient-to-r from-primary-blue/5 to-primary-blue/[0.02]">
-          <p className="text-secondary-text font-inter">
+        <div className="mt-20 text-center space-y-4 py-12 px-6 md:px-12 rounded-3xl backdrop-blur-md border border-royal-blue/20 bg-royal-blue/5">
+          <p className="text-soft-white/70 font-inter text-lg">
             Prefer to schedule a call? We're here to help you succeed.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:hello@luminexsocial.com"
-              className="px-6 py-3 bg-primary-blue text-white font-inter font-semibold rounded-lg hover:shadow-[0_0_25px_rgba(13,33,161,0.4)] hover:scale-105 transition-all duration-300"
+              className="px-6 py-3 bg-royal-blue text-soft-white font-inter font-semibold rounded-lg hover:shadow-[0_0_25px_rgba(13,33,161,0.4)] hover:scale-105 transition-all duration-300"
             >
               Email Us
             </a>
             <a
               href="tel:+15551234567"
-              className="px-6 py-3 bg-white/10 text-white font-inter font-semibold rounded-lg border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300"
+              className="px-6 py-3 bg-soft-white/10 text-soft-white font-inter font-semibold rounded-lg border border-royal-blue/20 hover:bg-soft-white/20 hover:border-royal-blue/40 transition-all duration-300"
             >
               Call Us
             </a>

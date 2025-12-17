@@ -45,18 +45,18 @@ export default function Testimonials() {
   const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 bg-soft-white">
+    <section ref={sectionRef} className="py-32 md:py-48 bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <h2 
-            className={`font-coolvetica text-5xl md:text-6xl text-primary-dark mb-4 transition-all duration-700 ${
+            className={`font-coolvetica text-5xl md:text-6xl text-soft-white mb-4 transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
             Trusted by Brands
           </h2>
           <p 
-            className={`font-inter text-lg text-deep-purple max-w-2xl mx-auto transition-all duration-700 delay-200 ${
+            className={`font-inter text-lg text-soft-white/70 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
@@ -95,7 +95,7 @@ export default function Testimonials() {
                   <p className="font-montreal text-soft-white font-semibold">
                     {testimonials[currentIndex].author}
                   </p>
-                  <p className="font-inter text-deep-purple text-sm">
+                  <p className="font-inter text-soft-white/70 text-sm">
                     {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
                   </p>
                 </div>

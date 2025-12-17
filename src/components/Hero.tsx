@@ -42,13 +42,12 @@ export default function Hero() {
     e.currentTarget.style.transform = 'translate(0, 0) scale(1)';
   };
 
-  // Text reveal animation
+  // Text reveal animation with word-by-word stagger
   const splitText = (text: string) => {
     return text.split(' ').map((word, i) => (
       <span
         key={i}
-        className="text-reveal inline-block"
-        style={{ animationDelay: `${i * 0.1}s` }}
+        className={`word-reveal word-reveal-${Math.min(i + 1, 8)} inline-block`}
       >
         {word}&nbsp;
       </span>
@@ -76,8 +75,10 @@ export default function Hero() {
             <span className="text-sm font-inter text-soft-white">AI-Powered Content Solutions</span>
           </div>
 
-          <h1 className="font-coolvetica text-6xl md:text-7xl lg:text-8xl text-soft-white mb-6 leading-tight tracking-tight">
-            {splitText('Amplify Your Digital Presence')}
+          <h1 className="font-coolvetica text-6xl md:text-7xl lg:text-8xl mb-6 leading-tight tracking-tight">
+            <span className="text-gradient-royal">
+              {splitText('Amplify Your Digital Presence')}
+            </span>
           </h1>
 
           <p className="font-montreal text-2xl md:text-3xl text-deep-purple mb-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>

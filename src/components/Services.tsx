@@ -52,19 +52,19 @@ export default function Services() {
   const [expandedService, setExpandedService] = useState<number | null>(null);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 bg-soft-white">
+    <section ref={sectionRef} className="py-32 md:py-48 bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <h2 
-            className={`font-coolvetica text-5xl md:text-6xl text-primary-dark mb-4 transition-all duration-700 ${
+            className={`font-coolvetica text-5xl md:text-6xl text-soft-white mb-4 transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
             What We Do
           </h2>
           <p 
-            className={`font-inter text-lg text-deep-purple max-w-2xl mx-auto transition-all duration-700 delay-200 ${
+            className={`font-inter text-lg text-soft-white/70 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
@@ -81,12 +81,11 @@ export default function Services() {
             return (
               <div
                 key={index}
-                className={`group relative rounded-3xl overflow-hidden transition-all duration-500 cursor-pointer opacity-100 translate-y-0 animate-float`}
+                className={`group card-enter card-enter-${index + 1} relative rounded-3xl overflow-hidden transition-all duration-500 cursor-pointer animate-float`}
                 style={{
                   background: 'rgba(11, 13, 18, 0.95)',
                   backdropFilter: 'blur(10px)',
                   border: '1px solid rgba(247, 248, 252, 0.1)',
-                  transition: `all 0.6s ease-out ${index * 0.15}s`,
                   minHeight: isExpanded ? 'auto' : '320px',
                 }}
                 onClick={() => setExpandedService(isExpanded ? null : index)}
@@ -157,9 +156,9 @@ export default function Services() {
         </div>
 
         {/* Sub-Services Grid */}
-        <div className="mb-16">
+        <div className="mt-20">
           <h3 
-            className={`font-coolvetica text-3xl md:text-4xl text-primary-dark text-center mb-12 transition-all duration-700 ${
+            className={`font-coolvetica text-3xl md:text-4xl text-soft-white text-center mb-12 transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
@@ -194,7 +193,7 @@ export default function Services() {
                     <div className="w-14 h-14 bg-gradient-to-br from-royal-blue/30 to-royal-blue/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                       <Icon className="w-7 h-7 text-royal-blue group-hover:rotate-12 transition-transform duration-300" />
                     </div>
-                    <h4 className="font-montreal text-lg text-primary-dark font-semibold group-hover:text-royal-blue transition-colors duration-300">
+                    <h4 className="font-montreal text-lg text-soft-white font-semibold group-hover:text-royal-blue transition-colors duration-300">
                       {service.title}
                     </h4>
                   </div>
