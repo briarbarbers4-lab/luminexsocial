@@ -4,6 +4,9 @@
 A modern video production and AI automation portfolio website migrated from Bolt.new to Replit. Features a sleek dark theme with glassmorphic UI elements and interactive 3D backgrounds.
 
 ## Recent Changes (December 2025)
+- **Work That Speaks Volumes Section**: New ambient showcase with 5 scattered auto-playing videos, no interaction
+- **Our Work Portfolio Section**: Interactive portfolio grid with category filters, project cards with video previews, modal lightbox with full project details (challenge, solution, results stats), prev/next navigation, and ESC key support
+- **Page Structure Updated**: Hero -> WorkShowcase -> Services -> OurWorkPortfolio -> Process -> Testimonials -> Contact
 - **Hero Section Redesign**: Completely redesigned hero section with Spline 3D animation background
 - **Navigation Redesign**: Compact centered glassmorphic pill navigation without branding
 - **New Copy**: Updated headline to "Transform Your Brand With AI & Video"
