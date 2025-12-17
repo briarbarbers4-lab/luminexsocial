@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 interface FloatingObject {
@@ -18,9 +18,23 @@ export default function Three3DBackground() {
   const mouseRef = useRef({ x: 0, y: 0 });
   const scrollRef = useRef({ y: 0 });
   const timeRef = useRef(0);
+  const [webGLError, setWebGLError] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
+
+    // Check for WebGL support
+    try {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) {
+        setWebGLError(true);
+        return;
+      }
+    } catch {
+      setWebGLError(true);
+      return;
+    }
 
     // Scene setup
     const scene = new THREE.Scene();
@@ -250,6 +264,10 @@ export default function Three3DBackground() {
       containerRef.current?.removeChild(renderer.domElement);
     };
   }, []);
+
+  if (webGLError) {
+    return null;
+  }
 
   return (
     <div
