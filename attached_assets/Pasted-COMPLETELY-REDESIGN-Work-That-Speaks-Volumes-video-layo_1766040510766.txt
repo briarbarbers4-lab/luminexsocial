@@ -1,0 +1,180 @@
+COMPLETELY REDESIGN "Work That Speaks Volumes" video layout - NO OVERLAP:
+
+REMOVE absolute positioning chaos. Use FLEXBOX for clean side-by-side layout with angles.
+
+SECTION CONTAINER:
+```css
+.work-speaks-section {
+  padding: 100px 40px;
+  max-width: 1600px;
+  margin: 0 auto;
+  text-align: center;
+}
+```
+
+HEADING & SUBHEADING (keep current styling)
+
+VIDEO CONTAINER WRAPPER:
+```css
+.floating-videos-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 80px;
+  padding: 40px 0;
+}
+```
+
+INDIVIDUAL VIDEO STYLING:
+```css
+.floating-video {
+  width: 240px;
+  aspect-ratio: 9/16;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(11, 13, 18, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(247, 248, 252, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* Individual rotation angles */
+.floating-video:nth-child(1) { transform: rotate(-5deg); }
+.floating-video:nth-child(2) { transform: rotate(3deg); }
+.floating-video:nth-child(3) { transform: rotate(-2deg); }
+.floating-video:nth-child(4) { transform: rotate(4deg); }
+.floating-video:nth-child(5) { transform: rotate(-3deg); }
+
+/* Hover effect - straighten and lift */
+.floating-video:hover {
+  transform: rotate(0deg) translateY(-12px) scale(1.05);
+  box-shadow: 0 25px 70px rgba(13, 33, 161, 0.4);
+  border-color: rgba(13, 33, 161, 0.4);
+}
+
+.floating-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+```
+
+HTML STRUCTURE:
+```html
+<section className="work-speaks-section">
+  <h2>Work That <span>Speaks Volumes</span></h2>
+  <p className="subheading">From concept to viral content</p>
+  
+  <div className="floating-videos-container">
+    <div className="floating-video">
+      <video autoplay loop muted playsinline disablePictureInPicture>
+        <source src={AMBIENT_VIDEOS.video1} type="video/mp4" />
+      </video>
+    </div>
+    
+    <div className="floating-video">
+      <video autoplay loop muted playsinline disablePictureInPicture>
+        <source src={AMBIENT_VIDEOS.video2} type="video/mp4" />
+      </video>
+    </div>
+    
+    <div className="floating-video">
+      <video autoplay loop muted playsinline disablePictureInPicture>
+        <source src={AMBIENT_VIDEOS.video3} type="video/mp4" />
+      </video>
+    </div>
+    
+    <div className="floating-video">
+      <video autoplay loop muted playsinline disablePictureInPicture>
+        <source src={AMBIENT_VIDEOS.video4} type="video/mp4" />
+      </video>
+    </div>
+    
+    <div className="floating-video">
+      <video autoplay loop muted playsinline disablePictureInPicture>
+        <source src={AMBIENT_VIDEOS.video5} type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</section>
+```
+
+RESPONSIVE BEHAVIOR:
+
+Desktop (> 1400px): All 5 videos in one row
+Laptop (1024px - 1400px): 5 videos fit, may wrap to second row
+Tablet (768px - 1024px): 3 videos per row, then 2
+Mobile (< 768px): 2 videos per row, then stack
+```css
+@media (max-width: 768px) {
+  .floating-videos-container {
+    gap: 24px;
+  }
+  
+  .floating-video {
+    width: 160px;
+  }
+  
+  /* Reduce rotation angles on mobile */
+  .floating-video:nth-child(1) { transform: rotate(-3deg); }
+  .floating-video:nth-child(2) { transform: rotate(2deg); }
+  .floating-video:nth-child(3) { transform: rotate(-1deg); }
+  .floating-video:nth-child(4) { transform: rotate(3deg); }
+  .floating-video:nth-child(5) { transform: rotate(-2deg); }
+}
+
+@media (max-width: 480px) {
+  .floating-videos-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .floating-video {
+    width: 220px;
+    transform: rotate(0deg) !important;
+  }
+}
+```
+
+OPTIONAL: Add stagger animation on scroll
+```css
+.floating-video {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.floating-video:nth-child(1) { animation-delay: 0.1s; }
+.floating-video:nth-child(2) { animation-delay: 0.2s; }
+.floating-video:nth-child(3) { animation-delay: 0.3s; }
+.floating-video:nth-child(4) { animation-delay: 0.4s; }
+.floating-video:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--rotation));
+  }
+}
+```
+
+KEY CHANGES:
+✅ No absolute positioning
+✅ Flexbox for automatic spacing
+✅ NO overlap - each video has own space
+✅ Keeps tilted angles for style
+✅ Side by side on desktop
+✅ Responsive wrapping on smaller screens
+✅ Clean hover effects
+✅ Videos play continuously with no controls
+
+This will display all 5 videos cleanly side-by-side with no overlap! 🚀

@@ -1676,75 +1676,25 @@
    ============================================================ */
 
 .work-speaks-section {
-  position: relative;
-  min-height: 1100px;
-  padding: 100px 60px 140px;
+  padding: 100px 40px;
   max-width: 1600px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .floating-videos-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 80px;
+  padding: 40px 0;
 }
 
-/* Video 1 - Top Left */
-.floating-video-1 {
-  position: absolute;
-  top: 100px;
-  left: 80px;
+/* Individual video styling */
+.floating-video {
   width: 240px;
-  transform: rotate(-4deg);
-  z-index: 1;
-}
-
-/* Video 2 - Top Right */
-.floating-video-2 {
-  position: absolute;
-  top: 80px;
-  right: 120px;
-  width: 260px;
-  transform: rotate(3deg);
-  z-index: 2;
-}
-
-/* Video 3 - Middle Left */
-.floating-video-3 {
-  position: absolute;
-  top: 450px;
-  left: 180px;
-  width: 250px;
-  transform: rotate(-2deg);
-  z-index: 3;
-}
-
-/* Video 4 - Middle Right */
-.floating-video-4 {
-  position: absolute;
-  top: 420px;
-  right: 200px;
-  width: 270px;
-  transform: rotate(5deg);
-  z-index: 1;
-}
-
-/* Video 5 - Bottom Center */
-.floating-video-5 {
-  position: absolute;
-  top: 750px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-3deg);
-  width: 255px;
-  z-index: 2;
-}
-
-/* Base styling for all floating videos */
-.floating-video-1,
-.floating-video-2,
-.floating-video-3,
-.floating-video-4,
-.floating-video-5 {
   aspect-ratio: 9/16;
   border-radius: 24px;
   overflow: hidden;
@@ -1752,38 +1702,104 @@
   backdrop-filter: blur(12px);
   border: 1.5px solid rgba(247, 248, 252, 0.15);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
 }
 
-.floating-video-1:hover,
-.floating-video-2:hover,
-.floating-video-3:hover,
-.floating-video-4:hover,
-.floating-video-5:hover {
-  transform: scale(1.05) translateY(-8px) rotate(0deg) !important;
-  box-shadow: 0 25px 70px rgba(13, 33, 161, 0.3);
+/* Individual rotation angles */
+.floating-video:nth-child(1) { 
+  transform: rotate(-5deg);
+  animation-delay: 0.1s;
 }
 
-/* Mobile Responsive - Stack vertically */
+.floating-video:nth-child(2) { 
+  transform: rotate(3deg);
+  animation-delay: 0.2s;
+}
+
+.floating-video:nth-child(3) { 
+  transform: rotate(-2deg);
+  animation-delay: 0.3s;
+}
+
+.floating-video:nth-child(4) { 
+  transform: rotate(4deg);
+  animation-delay: 0.4s;
+}
+
+.floating-video:nth-child(5) { 
+  transform: rotate(-3deg);
+  animation-delay: 0.5s;
+}
+
+/* Hover effect - straighten and lift */
+.floating-video:hover {
+  transform: rotate(0deg) translateY(-12px) scale(1.05);
+  box-shadow: 0 25px 70px rgba(13, 33, 161, 0.4);
+  border-color: rgba(13, 33, 161, 0.4);
+}
+
+.floating-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* Stagger animation for entrance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--rotation));
+  }
+}
+
+/* Responsive Tablet (768px - 1024px): 3 videos per row */
 @media (max-width: 1024px) {
-  .work-speaks-section {
-    min-height: auto;
-    padding: 80px 40px;
+  .floating-videos-container {
+    gap: 32px;
   }
   
-  .floating-video-1,
-  .floating-video-2,
-  .floating-video-3,
-  .floating-video-4,
-  .floating-video-5 {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    transform: none !important;
-    width: 280px !important;
-    margin: 0 auto 40px;
-    display: block;
+  .floating-video {
+    width: 220px;
   }
 }
 
+/* Responsive Mobile (< 768px): 2 videos per row */
+@media (max-width: 768px) {
+  .floating-videos-container {
+    gap: 24px;
+  }
+  
+  .floating-video {
+    width: 160px;
+  }
+  
+  /* Reduce rotation angles on mobile */
+  .floating-video:nth-child(1) { transform: rotate(-3deg); }
+  .floating-video:nth-child(2) { transform: rotate(2deg); }
+  .floating-video:nth-child(3) { transform: rotate(-1deg); }
+  .floating-video:nth-child(4) { transform: rotate(3deg); }
+  .floating-video:nth-child(5) { transform: rotate(-2deg); }
+}
+
+/* Extra small screens (< 480px): Stack vertically */
+@media (max-width: 480px) {
+  .floating-videos-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .floating-video {
+    width: 220px;
+    transform: rotate(0deg) !important;
+  }
+}
