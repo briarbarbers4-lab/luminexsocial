@@ -8,11 +8,11 @@ interface VideoItem {
 }
 
 const videoUrls = [
-  'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp4',
-  'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerEscapes.mp4',
-  'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerJoyrides.mp4',
-  'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ElephantsDream.mp4',
-  'https://commondatastorage.googleapis.com/gtv-videos-library/sample/BigBuckBunny.mp4',
+  'https://ik.imagekit.io/luminexsocial/Video/Animations%20from%20Recent%20Edits_What%20do%20you%20think%20of%20itFollow%20for%20more!...._aftereffects%20_premiere.mp4',
+  'https://ik.imagekit.io/luminexsocial/Video/Recent%20Sample%20Edit%20for%20a%20Client_What%20do%20you%20think%20of%20it_videoeditor%20_videoediting%20_contentcreat.mp4',
+  'https://ik.imagekit.io/luminexsocial/Video/Before%20vs%20After%20of%20Recent%20Edit_Comment%20_Project_%20to%20get%20the%20Project%20file%20of%20this%20edit......._en.mp4',
+  'https://ik.imagekit.io/luminexsocial/Video/CEO%20of%20Sun-Up%20Discipline%20@ashtonhall%20Idea%20by-%20@zennn.aep%20....._aftereffects%20_motiongraphics%20_vid.mp4',
+  'https://ik.imagekit.io/luminexsocial/Video/Everything%20in%20your%20Life%20is%20a%20Reflection%20of%20your%20Choice_Looking%20for%20Skilled%20Editor%20Feel%20Free%20to%20.mp4',
 ];
 
 export default function WorkShowcase() {
