@@ -1,13 +1,10 @@
 import { useMemo } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-interface ScatteredVideo {
+interface VideoItem {
   id: string;
   videoUrl: string;
-  position: { top: string; left: string };
   rotation: number;
-  scale: number;
-  zIndex: number;
 }
 
 const videoUrls = [
@@ -21,51 +18,36 @@ const videoUrls = [
 export default function WorkShowcase() {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.2 });
 
-  const scatteredVideos: ScatteredVideo[] = useMemo(() => [
+  const videos: VideoItem[] = useMemo(() => [
     {
       id: 'video-1',
       videoUrl: videoUrls[0],
-      position: { top: '0%', left: '2%' },
-      rotation: -8,
-      scale: 1.1,
-      zIndex: 3,
+      rotation: -4,
     },
     {
       id: 'video-2',
       videoUrl: videoUrls[1],
-      position: { top: '0%', left: '58%' },
-      rotation: 6,
-      scale: 0.95,
-      zIndex: 2,
+      rotation: 3,
     },
     {
       id: 'video-3',
       videoUrl: videoUrls[2],
-      position: { top: '40%', left: '18%' },
-      rotation: -5,
-      scale: 1.2,
-      zIndex: 4,
+      rotation: -2,
     },
     {
       id: 'video-4',
       videoUrl: videoUrls[3],
-      position: { top: '35%', left: '70%' },
-      rotation: 7,
-      scale: 1,
-      zIndex: 1,
+      rotation: 5,
     },
     {
       id: 'video-5',
       videoUrl: videoUrls[4],
-      position: { top: '65%', left: '35%' },
-      rotation: -6,
-      scale: 0.9,
-      zIndex: 2,
+      rotation: -3,
     },
   ], []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 bg-transparent relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 md:py-32 bg-transparent relative overflow-visible">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-16 md:mb-24">
           <h2
@@ -84,48 +66,93 @@ export default function WorkShowcase() {
           </p>
         </div>
 
-        <div className="relative w-full h-[1000px] md:h-[1100px]">
-          {scatteredVideos.map((video, index) => (
-            <div
-              key={video.id}
-              className={`absolute w-[280px] md:w-[320px] transition-all duration-1000 ${
-                isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
-              }`}
-              style={{
-                top: video.position.top,
-                left: video.position.left,
-                transform: `rotate(${video.rotation}deg) scale(${video.scale})`,
-                zIndex: video.zIndex,
-                transitionDelay: `${index * 150}ms`,
-              }}
-            >
+        {/* Video Grid: 3 on top, 2 on bottom */}
+        <div className="flex flex-col items-center justify-center gap-8">
+          {/* Top Row - 3 Videos */}
+          <div className="flex justify-center items-center gap-6 flex-wrap">
+            {videos.slice(0, 3).map((video, index) => (
               <div
-                className="relative rounded-2xl overflow-hidden shadow-2xl"
+                key={video.id}
+                className={`transition-all duration-1000 ${
+                  isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+                }`}
                 style={{
-                  aspectRatio: '9/16',
-                  background: 'rgba(11, 13, 18, 0.9)',
-                  border: '1px solid rgba(247, 248, 252, 0.1)',
-                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                  transitionDelay: `${index * 150}ms`,
                 }}
               >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                >
-                  <source src={video.videoUrl} type="video/mp4" />
-                </video>
-                <div 
-                  className="absolute inset-0 pointer-events-none"
+                <div
+                  className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 cursor-pointer"
                   style={{
-                    background: 'linear-gradient(180deg, transparent 0%, rgba(11, 13, 18, 0.3) 100%)',
+                    width: '220px',
+                    aspectRatio: '9/16',
+                    background: 'rgba(11, 13, 18, 0.9)',
+                    border: '1px solid rgba(247, 248, 252, 0.1)',
+                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                    transform: `rotate(${video.rotation}deg)`,
                   }}
-                />
+                >
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  >
+                    <source src={video.videoUrl} type="video/mp4" />
+                  </video>
+                  <div 
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(180deg, transparent 0%, rgba(11, 13, 18, 0.3) 100%)',
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Bottom Row - 2 Videos */}
+          <div className="flex justify-center items-center gap-6">
+            {videos.slice(3, 5).map((video, index) => (
+              <div
+                key={video.id}
+                className={`transition-all duration-1000 ${
+                  isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+                }`}
+                style={{
+                  transitionDelay: `${(index + 3) * 150}ms`,
+                }}
+              >
+                <div
+                  className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                  style={{
+                    width: '220px',
+                    aspectRatio: '9/16',
+                    background: 'rgba(11, 13, 18, 0.9)',
+                    border: '1px solid rgba(247, 248, 252, 0.1)',
+                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                    transform: `rotate(${video.rotation}deg)`,
+                  }}
+                >
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  >
+                    <source src={video.videoUrl} type="video/mp4" />
+                  </video>
+                  <div 
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(180deg, transparent 0%, rgba(11, 13, 18, 0.3) 100%)',
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
