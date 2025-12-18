@@ -79,21 +79,28 @@ export default function FloatingVideos({ section = 'hero', videoItems }: Floatin
 
   return (
     <>
-      {/* Floating Video Cards */}
-      {videoItems.map((video) => (
-        <FloatingVideoCard
-          key={video.id}
-          id={video.id}
-          videoUrl={video.videoUrl}
-          thumbnail={video.thumbnail}
-          title={video.title}
-          position={video.position}
-          rotation={video.rotation}
-          parallaxSpeed={video.parallaxSpeed}
-          isVisible={visibleVideos[video.id]}
-          onClick={() => setSelectedVideo(video)}
-        />
-      ))}
+      <section className="work-speaks-section">
+        <h2>Work That <span>Speaks Volumes</span></h2>
+        <p className="subheading">From concept to viral content</p>
+        
+        <div className="floating-videos-container">
+          {/* Floating Video Cards */}
+          {videoItems.map((video) => (
+            <FloatingVideoCard
+              key={video.id}
+              id={video.id}
+              videoUrl={video.videoUrl}
+              thumbnail={video.thumbnail}
+              title={video.title}
+              position={video.position}
+              rotation={video.rotation}
+              parallaxSpeed={video.parallaxSpeed}
+              isVisible={visibleVideos[video.id]}
+              onClick={() => setSelectedVideo(video)}
+            />
+          ))}
+        </div>
+      </section>
 
       {/* Video Modal */}
       {selectedVideo && (

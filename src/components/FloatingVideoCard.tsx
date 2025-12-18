@@ -61,25 +61,14 @@ export default function FloatingVideoCard({
     }
   };
 
-  const positionClasses = {
-    'top-left': 'absolute top-12 -left-32 lg:-left-20',
-    'top-right': 'absolute top-20 -right-32 lg:-right-20',
-    'bottom-left': 'absolute bottom-12 -left-40 lg:-left-24',
-    'bottom-right': 'absolute bottom-20 -right-40 lg:-right-24',
-    'center-left': 'absolute top-1/2 -left-36 lg:-left-24 -translate-y-1/2',
-    'center-right': 'absolute top-1/2 -right-36 lg:-right-24 -translate-y-1/2',
-  };
-
   return (
     <div
       ref={containerRef}
-      className={`${positionClasses[position]} hidden md:block transition-all duration-500 ${
+      className={`floating-video transition-all duration-500 ${
         isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
       style={{
-        transform: `translateY(${translateY}px) rotate(${rotation}deg)`,
-        width: '240px',
-        aspectRatio: '9/16',
+        transform: `translateY(${translateY}px)`,
       }}
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
