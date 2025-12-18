@@ -69,7 +69,7 @@ export default function WorkShowcase() {
         {/* Video Grid: 3 on top, 2 on bottom */}
         <div className="flex flex-col items-center justify-center gap-8">
           {/* Top Row - 3 Videos */}
-          <div className="flex justify-center items-center gap-6 flex-wrap">
+          <div className="flex justify-center items-center gap-8 flex-wrap">
             {videos.slice(0, 3).map((video, index) => (
               <div
                 key={video.id}
@@ -83,7 +83,7 @@ export default function WorkShowcase() {
                 <div
                   className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 cursor-pointer"
                   style={{
-                    width: '220px',
+                    width: '280px',
                     aspectRatio: '9/16',
                     background: 'rgba(11, 13, 18, 0.9)',
                     border: '1px solid rgba(247, 248, 252, 0.1)',
@@ -112,7 +112,7 @@ export default function WorkShowcase() {
           </div>
 
           {/* Bottom Row - 2 Videos */}
-          <div className="flex justify-center items-center gap-6">
+          <div className="flex justify-center items-center gap-8">
             {videos.slice(3, 5).map((video, index) => (
               <div
                 key={video.id}
@@ -126,7 +126,7 @@ export default function WorkShowcase() {
                 <div
                   className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 cursor-pointer"
                   style={{
-                    width: '220px',
+                    width: '280px',
                     aspectRatio: '9/16',
                     background: 'rgba(11, 13, 18, 0.9)',
                     border: '1px solid rgba(247, 248, 252, 0.1)',
