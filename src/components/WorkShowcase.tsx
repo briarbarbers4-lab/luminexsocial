@@ -25,7 +25,7 @@ export default function WorkShowcase() {
     {
       id: 'video-1',
       videoUrl: videoUrls[0],
-      position: { top: '10%', left: '5%' },
+      position: { top: '0%', left: '2%' },
       rotation: -8,
       scale: 1.1,
       zIndex: 3,
@@ -33,7 +33,7 @@ export default function WorkShowcase() {
     {
       id: 'video-2',
       videoUrl: videoUrls[1],
-      position: { top: '5%', left: '60%' },
+      position: { top: '0%', left: '58%' },
       rotation: 6,
       scale: 0.95,
       zIndex: 2,
@@ -41,7 +41,7 @@ export default function WorkShowcase() {
     {
       id: 'video-3',
       videoUrl: videoUrls[2],
-      position: { top: '45%', left: '25%' },
+      position: { top: '40%', left: '18%' },
       rotation: -5,
       scale: 1.2,
       zIndex: 4,
@@ -49,7 +49,7 @@ export default function WorkShowcase() {
     {
       id: 'video-4',
       videoUrl: videoUrls[3],
-      position: { top: '40%', left: '65%' },
+      position: { top: '35%', left: '70%' },
       rotation: 7,
       scale: 1,
       zIndex: 1,
@@ -57,7 +57,7 @@ export default function WorkShowcase() {
     {
       id: 'video-5',
       videoUrl: videoUrls[4],
-      position: { top: '75%', left: '15%' },
+      position: { top: '65%', left: '35%' },
       rotation: -6,
       scale: 0.9,
       zIndex: 2,
@@ -84,7 +84,7 @@ export default function WorkShowcase() {
           </p>
         </div>
 
-        <div className="relative w-full h-[800px] md:h-[900px]">
+        <div className="relative w-full h-[1000px] md:h-[1100px]">
           {scatteredVideos.map((video, index) => (
             <div
               key={video.id}
