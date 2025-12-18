@@ -1,0 +1,627 @@
+FIX the "Work That Speaks Volumes" section and add manual video URL inputs:
+
+=== PART 1: FIX OVERLAPPING VIDEO CONTAINERS ===
+
+REMOVE overlapping by adjusting positions - each container gets its own clear space:
+
+SECTION CONTAINER:
+```css
+.work-speaks-section {
+  position: relative;
+  min-height: 1100px; /* Increase height for better spacing */
+  padding: 100px 60px 140px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+```
+
+NEW VIDEO POSITIONS (NO OVERLAP):
+
+VIDEO 1 (Top Left):
+- Position: top: 100px, left: 80px
+- Width: 240px
+- Transform: rotate(-4deg)
+- z-index: 1
+
+VIDEO 2 (Top Right):
+- Position: top: 80px, right: 120px
+- Width: 260px
+- Transform: rotate(3deg)
+- z-index: 2
+
+VIDEO 3 (Middle Left):
+- Position: top: 450px, left: 180px
+- Width: 250px
+- Transform: rotate(-2deg)
+- z-index: 3
+
+VIDEO 4 (Middle Right):
+- Position: top: 420px, right: 200px
+- Width: 270px
+- Transform: rotate(5deg)
+- z-index: 1
+
+VIDEO 5 (Bottom Center):
+- Position: top: 750px, left: 50%
+- Transform: translateX(-50%) rotate(-3deg)
+- Width: 255px
+- z-index: 2
+
+ENSURE NO OVERLAP:
+- Minimum 100px gap between any two containers
+- Each video gets its own defined space
+- Test that no edges touch or overlap
+
+CSS for each container:
+```css
+.floating-video-1 {
+  position: absolute;
+  top: 100px;
+  left: 80px;
+  width: 240px;
+  transform: rotate(-4deg);
+  z-index: 1;
+}
+
+.floating-video-2 {
+  position: absolute;
+  top: 80px;
+  right: 120px;
+  width: 260px;
+  transform: rotate(3deg);
+  z-index: 2;
+}
+
+.floating-video-3 {
+  position: absolute;
+  top: 450px;
+  left: 180px;
+  width: 250px;
+  transform: rotate(-2deg);
+  z-index: 3;
+}
+
+.floating-video-4 {
+  position: absolute;
+  top: 420px;
+  right: 200px;
+  width: 270px;
+  transform: rotate(5deg);
+  z-index: 1;
+}
+
+.floating-video-5 {
+  position: absolute;
+  top: 750px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 255px;
+  z-index: 2;
+}
+
+/* Base styling for all videos */
+.floating-video-1,
+.floating-video-2,
+.floating-video-3,
+.floating-video-4,
+.floating-video-5 {
+  aspect-ratio: 9/16;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(11, 13, 18, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(247, 248, 252, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.floating-video-1:hover,
+.floating-video-2:hover,
+.floating-video-3:hover,
+.floating-video-4:hover,
+.floating-video-5:hover {
+  transform: scale(1.05) translateY(-8px) rotate(0deg);
+  box-shadow: 0 25px 70px rgba(13, 33, 161, 0.3);
+}
+```
+
+MOBILE RESPONSIVE (< 1024px):
+Switch to non-overlapping stacked layout:
+```css
+@media (max-width: 1024px) {
+  .work-speaks-section {
+    min-height: auto;
+    padding: 80px 40px;
+  }
+  
+  .floating-video-1,
+  .floating-video-2,
+  .floating-video-3,
+  .floating-video-4,
+  .floating-video-5 {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    width: 280px !important;
+    margin: 0 auto 40px;
+    display: block;
+  }
+}
+```
+
+=== PART 2: ADD VIDEO URL PLACEHOLDERS ===
+
+CREATE EDITABLE VIDEO URL CONSTANTS at the top of your component:
+
+For "Work That Speaks Volumes" Section:
+```javascript
+// ========================================
+// VIDEO URLS - EDIT THESE TO CHANGE VIDEOS
+// ========================================
+
+const AMBIENT_VIDEOS = {
+  video1: "YOUR_VIDEO_URL_HERE_1.mp4",
+  video2: "YOUR_VIDEO_URL_HERE_2.mp4", 
+  video3: "YOUR_VIDEO_URL_HERE_3.mp4",
+  video4: "YOUR_VIDEO_URL_HERE_4.mp4",
+  video5: "YOUR_VIDEO_URL_HERE_5.mp4"
+};
+
+// Example with actual URLs:
+// const AMBIENT_VIDEOS = {
+//   video1: "https://your-cdn.com/videos/product-launch.mp4",
+//   video2: "https://your-cdn.com/videos/behind-scenes.mp4",
+//   video3: "https://your-cdn.com/videos/testimonial.mp4",
+//   video4: "https://your-cdn.com/videos/viral-trend.mp4",
+//   video5: "https://your-cdn.com/videos/brand-story.mp4"
+// };
+```
+
+HTML Structure with URL variables:
+```html
+<section className="work-speaks-section">
+  <h2>Work That Speaks Volumes</h2>
+  <p className="subheading">From concept to viral content</p>
+  
+  <div className="floating-videos-container">
+    <!-- Video 1 -->
+    <div className="floating-video floating-video-1">
+      <video autoplay loop muted playsinline disablePictureInPicture>
+        <source src={AMBIENT_VIDEOS.video1} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    
+    <!-- Video 2 -->
+    <div className="floating-video floating-video-2">
+      <video autoplay loop muted playsinline disablePictureInPicture>
+        <source src={AMBIENT_VIDEOS.video2} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    
+    <!-- Video 3 -->
+    <div className="floating-video floating-video-3">
+      <video autoplay loop muted playsinline disablePictureInPicture>
+        <source src={AMBIENT_VIDEOS.video3} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    
+    <!-- Video 4 -->
+    <div className="floating-video floating-video-4">
+      <video autoplay loop muted playsinline disablePictureInPicture>
+        <source src={AMBIENT_VIDEOS.video4} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    
+    <!-- Video 5 -->
+    <div className="floating-video floating-video-5">
+      <video autoplay loop muted playsinline disablePictureInPicture>
+        <source src={AMBIENT_VIDEOS.video5} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+```
+
+=== PART 3: ADD URL PLACEHOLDERS FOR "OUR WORK" PORTFOLIO ===
+
+Create editable project data array:
+```javascript
+// ========================================
+// PORTFOLIO PROJECTS - EDIT THESE
+// ========================================
+
+const PORTFOLIO_PROJECTS = [
+  {
+    id: 1,
+    title: "Product Launch Campaign",
+    client: "TechBrand Inc",
+    category: "Video Editing",
+    views: "2.5M",
+    thumbnailVideo: "YOUR_THUMBNAIL_VIDEO_URL_1.mp4", // Short preview loop
+    fullVideo: "YOUR_FULL_PROJECT_VIDEO_URL_1.mp4", // Full project video
+    industry: "Technology",
+    platform: "Instagram, YouTube",
+    challenge: "TechBrand needed a compelling launch video for their new product that would capture attention in the first 3 seconds.",
+    solution: "We created a fast-paced, visually stunning video with dynamic transitions and motion graphics that showcased the product's key features.",
+    results: {
+      views: "2.5M",
+      engagement: "12%",
+      roi: "3.2x"
+    }
+  },
+  {
+    id: 2,
+    title: "Behind The Scenes",
+    client: "Creative Studios",
+    category: "Content Creation",
+    views: "1.8M",
+    thumbnailVideo: "YOUR_THUMBNAIL_VIDEO_URL_2.mp4",
+    fullVideo: "YOUR_FULL_PROJECT_VIDEO_URL_2.mp4",
+    industry: "Media & Entertainment",
+    platform: "TikTok, Instagram",
+    challenge: "Show authentic behind-the-scenes content that builds brand trust.",
+    solution: "Documentary-style filming with authentic moments and storytelling.",
+    results: {
+      views: "1.8M",
+      engagement: "18%",
+      roi: "2.8x"
+    }
+  },
+  {
+    id: 3,
+    title: "Customer Testimonial",
+    client: "SaaS Solutions",
+    category: "Video Editing",
+    views: "950K",
+    thumbnailVideo: "YOUR_THUMBNAIL_VIDEO_URL_3.mp4",
+    fullVideo: "YOUR_FULL_PROJECT_VIDEO_URL_3.mp4",
+    industry: "Software",
+    platform: "LinkedIn, Website",
+    challenge: "Convert prospects with authentic customer stories.",
+    solution: "Professional testimonial videos with compelling narratives.",
+    results: {
+      views: "950K",
+      engagement: "15%",
+      roi: "4.1x"
+    }
+  },
+  {
+    id: 4,
+    title: "Viral Trend",
+    client: "Fashion Brand",
+    category: "Content Creation",
+    views: "5.2M",
+    thumbnailVideo: "YOUR_THUMBNAIL_VIDEO_URL_4.mp4",
+    fullVideo: "YOUR_FULL_PROJECT_VIDEO_URL_4.mp4",
+    industry: "Fashion & Retail",
+    platform: "TikTok, Instagram Reels",
+    challenge: "Create trending content that goes viral.",
+    solution: "Leveraged current trends with brand's unique style.",
+    results: {
+      views: "5.2M",
+      engagement: "22%",
+      roi: "5.6x"
+    }
+  },
+  {
+    id: 5,
+    title: "AI Automation Demo",
+    client: "Tech Startup",
+    category: "AI Automation",
+    views: "1.2M",
+    thumbnailVideo: "YOUR_THUMBNAIL_VIDEO_URL_5.mp4",
+    fullVideo: "YOUR_FULL_PROJECT_VIDEO_URL_5.mp4",
+    industry: "Technology",
+    platform: "YouTube, LinkedIn",
+    challenge: "Explain complex AI features simply.",
+    solution: "Animated explainer with screen recordings.",
+    results: {
+      views: "1.2M",
+      engagement: "14%",
+      roi: "3.9x"
+    }
+  },
+  {
+    id: 6,
+    title: "Brand Story",
+    client: "E-commerce Co",
+    category: "Video Editing",
+    views: "2.1M",
+    thumbnailVideo: "YOUR_THUMBNAIL_VIDEO_URL_6.mp4",
+    fullVideo: "YOUR_FULL_PROJECT_VIDEO_URL_6.mp4",
+    industry: "E-commerce",
+    platform: "Instagram, Facebook",
+    challenge: "Tell compelling brand origin story.",
+    solution: "Cinematic storytelling with emotional arc.",
+    results: {
+      views: "2.1M",
+      engagement: "16%",
+      roi: "3.4x"
+    }
+  }
+];
+
+// Example with actual URLs:
+// const PORTFOLIO_PROJECTS = [
+//   {
+//     id: 1,
+//     title: "Product Launch Campaign",
+//     client: "TechBrand Inc",
+//     category: "Video Editing",
+//     views: "2.5M",
+//     thumbnailVideo: "https://your-cdn.com/thumbnails/product-launch-preview.mp4",
+//     fullVideo: "https://your-cdn.com/projects/product-launch-full.mp4",
+//     ...
+//   },
+//   ...
+// ];
+```
+
+React Component Structure for Portfolio:
+```javascript
+function PortfolioSection() {
+  const [activeFilter, setActiveFilter] = useState('All');
+  const [selectedProject, setSelectedProject] = useState(null);
+  
+  const filteredProjects = activeFilter === 'All' 
+    ? PORTFOLIO_PROJECTS 
+    : PORTFOLIO_PROJECTS.filter(p => p.category === activeFilter);
+  
+  return (
+    <section className="portfolio-section">
+      <h2>Our Work</h2>
+      <p className="subheading">Full projects that drive real results</p>
+      
+      {/* Filters */}
+      <div className="portfolio-filters">
+        <button 
+          className={activeFilter === 'All' ? 'active' : ''}
+          onClick={() => setActiveFilter('All')}
+        >
+          All
+        </button>
+        <button 
+          className={activeFilter === 'AI Automation' ? 'active' : ''}
+          onClick={() => setActiveFilter('AI Automation')}
+        >
+          AI Automation
+        </button>
+        <button 
+          className={activeFilter === 'Video Editing' ? 'active' : ''}
+          onClick={() => setActiveFilter('Video Editing')}
+        >
+          Video Editing
+        </button>
+        <button 
+          className={activeFilter === 'Content Creation' ? 'active' : ''}
+          onClick={() => setActiveFilter('Content Creation')}
+        >
+          Content Creation
+        </button>
+      </div>
+      
+      {/* Portfolio Grid */}
+      <div className="portfolio-grid">
+        {filteredProjects.map((project) => (
+          <div 
+            key={project.id}
+            className="project-card"
+            onClick={() => setSelectedProject(project)}
+          >
+            <div className="project-thumbnail">
+              <video autoplay loop muted playsinline className="thumbnail-video">
+                <source src={project.thumbnailVideo} type="video/mp4" />
+              </video>
+              <div className="project-overlay">
+                <div className="play-icon">▶</div>
+                <span className="view-project">View Full Project</span>
+              </div>
+            </div>
+            <div className="project-info">
+              <div className="project-meta">
+                <span className="category-tag">{project.category}</span>
+                <span className="project-views">{project.views} views</span>
+              </div>
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-client">{project.client}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      {/* Modal */}
+      {selectedProject && (
+        <ProjectModal 
+          project={selectedProject} 
+          onClose={() => setSelectedProject(null)} 
+        />
+      )}
+    </section>
+  );
+}
+
+function ProjectModal({ project, onClose }) {
+  return (
+    <div className="project-modal active">
+      <div className="modal-overlay" onClick={onClose}></div>
+      <div className="modal-content">
+        <button className="modal-close" onClick={onClose}>✕</button>
+        
+        <div className="modal-video-container">
+          <video controls autoplay>
+            <source src={project.fullVideo} type="video/mp4" />
+          </video>
+        </div>
+        
+        <div className="modal-details">
+          <div className="modal-header">
+            <h2>{project.title}</h2>
+            <span className="category-tag">{project.category}</span>
+          </div>
+          
+          <div className="modal-info">
+            <div className="info-row">
+              <span className="label">Client:</span>
+              <span className="value">{project.client}</span>
+            </div>
+            <div className="info-row">
+              <span className="label">Industry:</span>
+              <span className="value">{project.industry}</span>
+            </div>
+            <div className="info-row">
+              <span className="label">Platform:</span>
+              <span className="value">{project.platform}</span>
+            </div>
+          </div>
+          
+          <div className="modal-section">
+            <h3>Challenge</h3>
+            <p>{project.challenge}</p>
+          </div>
+          
+          <div className="modal-section">
+            <h3>Solution</h3>
+            <p>{project.solution}</p>
+          </div>
+          
+          <div className="modal-section">
+            <h3>Results</h3>
+            <div className="results-grid">
+              <div className="result-stat">
+                <span className="stat-number">{project.results.views}</span>
+                <span className="stat-label">Total Views</span>
+              </div>
+              <div className="result-stat">
+                <span className="stat-number">{project.results.engagement}</span>
+                <span className="stat-label">Engagement Rate</span>
+              </div>
+              <div className="result-stat">
+                <span className="stat-number">{project.results.roi}</span>
+                <span className="stat-label">ROI Increase</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+=== PART 4: INSTRUCTIONS FOR ADDING YOUR VIDEOS ===
+
+STEP-BY-STEP GUIDE:
+
+1. **Upload Your Videos:**
+   - Upload to a CDN (Cloudflare, AWS S3, etc.)
+   - OR place in your project's /public/videos folder
+   - Get the full URL or relative path
+
+2. **For "Work That Speaks Volumes" (5 ambient videos):**
+   - Find the AMBIENT_VIDEOS object at top of file
+   - Replace "YOUR_VIDEO_URL_HERE_1.mp4" with your actual video URL
+   - Example:
+```javascript
+     const AMBIENT_VIDEOS = {
+       video1: "https://cdn.luminexsocial.com/ambient/reel1.mp4",
+       video2: "/videos/ambient/reel2.mp4",
+       video3: "https://cdn.luminexsocial.com/ambient/reel3.mp4",
+       video4: "/videos/ambient/reel4.mp4",
+       video5: "https://cdn.luminexsocial.com/ambient/reel5.mp4"
+     };
+```
+
+3. **For Portfolio Projects:**
+   - Find the PORTFOLIO_PROJECTS array
+   - For each project, update:
+     * `thumbnailVideo`: Short 3-5 second preview loop
+     * `fullVideo`: Complete project video
+     * Update title, client, category, etc.
+   - Example:
+```javascript
+     {
+       id: 1,
+       title: "Product Launch Campaign",
+       client: "TechBrand Inc",
+       category: "Video Editing",
+       views: "2.5M",
+       thumbnailVideo: "https://cdn.luminexsocial.com/thumbnails/project1-preview.mp4",
+       fullVideo: "https://cdn.luminexsocial.com/projects/project1-full.mp4",
+       ...
+     }
+```
+
+4. **Video Requirements:**
+   - Format: MP4 (H.264 codec)
+   - Ambient videos: Keep under 10MB, 720p is fine
+   - Thumbnail videos: 3-5 seconds, under 5MB
+   - Full project videos: Can be larger, 1080p recommended
+   - Compress videos before uploading
+
+5. **Testing:**
+   - Save file after updating URLs
+   - Refresh page
+   - Check that videos load and play
+   - Test on mobile devices
+
+=== CLEAR COMMENT BLOCKS IN CODE ===
+
+Add these comment blocks for easy editing:
+```javascript
+// ============================================================
+// 🎬 AMBIENT SHOWCASE VIDEOS (Work That Speaks Volumes)
+// ============================================================
+// Instructions: Replace URLs below with your video URLs
+// These play continuously in the scattered layout
+// Format: MP4, recommended size: under 10MB each
+// ============================================================
+
+const AMBIENT_VIDEOS = {
+  video1: "YOUR_VIDEO_URL_HERE_1.mp4", // Top Left
+  video2: "YOUR_VIDEO_URL_HERE_2.mp4", // Top Right
+  video3: "YOUR_VIDEO_URL_HERE_3.mp4", // Middle Left
+  video4: "YOUR_VIDEO_URL_HERE_4.mp4", // Middle Right
+  video5: "YOUR_VIDEO_URL_HERE_5.mp4"  // Bottom Center
+};
+
+// ============================================================
+// 📁 PORTFOLIO PROJECTS (Our Work Section)
+// ============================================================
+// Instructions: Edit each project object below
+// - thumbnailVideo: Short preview (3-5 sec loop)
+// - fullVideo: Complete project video
+// - Update all text fields with your project details
+// ============================================================
+
+const PORTFOLIO_PROJECTS = [
+  {
+    id: 1,
+    // 👇 EDIT THESE FIELDS
+    title: "Product Launch Campaign",
+    client: "TechBrand Inc",
+    category: "Video Editing", // Options: "Video Editing", "AI Automation", "Content Creation"
+    views: "2.5M",
+    thumbnailVideo: "YOUR_THUMBNAIL_URL_1.mp4",
+    fullVideo: "YOUR_FULL_VIDEO_URL_1.mp4",
+    industry: "Technology",
+    platform: "Instagram, YouTube",
+    challenge: "Your challenge description here",
+    solution: "Your solution description here",
+    results: {
+      views: "2.5M",
+      engagement: "12%",
+      roi: "3.2x"
+    }
+  },
+  // Add more projects...
+];
+```
+
+This setup makes it super easy for you to just paste in your video URLs and everything will work! 🚀

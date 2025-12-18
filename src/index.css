@@ -1670,3 +1670,120 @@
     }
   }
 }
+
+/* ============================================================
+   WORK THAT SPEAKS VOLUMES - FLOATING VIDEO CONTAINERS
+   ============================================================ */
+
+.work-speaks-section {
+  position: relative;
+  min-height: 1100px;
+  padding: 100px 60px 140px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.floating-videos-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Video 1 - Top Left */
+.floating-video-1 {
+  position: absolute;
+  top: 100px;
+  left: 80px;
+  width: 240px;
+  transform: rotate(-4deg);
+  z-index: 1;
+}
+
+/* Video 2 - Top Right */
+.floating-video-2 {
+  position: absolute;
+  top: 80px;
+  right: 120px;
+  width: 260px;
+  transform: rotate(3deg);
+  z-index: 2;
+}
+
+/* Video 3 - Middle Left */
+.floating-video-3 {
+  position: absolute;
+  top: 450px;
+  left: 180px;
+  width: 250px;
+  transform: rotate(-2deg);
+  z-index: 3;
+}
+
+/* Video 4 - Middle Right */
+.floating-video-4 {
+  position: absolute;
+  top: 420px;
+  right: 200px;
+  width: 270px;
+  transform: rotate(5deg);
+  z-index: 1;
+}
+
+/* Video 5 - Bottom Center */
+.floating-video-5 {
+  position: absolute;
+  top: 750px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 255px;
+  z-index: 2;
+}
+
+/* Base styling for all floating videos */
+.floating-video-1,
+.floating-video-2,
+.floating-video-3,
+.floating-video-4,
+.floating-video-5 {
+  aspect-ratio: 9/16;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(11, 13, 18, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(247, 248, 252, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.floating-video-1:hover,
+.floating-video-2:hover,
+.floating-video-3:hover,
+.floating-video-4:hover,
+.floating-video-5:hover {
+  transform: scale(1.05) translateY(-8px) rotate(0deg) !important;
+  box-shadow: 0 25px 70px rgba(13, 33, 161, 0.3);
+}
+
+/* Mobile Responsive - Stack vertically */
+@media (max-width: 1024px) {
+  .work-speaks-section {
+    min-height: auto;
+    padding: 80px 40px;
+  }
+  
+  .floating-video-1,
+  .floating-video-2,
+  .floating-video-3,
+  .floating-video-4,
+  .floating-video-5 {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    width: 280px !important;
+    margin: 0 auto 40px;
+    display: block;
+  }
+}
+

@@ -23,6 +23,15 @@ interface Project {
 
 const categories = ['All', 'AI Automation', 'Video Editing', 'Content Creation'];
 
+// ============================================================
+// 📁 PORTFOLIO PROJECTS (Our Work Section)
+// ============================================================
+// Instructions: Edit each project object below
+// - thumbnailVideo: Short preview (3-5 sec loop)
+// - fullVideo: Complete project video
+// - Update all text fields with your project details
+// ============================================================
+
 const projects: Project[] = [
   {
     id: 1,
