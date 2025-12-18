@@ -35,110 +35,110 @@ const categories = ['All', 'AI Automation', 'Video Editing', 'Content Creation']
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Product Launch Campaign',
-    client: 'TechBrand Inc',
+    title: 'Dynamic Motion Graphics Edit',
+    client: 'Content Creator Studio',
     category: 'Video Editing',
     thumbnail: 'https://images.unsplash.com/photo-1611339555312-e607c04352fa?w=400&q=80',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp4',
+    videoUrl: 'https://drive.google.com/uc?id=16up3KIlYn3Ituda8Il2nmumnj7yL_OfJ',
     viewCount: '2.5M views',
-    industry: 'Technology',
+    industry: 'Digital Content',
     platform: 'Instagram, YouTube',
-    challenge: 'TechBrand needed a compelling launch video for their new product that would capture attention in the first 3 seconds.',
-    solution: 'We created a fast-paced, visually stunning video with dynamic transitions and motion graphics that showcased the product\'s key features.',
+    challenge: 'Create eye-catching motion graphics that grab attention in the first 3 seconds.',
+    solution: 'Crafted dynamic animations with fast-paced transitions and visual effects.',
     results: {
-      stat1: { value: '2.5M', label: 'Total Views' },
+      stat1: { value: '95%', label: 'Visual Impact' },
       stat2: { value: '12%', label: 'Engagement Rate' },
-      stat3: { value: '3.2x', label: 'ROI Increase' },
+      stat3: { value: '3.2x', label: 'Shareability' },
     },
   },
   {
     id: 2,
-    title: 'Workflow Automation Suite',
-    client: 'Enterprise Solutions',
-    category: 'AI Automation',
+    title: 'Client Project Edit Showcase',
+    client: 'Video Production House',
+    category: 'Video Editing',
     thumbnail: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=400&q=80',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerEscapes.mp4',
+    videoUrl: 'https://drive.google.com/uc?id=1fz5MRhQdlCVSL_iFc8KcWd3ucNBKLG2z',
     viewCount: '1.8M views',
-    industry: 'Enterprise',
-    platform: 'Internal Systems',
-    challenge: 'Manual processes were costing the company hours of productivity each week.',
-    solution: 'We built an AI-powered automation system that streamlined their entire workflow.',
+    industry: 'Professional Services',
+    platform: 'Portfolio, Client Demos',
+    challenge: 'Present professional editing work that demonstrates technical skill and creativity.',
+    solution: 'Compiled best edited sequences with color grading and sound design.',
     results: {
-      stat1: { value: '85%', label: 'Time Saved' },
-      stat2: { value: '40%', label: 'Cost Reduction' },
-      stat3: { value: '10x', label: 'Efficiency Gain' },
+      stat1: { value: '88%', label: 'Client Satisfaction' },
+      stat2: { value: '40%', label: 'Project Increase' },
+      stat3: { value: '4.5x', label: 'Referrals' },
     },
   },
   {
     id: 3,
-    title: 'Social Media Strategy',
-    client: 'Fashion Forward',
-    category: 'Content Creation',
+    title: 'Before & After Edit Transformation',
+    client: 'Educational Content',
+    category: 'Video Editing',
     thumbnail: 'https://images.unsplash.com/photo-1533627332313-be7b99c9cda1?w=400&q=80',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerJoyrides.mp4',
+    videoUrl: 'https://drive.google.com/uc?id=1SZcKdV9HNrirmp59d1amMydsENprrt_I',
     viewCount: '950K views',
-    industry: 'Fashion',
-    platform: 'TikTok, Instagram',
-    challenge: 'Brand needed to connect with Gen-Z audience and increase social presence.',
-    solution: 'Developed a trend-driven content strategy with viral-worthy short-form videos.',
+    industry: 'Digital Education',
+    platform: 'YouTube, TikTok',
+    challenge: 'Show the dramatic transformation that professional editing provides.',
+    solution: 'Highlighted raw footage vs polished final edit with detailed explanations.',
     results: {
-      stat1: { value: '950K', label: 'Total Views' },
-      stat2: { value: '125K', label: 'New Followers' },
-      stat3: { value: '8.5%', label: 'Engagement Rate' },
+      stat1: { value: '850K', label: 'Views' },
+      stat2: { value: '125K', label: 'Engagement' },
+      stat3: { value: '8.5%', label: 'Conversion Rate' },
     },
   },
   {
     id: 4,
-    title: 'Brand Documentary',
-    client: 'Luxury Motors',
+    title: 'CEO Interview Motion Design',
+    client: 'Corporate Communications',
     category: 'Video Editing',
     thumbnail: 'https://images.unsplash.com/photo-1516321318423-f06f70570ec0?w=400&q=80',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ElephantsDream.mp4',
+    videoUrl: 'https://drive.google.com/uc?id=1hzz0ro9jyhCmcKGDHw4V-jrd2Wpnf-kE',
     viewCount: '5.2M views',
-    industry: 'Automotive',
-    platform: 'YouTube, Website',
-    challenge: 'Luxury Motors wanted to tell their heritage story in a compelling cinematic way.',
-    solution: 'We produced a documentary-style brand film with premium cinematography and storytelling.',
+    industry: 'Corporate',
+    platform: 'LinkedIn, YouTube',
+    challenge: 'Transform a simple interview into an engaging motion graphics piece.',
+    solution: 'Added kinetic typography, smooth transitions, and corporate branding.',
     results: {
       stat1: { value: '5.2M', label: 'Total Views' },
       stat2: { value: '45%', label: 'Brand Recall' },
-      stat3: { value: '2.8x', label: 'Lead Increase' },
+      stat3: { value: '2.8x', label: 'Engagement' },
     },
   },
   {
     id: 5,
-    title: 'Customer Service Bot',
-    client: 'FinTech Pro',
-    category: 'AI Automation',
+    title: 'Inspirational Motion Quote Edit',
+    client: 'Motivational Content',
+    category: 'Video Editing',
     thumbnail: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/BigBuckBunny.mp4',
+    videoUrl: 'https://drive.google.com/uc?id=1UYMv2Sk50FOxR3-8-KDmL5ibL4BJ0AnY',
     viewCount: '3.1M views',
-    industry: 'Finance',
-    platform: 'Website, App',
-    challenge: 'Support team was overwhelmed with repetitive customer inquiries.',
-    solution: 'Implemented an AI chatbot that handles 80% of customer queries automatically.',
+    industry: 'Digital Content',
+    platform: 'Instagram, YouTube',
+    challenge: 'Create shareable motivational content with powerful visuals and messaging.',
+    solution: 'Layered premium transitions with text animations and cinematic color grading.',
     results: {
-      stat1: { value: '80%', label: 'Queries Automated' },
-      stat2: { value: '24/7', label: 'Availability' },
-      stat3: { value: '92%', label: 'Satisfaction Rate' },
+      stat1: { value: '80%', label: 'Shareability' },
+      stat2: { value: '24/7', label: 'Engagement Window' },
+      stat3: { value: '92%', label: 'Completion Rate' },
     },
   },
   {
     id: 6,
-    title: 'Influencer Campaign',
-    client: 'Beauty Brand Co',
-    category: 'Content Creation',
+    title: 'Creative Editing Portfolio Piece',
+    client: 'Digital Agency',
+    category: 'Video Editing',
     thumbnail: 'https://images.unsplash.com/photo-1489749798305-4fea3ba63d60?w=400&q=80',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/Sintel.mp4',
+    videoUrl: 'https://drive.google.com/uc?id=1eSAEIyS3465wDik94mj1fgtNKfShcVCX',
     viewCount: '680K views',
-    industry: 'Beauty',
-    platform: 'Instagram, YouTube',
-    challenge: 'Needed to launch new product line with authentic influencer partnerships.',
-    solution: 'Coordinated a multi-influencer campaign with custom content for each creator.',
+    industry: 'Creative Services',
+    platform: 'Portfolio, Demos',
+    challenge: 'Showcase cutting-edge editing techniques and creative storytelling.',
+    solution: 'Combined advanced color grading, VFX, and cinematic camera techniques.',
     results: {
       stat1: { value: '680K', label: 'Total Views' },
-      stat2: { value: '15K', label: 'Sales Generated' },
-      stat3: { value: '4.5x', label: 'ROAS' },
+      stat2: { value: '15K', label: 'Inquiries' },
+      stat3: { value: '4.5x', label: 'Project ROI' },
     },
   },
 ];
@@ -254,8 +254,6 @@ export default function OurWorkPortfolio() {
               >
                 <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
                   <video
-                    autoPlay
-                    loop
                     muted
                     playsInline
                     className="w-full h-full object-cover"
@@ -285,7 +283,7 @@ export default function OurWorkPortfolio() {
                 </div>
 
                 <div className="p-6">
-                  <div className="flex justify-between items-center mb-3">
+                  <div className="mb-3">
                     <span
                       className="px-4 py-1.5 rounded-full font-inter text-xs font-semibold uppercase"
                       style={{
@@ -295,9 +293,6 @@ export default function OurWorkPortfolio() {
                       }}
                     >
                       {project.category}
-                    </span>
-                    <span className="font-inter text-sm" style={{ color: 'rgba(247, 248, 252, 0.6)' }}>
-                      {project.viewCount}
                     </span>
                   </div>
                   <h3 className="font-montreal text-xl font-semibold text-soft-white mb-2">
@@ -354,7 +349,6 @@ export default function OurWorkPortfolio() {
             >
               <video
                 controls
-                autoPlay
                 className="w-full h-full"
               >
                 <source src={selectedProject.videoUrl} type="video/mp4" />
