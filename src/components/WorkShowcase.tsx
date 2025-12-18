@@ -89,6 +89,7 @@ export default function WorkShowcase() {
                     border: '1px solid rgba(247, 248, 252, 0.1)',
                     boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
                     transform: `rotate(${video.rotation}deg)`,
+                    willChange: 'transform',
                   }}
                 >
                   <video
@@ -96,7 +97,10 @@ export default function WorkShowcase() {
                     loop
                     muted
                     playsInline
+                    preload="metadata"
+                    crossOrigin="anonymous"
                     className="w-full h-full object-cover"
+                    style={{ willChange: 'auto' }}
                   >
                     <source src={video.videoUrl} type="video/mp4" />
                   </video>
@@ -132,6 +136,7 @@ export default function WorkShowcase() {
                     border: '1px solid rgba(247, 248, 252, 0.1)',
                     boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
                     transform: `rotate(${video.rotation}deg)`,
+                    willChange: 'transform',
                   }}
                 >
                   <video
@@ -139,7 +144,10 @@ export default function WorkShowcase() {
                     loop
                     muted
                     playsInline
+                    preload="metadata"
+                    crossOrigin="anonymous"
                     className="w-full h-full object-cover"
+                    style={{ willChange: 'auto' }}
                   >
                     <source src={video.videoUrl} type="video/mp4" />
                   </video>
