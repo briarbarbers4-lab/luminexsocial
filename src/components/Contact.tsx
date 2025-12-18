@@ -36,9 +36,9 @@ const socialLinks = [
 ];
 
 export default function Contact() {
-  const { ref: contentRef, isVisible: contentVisible } = useScrollReveal();
-  const { ref: formRef, isVisible: formVisible } = useScrollReveal();
-  const { ref: infoRef, isVisible: infoVisible } = useScrollReveal();
+  const { ref: contentRef } = useScrollReveal();
+  const { ref: formRef } = useScrollReveal();
+  const { ref: infoRef } = useScrollReveal();
 
   const [formData, setFormData] = useState<FormData>({
     name: '',

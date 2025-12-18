@@ -81,13 +81,14 @@ export default function WorkShowcase() {
                 }}
               >
                 <div
-                  className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                  className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_30px_60px_rgba(13,33,161,0.4)] hover:scale-105 transition-all duration-300 cursor-pointer"
                   style={{
                     width: '280px',
                     aspectRatio: '9/16',
-                    background: 'rgba(11, 13, 18, 0.9)',
-                    border: '1px solid rgba(247, 248, 252, 0.1)',
-                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                    background: 'rgba(11, 13, 18, 0.8)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(13, 33, 161, 0.3)',
+                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(247, 248, 252, 0.1)',
                     transform: `rotate(${video.rotation}deg)`,
                     willChange: 'transform',
                   }}
@@ -128,13 +129,14 @@ export default function WorkShowcase() {
                 }}
               >
                 <div
-                  className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                  className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_30px_60px_rgba(13,33,161,0.4)] hover:scale-105 transition-all duration-300 cursor-pointer"
                   style={{
                     width: '280px',
                     aspectRatio: '9/16',
-                    background: 'rgba(11, 13, 18, 0.9)',
-                    border: '1px solid rgba(247, 248, 252, 0.1)',
-                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                    background: 'rgba(11, 13, 18, 0.8)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(13, 33, 161, 0.3)',
+                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(247, 248, 252, 0.1)',
                     transform: `rotate(${video.rotation}deg)`,
                     willChange: 'transform',
                   }}

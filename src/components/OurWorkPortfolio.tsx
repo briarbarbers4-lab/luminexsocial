@@ -242,13 +242,14 @@ export default function OurWorkPortfolio() {
               <div
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
-                className={`group relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ${
+                className={`group relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(13,33,161,0.3)] ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{
-                  background: 'rgba(11, 13, 18, 0.4)',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(247, 248, 252, 0.1)',
+                  background: 'rgba(11, 13, 18, 0.6)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(13, 33, 161, 0.2)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(247, 248, 252, 0.05)',
                   transitionDelay: `${index * 100}ms`,
                 }}
               >
