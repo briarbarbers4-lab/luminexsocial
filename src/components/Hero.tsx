@@ -16,7 +16,7 @@ export default function Hero() {
           </div>
         }>
           <SplineViewer
-            url="https://prod.spline.design/jmsyyAFVhJVBXZuC/scene.splinecode"
+            url="https://prod.spline.design/cm5Ra51sHaI9b732/scene.splinecode"
             className="w-full h-full"
           />
         </Suspense>
@@ -64,7 +64,7 @@ export default function Hero() {
             }}
             data-testid="heading-hero-title"
           >
-            Transform Your Brand With AI & Video
+            Transform Your Brand With AI Automation & Professional Video Editing
           </h1>
 
           <h2 
@@ -77,7 +77,7 @@ export default function Hero() {
             }}
             data-testid="heading-hero-subtitle"
           >
-            AI Automation & Video Editing That Scales Your Business While You Sleep
+            Build Bulletproof Content Flywheels That Drive Real Growth
           </h2>
 
           <p 
@@ -90,7 +90,7 @@ export default function Hero() {
             }}
             data-testid="text-hero-description"
           >
-            We help businesses automate workflows, create scroll-stopping video content, and build AI-powered systems that drive real results. From concept to conversion—we handle it all.
+            Luminex Social is a leading AI automation and video editing agency specializing in short-form content for Instagram Reels, TikTok, and YouTube Shorts. From concept to viral content, we build systems that scale your business while you sleep.
           </p>
 
           <div 
