@@ -12,6 +12,8 @@ export default defineConfig({
     port: 5000,
     strictPort: true,
     cors: true,
-    allowedHosts: true as unknown as string[],
+    hmr: {
+      clientPort: 443,
+    },
   },
 });
