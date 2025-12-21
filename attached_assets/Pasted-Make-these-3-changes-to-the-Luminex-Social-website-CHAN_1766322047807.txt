@@ -1,0 +1,97 @@
+Make these 3 changes to the Luminex Social website:
+
+=== CHANGE 1: Fix "Additional Services" Section Spacing ===
+
+Find the "Additional Services" section (between "What We Do" and "Our Work").
+Reduce excessive vertical spacing:
+
+- Section padding-top: 60px (reduce from current)
+- Section padding-bottom: 60px (reduce from current)
+- margin-top: 40px (if any, reduce it)
+
+Make spacing consistent with other sections. This section should not have more space than "What We Do" or "Our Work".
+
+=== CHANGE 2: Show Video Thumbnails in "Our Work" Cards ===
+
+In the "Our Work" portfolio section:
+
+1. Ensure each project card shows the VIDEO thumbnail (not placeholder)
+2. Video should auto-play on hover (muted, loop)
+3. Add TWO more project cards (total should be 6+ cards)
+
+New project card template:
+```javascript
+{
+  id: 6,
+  title: "Social Media Campaign",
+  client: "Brand Name",
+  category: "Video Editing",
+  views: "1.5M",
+  thumbnailVideo: "YOUR_THUMBNAIL_URL_6.mp4",
+  fullVideo: "YOUR_FULL_VIDEO_URL_6.mp4",
+  industry: "Marketing",
+  platform: "Instagram, TikTok",
+  challenge: "Challenge description",
+  solution: "Solution description",
+  results: { views: "1.5M", engagement: "14%", roi: "3.5x" }
+},
+{
+  id: 7,
+  title: "Product Demo Video",
+  client: "Startup Co",
+  category: "Content Creation",
+  views: "800K",
+  thumbnailVideo: "YOUR_THUMBNAIL_URL_7.mp4",
+  fullVideo: "YOUR_FULL_VIDEO_URL_7.mp4",
+  industry: "Technology",
+  platform: "YouTube, Website",
+  challenge: "Challenge description",
+  solution: "Solution description",
+  results: { views: "800K", engagement: "11%", roi: "2.9x" }
+}
+```
+
+Ensure videos display properly in cards (not black placeholders).
+
+=== CHANGE 3: Update Navigation & Add Logo ===
+
+NAVIGATION MENU:
+Remove "Process" and "Contact" pages.
+New navigation order: Home, Services, Portfolio, Blogs
+
+Header structure:
+- LEFT: Company logo (add logo image or text "Luminex Social")
+- CENTER: Nav links (Home, Services, Portfolio, Blogs)
+- RIGHT: "Get Started" button
+
+Logo specifications:
+- If logo image exists: width: 140px, height: auto
+- If text logo: font "Coolvetica", size 24px, color #F7F8FC
+- Make logo clickable (links to homepage)
+
+Navigation links should update to match:
+```html
+<nav>
+  <a href="/">Home</a>
+  <a href="/services">Services</a>
+  <a href="/portfolio">Portfolio</a>
+  <a href="/blogs">Blogs</a>
+</nav>
+```
+
+Remove any references to "Process" and "Contact" pages from:
+- Header navigation
+- Footer links (if any)
+- Internal links throughout site
+
+HEADER LAYOUT (glassmorphic pill):
+[Logo]  [Home] [Services] [Portfolio] [Blogs]  [Get Started Button]
+LEFT              CENTER                              RIGHT
+
+Keep header centered, rounded (pill shape), glassmorphic style.
+
+=== SUMMARY ===
+
+1. ✅ Reduce spacing in "Additional Services" section
+2. ✅ Show video thumbnails in "Our Work" + add 2 more project cards (total 6+)
+3. ✅ Update nav to: Home, Services, Portfolio, Blogs + add logo on left

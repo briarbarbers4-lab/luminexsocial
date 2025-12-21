@@ -5,9 +5,8 @@ import { Menu, X } from 'lucide-react';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/services' },
-  { name: 'Work', path: '/portfolio' },
-  { name: 'Process', path: '/about' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'Portfolio', path: '/portfolio' },
+  { name: 'Blogs', path: '/blog' },
 ];
 
 export default function Navigation() {
@@ -48,7 +47,7 @@ export default function Navigation() {
       <header
         className="fixed top-6 left-1/2 -translate-x-1/2 z-[1000] transition-all duration-300"
         style={{
-          maxWidth: '580px',
+          maxWidth: '900px',
           width: 'calc(100% - 32px)',
           height: '56px',
           background: isScrolled 
@@ -64,6 +63,13 @@ export default function Navigation() {
         data-testid="navigation-header"
       >
         <div className="flex items-center justify-between h-full gap-4">
+          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
+            <img 
+              src="https://ik.imagekit.io/luminexsocial/Logo_V1.png?updatedAt=1765875231435" 
+              alt="Luminex Social" 
+              className="h-8 w-auto"
+            />
+          </Link>
           <nav className="hidden lg:flex items-center gap-7" data-testid="nav-desktop">
             {navLinks.map((link) => (
               <Link
@@ -84,7 +90,7 @@ export default function Navigation() {
 
           <Link
             to="/contact"
-            className="hidden lg:block px-6 py-2.5 bg-royal-blue text-soft-white font-montreal text-sm font-semibold rounded-full hover:scale-105 hover:shadow-[0_0_24px_rgba(13,33,161,0.6)] transition-all duration-300 ml-auto"
+            className="hidden lg:block px-6 py-2.5 bg-royal-blue text-soft-white font-montreal text-sm font-semibold rounded-full hover:scale-105 hover:shadow-[0_0_24px_rgba(13,33,161,0.6)] transition-all duration-300 ml-auto flex-shrink-0"
             data-testid="button-get-started"
           >
             Get Started
@@ -151,7 +157,7 @@ export default function Navigation() {
             onClick={() => setIsOpen(false)}
             className="px-8 py-3 bg-royal-blue text-soft-white font-montreal font-semibold rounded-full hover:shadow-[0_0_24px_rgba(13,33,161,0.6)] transition-all duration-300"
             style={{
-              animation: isOpen ? 'fadeInUp 0.5s ease-out 0.48s forwards' : 'none',
+              animation: isOpen ? 'fadeInUp 0.5s ease-out 0.40s forwards' : 'none',
               opacity: 0,
             }}
             data-testid="button-mobile-get-started"

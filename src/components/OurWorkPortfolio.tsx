@@ -141,6 +141,42 @@ const projects: Project[] = [
       stat3: { value: '4.5x', label: 'Project ROI' },
     },
   },
+  {
+    id: 7,
+    title: 'Social Media Campaign',
+    client: 'Brand Name',
+    category: 'Video Editing',
+    thumbnail: 'https://images.unsplash.com/photo-1533390523613-b8f21e528319?w=400&q=80',
+    videoUrl: 'https://drive.google.com/uc?id=1UYMv2Sk50FOxR3-8-KDmL5ibL4BJ0AnY',
+    viewCount: '1.5M views',
+    industry: 'Marketing',
+    platform: 'Instagram, TikTok',
+    challenge: 'Create engaging social media content that drives brand awareness and engagement.',
+    solution: 'Produced fast-paced, trend-focused content with professional editing and sound design.',
+    results: {
+      stat1: { value: '1.5M', label: 'Total Views' },
+      stat2: { value: '14%', label: 'Engagement Rate' },
+      stat3: { value: '3.5x', label: 'ROI' },
+    },
+  },
+  {
+    id: 8,
+    title: 'Product Demo Video',
+    client: 'Startup Co',
+    category: 'Content Creation',
+    thumbnail: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80',
+    videoUrl: 'https://drive.google.com/uc?id=1hzz0ro9jyhCmcKGDHw4V-jrd2Wpnf-kE',
+    viewCount: '800K views',
+    industry: 'Technology',
+    platform: 'YouTube, Website',
+    challenge: 'Explain complex product features in an engaging and easy-to-understand way.',
+    solution: 'Created professional demo with screen recordings, animations, and clear narration.',
+    results: {
+      stat1: { value: '800K', label: 'Total Views' },
+      stat2: { value: '11%', label: 'Engagement Rate' },
+      stat3: { value: '2.9x', label: 'ROI' },
+    },
+  },
 ];
 
 export default function OurWorkPortfolio() {
@@ -257,10 +293,22 @@ export default function OurWorkPortfolio() {
                   <video
                     muted
                     playsInline
-                    className="w-full h-full object-cover"
+                    loop
+                    autoPlay={false}
+                    className="w-full h-full object-cover group-hover:block hidden"
+                    onMouseEnter={(e) => e.currentTarget.play()}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.pause();
+                      e.currentTarget.currentTime = 0;
+                    }}
                   >
                     <source src={project.videoUrl} type="video/mp4" />
                   </video>
+                  <img
+                    src={project.thumbnail}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:hidden"
+                  />
 
                   <div
                     className="absolute inset-0 flex flex-col items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"

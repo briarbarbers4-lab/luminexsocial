@@ -2,7 +2,7 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail } from 'lucide-react';
 
 const footerLinks = {
   services: ['AI Automation', 'Video Editing', 'Content Creation'],
-  company: ['About Us', 'Our Process', 'Case Studies', 'Careers'],
+  company: ['About Us', 'Case Studies', 'Careers'],
   contact: ['ayyan@luminexsocial.com', '+923145659189', 'Schedule a Call', 'Support'],
 };
 
