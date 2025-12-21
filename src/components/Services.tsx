@@ -156,7 +156,7 @@ export default function Services() {
         </div>
 
         {/* Sub-Services Grid */}
-        <div className="mt-20">
+        <div className="mt-20 pt-0 pb-0">
           <h3 
             className={`font-coolvetica text-3xl md:text-4xl text-soft-white text-center mb-12 transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
