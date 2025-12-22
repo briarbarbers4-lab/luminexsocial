@@ -105,7 +105,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-royal-blue/20">
           <p className="font-inter text-soft-white/60 text-sm mb-4 md:mb-0">
-            © 2025 Luminex Social. All rights reserved.
+            © 2024 Luminex Social. All rights reserved.
           </p>
 
           <div className="flex gap-4">
