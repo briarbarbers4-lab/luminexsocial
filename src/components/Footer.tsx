@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Linkedin, Mail } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Youtube } from 'lucide-react';
 
 const footerLinks = {
   services: ['AI Automation', 'Video Editing', 'Content Creation'],
@@ -7,10 +7,9 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Facebook, label: 'Facebook' },
-  { icon: Twitter, label: 'Twitter' },
-  { icon: Instagram, label: 'Instagram' },
-  { icon: Linkedin, label: 'LinkedIn' },
+  { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/luminex.social/' },
+  { icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@luminex.social' },
+  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/company/luminex-social/' },
 ];
 
 export default function Footer() {
@@ -113,7 +112,9 @@ export default function Footer() {
             {socialLinks.map((social, index) => (
               <a
                 key={index}
-                href="#"
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-royal-blue/10 hover:bg-royal-blue/20 border border-royal-blue/20 flex items-center justify-center transition-all group"
                 aria-label={social.label}
               >

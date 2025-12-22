@@ -1,12 +1,11 @@
-import { Mail, Phone, MapPin, Clock, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { useEffect } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const socialLinks = [
-  { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
+  { icon: Instagram, href: 'https://www.instagram.com/luminex.social/', label: 'Instagram' },
+  { icon: Youtube, href: 'https://www.youtube.com/@luminex.social', label: 'YouTube' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/luminex-social/', label: 'LinkedIn' },
 ];
 
 export default function Contact() {
@@ -130,6 +129,8 @@ export default function Contact() {
                     <a
                       key={index}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label={social.label}
                       className="p-3 rounded-lg bg-soft-white/5 border border-royal-blue/20 text-soft-white hover:bg-royal-blue/20 hover:border-royal-blue/50 hover:text-royal-blue transition-all duration-300 transform hover:scale-110"
                     >
