@@ -6,7 +6,7 @@ interface Project {
   id: number;
   title: string;
   client: string;
-  category: 'AI Automation' | 'Video Editing' | 'Content Creation';
+  category: 'AI Automation' | 'Content Creation';
   thumbnail: string;
   videoUrl: string;
   viewCount: string;
@@ -21,7 +21,7 @@ interface Project {
   };
 }
 
-const categories = ['All', 'AI Automation', 'Video Editing', 'Content Creation'];
+const categories = ['All', 'AI Automation', 'Content Creation'];
 
 // ============================================================
 // 📁 PORTFOLIO PROJECTS (Our Work Section)
@@ -37,7 +37,7 @@ const projects: Project[] = [
     id: 1,
     title: 'Dynamic Motion Graphics Edit',
     client: 'Content Creator Studio',
-    category: 'Video Editing',
+    category: 'Content Creation',
     thumbnail: 'https://images.unsplash.com/photo-1611339555312-e607c04352fa?w=400&q=80',
     videoUrl: 'https://drive.google.com/uc?id=16up3KIlYn3Ituda8Il2nmumnj7yL_OfJ',
     viewCount: '2.5M views',
@@ -55,7 +55,7 @@ const projects: Project[] = [
     id: 2,
     title: 'Client Project Edit Showcase',
     client: 'Video Production House',
-    category: 'Video Editing',
+    category: 'Content Creation',
     thumbnail: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=400&q=80',
     videoUrl: 'https://drive.google.com/uc?id=1fz5MRhQdlCVSL_iFc8KcWd3ucNBKLG2z',
     viewCount: '1.8M views',
@@ -71,96 +71,24 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: 'Before & After Edit Transformation',
-    client: 'Educational Content',
-    category: 'Video Editing',
-    thumbnail: 'https://images.unsplash.com/photo-1533627332313-be7b99c9cda1?w=400&q=80',
-    videoUrl: 'https://drive.google.com/uc?id=1SZcKdV9HNrirmp59d1amMydsENprrt_I',
-    viewCount: '950K views',
-    industry: 'Digital Education',
-    platform: 'YouTube, TikTok',
-    challenge: 'Show the dramatic transformation that professional editing provides.',
-    solution: 'Highlighted raw footage vs polished final edit with detailed explanations.',
-    results: {
-      stat1: { value: '850K', label: 'Views' },
-      stat2: { value: '125K', label: 'Engagement' },
-      stat3: { value: '8.5%', label: 'Conversion Rate' },
-    },
-  },
-  {
-    id: 4,
-    title: 'CEO Interview Motion Design',
-    client: 'Corporate Communications',
-    category: 'Video Editing',
+    title: 'Lead Generation Automation',
+    client: 'Digital Marketing Agency',
+    category: 'AI Automation',
     thumbnail: 'https://images.unsplash.com/photo-1516321318423-f06f70570ec0?w=400&q=80',
     videoUrl: 'https://drive.google.com/uc?id=1hzz0ro9jyhCmcKGDHw4V-jrd2Wpnf-kE',
     viewCount: '5.2M views',
     industry: 'Corporate',
     platform: 'LinkedIn, YouTube',
-    challenge: 'Transform a simple interview into an engaging motion graphics piece.',
-    solution: 'Added kinetic typography, smooth transitions, and corporate branding.',
+    challenge: 'Automate lead generation and qualification to increase sales team efficiency.',
+    solution: 'Implemented AI-powered lead qualification system with automated follow-ups.',
     results: {
-      stat1: { value: '5.2M', label: 'Total Views' },
-      stat2: { value: '45%', label: 'Brand Recall' },
-      stat3: { value: '2.8x', label: 'Engagement' },
+      stat1: { value: '5.2M', label: 'Total Leads' },
+      stat2: { value: '45%', label: 'Qualification Rate' },
+      stat3: { value: '2.8x', label: 'Conversion' },
     },
   },
   {
-    id: 5,
-    title: 'Inspirational Motion Quote Edit',
-    client: 'Motivational Content',
-    category: 'Video Editing',
-    thumbnail: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80',
-    videoUrl: 'https://drive.google.com/uc?id=1UYMv2Sk50FOxR3-8-KDmL5ibL4BJ0AnY',
-    viewCount: '3.1M views',
-    industry: 'Digital Content',
-    platform: 'Instagram, YouTube',
-    challenge: 'Create shareable motivational content with powerful visuals and messaging.',
-    solution: 'Layered premium transitions with text animations and cinematic color grading.',
-    results: {
-      stat1: { value: '80%', label: 'Shareability' },
-      stat2: { value: '24/7', label: 'Engagement Window' },
-      stat3: { value: '92%', label: 'Completion Rate' },
-    },
-  },
-  {
-    id: 6,
-    title: 'Creative Editing Portfolio Piece',
-    client: 'Digital Agency',
-    category: 'Video Editing',
-    thumbnail: 'https://images.unsplash.com/photo-1489749798305-4fea3ba63d60?w=400&q=80',
-    videoUrl: 'https://drive.google.com/uc?id=1eSAEIyS3465wDik94mj1fgtNKfShcVCX',
-    viewCount: '680K views',
-    industry: 'Creative Services',
-    platform: 'Portfolio, Demos',
-    challenge: 'Showcase cutting-edge editing techniques and creative storytelling.',
-    solution: 'Combined advanced color grading, VFX, and cinematic camera techniques.',
-    results: {
-      stat1: { value: '680K', label: 'Total Views' },
-      stat2: { value: '15K', label: 'Inquiries' },
-      stat3: { value: '4.5x', label: 'Project ROI' },
-    },
-  },
-  {
-    id: 7,
-    title: 'Social Media Campaign',
-    client: 'Brand Name',
-    category: 'Video Editing',
-    thumbnail: 'https://images.unsplash.com/photo-1533390523613-b8f21e528319?w=400&q=80',
-    videoUrl: 'https://drive.google.com/uc?id=1UYMv2Sk50FOxR3-8-KDmL5ibL4BJ0AnY',
-    viewCount: '1.5M views',
-    industry: 'Marketing',
-    platform: 'Instagram, TikTok',
-    challenge: 'Create engaging social media content that drives brand awareness and engagement.',
-    solution: 'Produced fast-paced, trend-focused content with professional editing and sound design.',
-    results: {
-      stat1: { value: '1.5M', label: 'Total Views' },
-      stat2: { value: '14%', label: 'Engagement Rate' },
-      stat3: { value: '3.5x', label: 'ROI' },
-    },
-  },
-  {
-    id: 8,
+    id: 4,
     title: 'Product Demo Video',
     client: 'Startup Co',
     category: 'Content Creation',
@@ -271,7 +199,7 @@ export default function OurWorkPortfolio() {
           <div
             className="grid gap-8 mt-16 max-w-[1400px] mx-auto"
             style={{
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gridTemplateColumns: 'repeat(2, 1fr)',
             }}
           >
             {filteredProjects.map((project, index) => (
