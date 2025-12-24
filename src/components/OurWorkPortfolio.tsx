@@ -229,6 +229,7 @@ export default function OurWorkPortfolio() {
                       e.currentTarget.pause();
                       e.currentTarget.currentTime = 0;
                     }}
+                    preload="none"
                   >
                     <source src={project.videoUrl} type="video/mp4" />
                   </video>
@@ -236,6 +237,8 @@ export default function OurWorkPortfolio() {
                     src={project.thumbnail}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:hidden"
+                    loading="lazy"
+                    decoding="async"
                   />
 
                   <div

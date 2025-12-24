@@ -1,11 +1,19 @@
+import { lazy, Suspense } from 'react';
 import Hero from '../components/Hero';
-import WorkShowcase from '../components/WorkShowcase';
-import Services from '../components/Services';
-import OurWorkPortfolio from '../components/OurWorkPortfolio';
-import Process from '../components/Process';
-import Testimonials from '../components/Testimonials';
-import Contact from '../components/Contact';
 import PageTransition from '../components/PageTransition';
+
+const WorkShowcase = lazy(() => import('../components/WorkShowcase'));
+const Services = lazy(() => import('../components/Services'));
+const OurWorkPortfolio = lazy(() => import('../components/OurWorkPortfolio'));
+const Process = lazy(() => import('../components/Process'));
+const Testimonials = lazy(() => import('../components/Testimonials'));
+const Contact = lazy(() => import('../components/Contact'));
+
+const SectionSuspense = ({ children }: { children: React.ReactNode }) => (
+  <Suspense fallback={<div className="min-h-screen bg-primary-dark" />}>
+    {children}
+  </Suspense>
+);
 
 export default function HomePage() {
   return (
@@ -13,24 +21,36 @@ export default function HomePage() {
       <section id="hero" className="relative">
         <Hero />
       </section>
-      <section id="videos">
-        <WorkShowcase />
-      </section>
-      <section id="services" className="relative">
-        <Services />
-      </section>
-      <section id="portfolio">
-        <OurWorkPortfolio />
-      </section>
-      <section id="process">
-        <Process />
-      </section>
-      <section id="testimonials">
-        <Testimonials />
-      </section>
-      <section id="contact">
-        <Contact />
-      </section>
+      <SectionSuspense>
+        <section id="videos">
+          <WorkShowcase />
+        </section>
+      </SectionSuspense>
+      <SectionSuspense>
+        <section id="services" className="relative">
+          <Services />
+        </section>
+      </SectionSuspense>
+      <SectionSuspense>
+        <section id="portfolio">
+          <OurWorkPortfolio />
+        </section>
+      </SectionSuspense>
+      <SectionSuspense>
+        <section id="process">
+          <Process />
+        </section>
+      </SectionSuspense>
+      <SectionSuspense>
+        <section id="testimonials">
+          <Testimonials />
+        </section>
+      </SectionSuspense>
+      <SectionSuspense>
+        <section id="contact">
+          <Contact />
+        </section>
+      </SectionSuspense>
     </PageTransition>
   );
 }
