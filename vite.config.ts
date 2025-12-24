@@ -33,17 +33,10 @@ export default defineConfig({
       output: {
         manualChunks: {
           'vendor': ['react', 'react-dom', 'react-router-dom'],
-          'spline': ['@splinetool/runtime'],
         },
       },
     },
     chunkSizeWarningLimit: 1000,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-      },
-    },
   },
   server: {
     host: '0.0.0.0',
