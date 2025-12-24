@@ -9,6 +9,7 @@ interface Project {
   category: 'AI Automation' | 'Content Creation';
   thumbnail: string;
   videoUrl: string;
+  youtubeId?: string;
   viewCount: string;
   industry: string;
   platform: string;
@@ -35,74 +36,78 @@ const categories = ['All', 'AI Automation', 'Content Creation'];
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Dynamic Motion Graphics Edit',
-    client: 'Content Creator Studio',
+    title: 'YouTube Video 1 - High Energy Content',
+    client: 'Luminex Social',
     category: 'Content Creation',
-    thumbnail: 'https://images.unsplash.com/photo-1611339555312-e607c04352fa?w=400&q=80',
-    videoUrl: 'https://drive.google.com/uc?id=16up3KIlYn3Ituda8Il2nmumnj7yL_OfJ',
+    thumbnail: 'https://img.youtube.com/vi/VfqcZs9-tj4/maxresdefault.jpg',
+    videoUrl: '',
+    youtubeId: 'VfqcZs9-tj4',
     viewCount: '2.5M views',
     industry: 'Digital Content',
-    platform: 'Instagram, YouTube',
-    challenge: 'Create eye-catching motion graphics that grab attention in the first 3 seconds.',
-    solution: 'Crafted dynamic animations with fast-paced transitions and visual effects.',
+    platform: 'YouTube',
+    challenge: 'Create engaging short-form video content that captures attention instantly.',
+    solution: 'Produced high-quality video with dynamic pacing, trending audio, and professional editing.',
     results: {
-      stat1: { value: '95%', label: 'Visual Impact' },
+      stat1: { value: '2.5M', label: 'Total Views' },
       stat2: { value: '12%', label: 'Engagement Rate' },
       stat3: { value: '3.2x', label: 'Shareability' },
     },
   },
   {
     id: 2,
-    title: 'Client Project Edit Showcase',
-    client: 'Video Production House',
+    title: 'YouTube Video 2 - Professional Production',
+    client: 'Luminex Social',
     category: 'Content Creation',
-    thumbnail: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=400&q=80',
-    videoUrl: 'https://drive.google.com/uc?id=1fz5MRhQdlCVSL_iFc8KcWd3ucNBKLG2z',
+    thumbnail: 'https://img.youtube.com/vi/KNWDCaKQADs/maxresdefault.jpg',
+    videoUrl: '',
+    youtubeId: 'KNWDCaKQADs',
     viewCount: '1.8M views',
     industry: 'Professional Services',
-    platform: 'Portfolio, Client Demos',
-    challenge: 'Present professional editing work that demonstrates technical skill and creativity.',
-    solution: 'Compiled best edited sequences with color grading and sound design.',
+    platform: 'YouTube',
+    challenge: 'Demonstrate professional editing and production quality for portfolio impact.',
+    solution: 'Compiled premium editing sequences with color grading, sound design, and motion graphics.',
     results: {
-      stat1: { value: '88%', label: 'Client Satisfaction' },
-      stat2: { value: '40%', label: 'Project Increase' },
-      stat3: { value: '4.5x', label: 'Referrals' },
+      stat1: { value: '1.8M', label: 'Total Views' },
+      stat2: { value: '40%', label: 'Audience Growth' },
+      stat3: { value: '4.5x', label: 'Engagement' },
     },
   },
   {
     id: 3,
-    title: 'Lead Generation Automation',
-    client: 'Digital Marketing Agency',
+    title: 'YouTube Video 3 - Marketing Strategy',
+    client: 'Luminex Social',
     category: 'AI Automation',
-    thumbnail: 'https://images.unsplash.com/photo-1516321318423-f06f70570ec0?w=400&q=80',
-    videoUrl: 'https://drive.google.com/uc?id=1hzz0ro9jyhCmcKGDHw4V-jrd2Wpnf-kE',
+    thumbnail: 'https://img.youtube.com/vi/xqKcV_bAsbM/maxresdefault.jpg',
+    videoUrl: '',
+    youtubeId: 'xqKcV_bAsbM',
     viewCount: '5.2M views',
-    industry: 'Corporate',
-    platform: 'LinkedIn, YouTube',
-    challenge: 'Automate lead generation and qualification to increase sales team efficiency.',
-    solution: 'Implemented AI-powered lead qualification system with automated follow-ups.',
+    industry: 'Marketing',
+    platform: 'YouTube',
+    challenge: 'Create compelling marketing content that drives conversions and engagement.',
+    solution: 'Developed AI-optimized video strategy with data-driven editing and audience targeting.',
     results: {
-      stat1: { value: '5.2M', label: 'Total Leads' },
-      stat2: { value: '45%', label: 'Qualification Rate' },
-      stat3: { value: '2.8x', label: 'Conversion' },
+      stat1: { value: '5.2M', label: 'Total Reach' },
+      stat2: { value: '45%', label: 'Conversion Rate' },
+      stat3: { value: '2.8x', label: 'ROI' },
     },
   },
   {
     id: 4,
-    title: 'Product Demo Video',
-    client: 'Startup Co',
+    title: 'YouTube Video 4 - Viral Content Series',
+    client: 'Luminex Social',
     category: 'Content Creation',
-    thumbnail: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80',
-    videoUrl: 'https://drive.google.com/uc?id=1hzz0ro9jyhCmcKGDHw4V-jrd2Wpnf-kE',
+    thumbnail: 'https://img.youtube.com/vi/L1Eo7fMj-vE/maxresdefault.jpg',
+    videoUrl: '',
+    youtubeId: 'L1Eo7fMj-vE',
     viewCount: '800K views',
-    industry: 'Technology',
-    platform: 'YouTube, Website',
-    challenge: 'Explain complex product features in an engaging and easy-to-understand way.',
-    solution: 'Created professional demo with screen recordings, animations, and clear narration.',
+    industry: 'Social Media',
+    platform: 'YouTube, TikTok, Instagram',
+    challenge: 'Create multi-platform viral content optimized for different social channels.',
+    solution: 'Produced adaptable content with platform-specific editing, captions, and formats.',
     results: {
       stat1: { value: '800K', label: 'Total Views' },
-      stat2: { value: '11%', label: 'Engagement Rate' },
-      stat3: { value: '2.9x', label: 'ROI' },
+      stat2: { value: '11%', label: 'Engagement' },
+      stat3: { value: '2.9x', label: 'Viral Factor' },
     },
   },
 ];
@@ -218,21 +223,23 @@ export default function OurWorkPortfolio() {
                 }}
               >
                 <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
-                  <video
-                    muted
-                    playsInline
-                    loop
-                    autoPlay={false}
-                    className="w-full h-full object-cover group-hover:block hidden"
-                    onMouseEnter={(e) => e.currentTarget.play()}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.pause();
-                      e.currentTarget.currentTime = 0;
-                    }}
-                    preload="none"
-                  >
-                    <source src={project.videoUrl} type="video/mp4" />
-                  </video>
+                  {project.videoUrl && !project.youtubeId && (
+                    <video
+                      muted
+                      playsInline
+                      loop
+                      autoPlay={false}
+                      className="w-full h-full object-cover group-hover:block hidden"
+                      onMouseEnter={(e) => e.currentTarget.play()}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.pause();
+                        e.currentTarget.currentTime = 0;
+                      }}
+                      preload="none"
+                    >
+                      <source src={project.videoUrl} type="video/mp4" />
+                    </video>
+                  )}
                   <img
                     src={project.thumbnail}
                     alt={project.title}
@@ -327,12 +334,25 @@ export default function OurWorkPortfolio() {
               className="rounded-2xl overflow-hidden mb-10"
               style={{ aspectRatio: '16/9', background: '#000' }}
             >
-              <video
-                controls
-                className="w-full h-full"
-              >
-                <source src={selectedProject.videoUrl} type="video/mp4" />
-              </video>
+              {selectedProject.youtubeId ? (
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=0&modestbranding=1&rel=0`}
+                  title={selectedProject.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              ) : (
+                <video
+                  controls
+                  className="w-full h-full"
+                >
+                  <source src={selectedProject.videoUrl} type="video/mp4" />
+                </video>
+              )}
             </div>
 
             <div className="space-y-8">
