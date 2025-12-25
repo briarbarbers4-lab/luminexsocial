@@ -6,7 +6,7 @@ interface PageTransitionProps {
 
 export default function PageTransition({ children }: PageTransitionProps) {
   return (
-    <div className="page-transition-in">
+    <div className="opacity-100 transition-opacity duration-300">
       {children}
     </div>
   );
