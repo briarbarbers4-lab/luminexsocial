@@ -27,11 +27,12 @@ const mainServices = [
     description: 'Engaging content crafted to resonate with your audience and amplify your brand across all platforms.',
     fullDescription: 'Stand out with professionally crafted content that tells your brand story. From written pieces to visual assets, we create content that engages your audience and drives measurable results across all platforms.',
     features: [
-      'Multi-format content production',
-      'Brand-aligned copywriting',
-      'Social media content calendar',
-      'Visual design & graphics',
-      'SEO-optimized articles'
+      'Video Editing Services',
+      'Short-Form Social Content',
+      'Motion Graphics & Visual Effects',
+      'Podcast & Talking-Head Editing',
+      'Branding & Visual Consistency',
+      'Content Repurposing & Distribution Prep'
     ],
     price: 'custom Pricing',
   },
