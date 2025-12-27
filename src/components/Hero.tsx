@@ -1,4 +1,4 @@
-import { Phone, ChevronDown, Download } from 'lucide-react';
+import { Phone, ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -91,28 +91,6 @@ export default function Hero() {
           <p className="font-inter italic text-[16px] text-[#F7F8FC]/60">
             Our Partners &rarr;
           </p>
-        </div>
-
-        {/* VIDEO TESTIMONIALS */}
-        <div 
-          className={`flex flex-wrap lg:flex-nowrap gap-5 mt-20 transition-all duration-500 delay-800 ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          {[1, 2, 3, 4].map((i) => (
-            <div 
-              key={i} 
-              className="relative w-full sm:w-[calc(50%-10px)] lg:w-[200px] aspect-video bg-[#0B0D12] rounded-xl border-2 border-[#F7F8FC]/15 overflow-hidden group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <Download className="absolute top-3 right-3 w-4 h-4 text-[#F7F8FC]/40 group-hover:text-[#F7F8FC] transition-colors" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-10 h-10 rounded-full bg-[#0D21A1]/20 backdrop-blur-sm border border-[#0D21A1]/40 flex items-center justify-center">
-                  <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-[#F7F8FC] border-b-[6px] border-b-transparent ml-1" />
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
 
