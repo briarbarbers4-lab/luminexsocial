@@ -59,7 +59,6 @@
     0%, 100% { opacity: 0.2; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(1.05); }
   }
-}
 
   .text-glow {
     text-shadow: 0 0 20px rgba(13, 33, 161, 0.3);
