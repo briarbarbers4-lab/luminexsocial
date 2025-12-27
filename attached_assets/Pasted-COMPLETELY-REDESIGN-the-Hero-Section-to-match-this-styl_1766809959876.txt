@@ -1,0 +1,225 @@
+COMPLETELY REDESIGN the Hero Section to match this style while keeping Luminex Social branding:
+
+=== REMOVE ===
+- Remove Spline 3D animation completely
+- Remove floating video containers
+- Remove all current hero content
+
+=== NEW HERO DESIGN ===
+
+BACKGROUND:
+- Solid black (#0B0D12) background
+- Add subtle animated gradient mesh/lines (green/blue tones)
+- Flowing curved lines in background (use CSS or SVG)
+- Lines should be: color: rgba(13, 33, 161, 0.3) (Royal Blue with transparency)
+- Animated slowly moving/pulsing effect
+- Minimalist, clean, modern
+
+LAYOUT:
+Full viewport height (100vh)
+Max-width: 1400px, centered
+Padding: 0 80px (desktop), 0 40px (mobile)
+
+CONTENT STRUCTURE:
+
+1. SMALL EYEBROW TEXT (Top):
+   Text: "• CONTENT CREATORS & BUSINESSES:"
+   Font: Inter, 14px, uppercase, tracking: 0.1em
+   Color: rgba(247, 248, 252, 0.7)
+   Margin-bottom: 24px
+   Add bullet point (•) before text
+
+2. MAIN HEADLINE (Large, Bold):
+   Text: "Scale Your Content Creation With AI Automation & Professional Video Editing"
+   
+   Styling:
+   - Font: Coolvetica, 72px (desktop), 48px (mobile)
+   - Weight: Bold
+   - Color: #F7F8FC (Soft White)
+   - Line-height: 1.1
+   - Max-width: 1100px
+   - Letter-spacing: -0.02em
+   
+   HIGHLIGHT specific words in Royal Blue (#0D21A1):
+   - "AI Automation" in Royal Blue
+   - Rest in white
+   
+   Example HTML:
+```html
+   <h1>
+     Scale Your Content Creation With 
+     <span style="color: #0D21A1;">AI Automation</span> 
+     & Professional Video Editing
+   </h1>
+```
+
+3. SUBHEADING (Below headline):
+   Text: "Build bulletproof content systems without sending 1000 DMs, cold emails, or spending thousands on paid ads"
+   
+   Styling:
+   - Font: Neue Montreal, 20px (desktop), 18px (mobile)
+   - Weight: Regular (400)
+   - Color: rgba(247, 248, 252, 0.75)
+   - Line-height: 1.5
+   - Max-width: 800px
+   - Margin-top: 24px
+
+4. CTA BUTTONS (Below subheading):
+   Two buttons side-by-side:
+   
+   PRIMARY BUTTON:
+   - Text: "Book A Call" with phone icon
+   - Background: Solid white (#F7F8FC)
+   - Text color: #0B0D12 (black)
+   - Border: 2px solid #F7F8FC
+   - Padding: 16px 40px
+   - Border-radius: 8px
+   - Font: Neue Montreal, 18px, semi-bold
+   - Add subtle glow effect
+   - Hover: slight scale + glow increase
+   
+   SECONDARY BUTTON:
+   - Text: "Learn More ▼"
+   - Background: transparent
+   - Border: 2px solid rgba(247, 248, 252, 0.3)
+   - Text color: #F7F8FC
+   - Padding: 16px 40px
+   - Border-radius: 8px
+   - Font: Neue Montreal, 18px, semi-bold
+   - Hover: border becomes Royal Blue, background: rgba(13, 33, 161, 0.1)
+   
+   Button container:
+   - Display: flex, gap: 20px
+   - Margin-top: 48px
+
+5. TRUST INDICATOR (Bottom right):
+   Text: "Our Partners →" with arrow
+   Font: Handwritten style (or Inter italic)
+   Size: 16px
+   Color: rgba(247, 248, 252, 0.6)
+   Position: absolute, bottom-right of hero
+   Add subtle arrow pointing to logos below
+
+6. VIDEO TESTIMONIALS (Bottom of hero):
+   Row of 4 small video thumbnails (similar to reference)
+   Each: 200px wide, 16:9 aspect ratio
+   Border-radius: 12px
+   Border: 2px solid rgba(247, 248, 252, 0.15)
+   Gap: 20px between videos
+   Position: bottom of hero section
+   Videos show client testimonials/portfolio work
+   Add download icon overlay (top-right corner, subtle)
+
+=== ANIMATIONS ===
+
+On page load:
+1. Eyebrow text fades in (0.3s)
+2. Headline fades + slides up (0.5s, delay 0.2s)
+3. Subheading fades + slides up (0.5s, delay 0.4s)
+4. Buttons fade + slide up (0.5s, delay 0.6s)
+5. Videos fade in from bottom (0.5s, delay 0.8s)
+
+Background lines:
+- Slow continuous animation (flowing/pulsing)
+- Duration: 8-10s loop
+- Subtle, not distracting
+
+=== RESPONSIVE (Mobile < 768px) ===
+
+- Headline: 48px → 36px
+- Subheading: 20px → 18px
+- Stack buttons vertically (full width)
+- Hide video testimonials OR show 2 only
+- Reduce padding: 0 24px
+- Background lines: simpler/fewer
+
+=== SEO OPTIMIZATION ===
+
+H1 tag: "Scale Your Content Creation With AI Automation & Professional Video Editing"
+
+Meta description (update):
+"Build bulletproof content systems with Luminex Social. AI automation and professional video editing for content creators and businesses. No cold DMs, no paid ads needed."
+
+Schema markup (add to page):
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Luminex Social",
+  "description": "AI Automation & Video Editing Agency",
+  "slogan": "Scale Your Content Creation With AI Automation",
+  "url": "https://luminexsocial.com"
+}
+```
+
+Alt text for images:
+- Background: "AI automation flowing background design"
+- Videos: "Client video testimonial - [Client Name]"
+
+=== COLOR PALETTE (Luminex Social) ===
+
+Primary Dark: #0B0D12 (background)
+Royal Blue: #0D21A1 (accents, highlighted text)
+Soft White: #F7F8FC (main text)
+Deep Purple: #8C8F94 (supporting elements)
+
+Use Royal Blue sparingly for emphasis (highlighted words, hover states, accents).
+
+=== BACKGROUND EFFECT CREATION ===
+
+Option 1: CSS Gradient Mesh
+```css
+background: 
+  radial-gradient(circle at 20% 30%, rgba(13, 33, 161, 0.15) 0%, transparent 50%),
+  radial-gradient(circle at 80% 70%, rgba(13, 33, 161, 0.1) 0%, transparent 50%),
+  #0B0D12;
+```
+
+Option 2: SVG Animated Lines
+Create flowing curved lines similar to reference using SVG paths with CSS animation.
+
+=== FINAL STRUCTURE ===
+```html
+<section class="hero-section">
+  <div class="hero-background">
+    <!-- Animated lines/mesh -->
+  </div>
+  
+  <div class="hero-content">
+    <p class="eyebrow">• CONTENT CREATORS & BUSINESSES:</p>
+    
+    <h1 class="headline">
+      Scale Your Content Creation With 
+      <span class="highlight">AI Automation</span> 
+      & Professional Video Editing
+    </h1>
+    
+    <p class="subheadline">
+      Build bulletproof content systems without sending 1000 DMs, 
+      cold emails, or spending thousands on paid ads
+    </p>
+    
+    <div class="cta-buttons">
+      <button class="btn-primary">
+        📞 Book A Call
+      </button>
+      <button class="btn-secondary">
+        Learn More ▼
+      </button>
+    </div>
+  </div>
+  
+  <div class="trust-indicator">
+    <span>Our Partners →</span>
+  </div>
+  
+  <div class="testimonial-videos">
+    <video>...</video>
+    <video>...</video>
+    <video>...</video>
+    <video>...</video>
+  </div>
+</section>
+```
+
+Make it clean, bold, and conversion-focused like the reference. Keep Luminex Social branding throughout.
