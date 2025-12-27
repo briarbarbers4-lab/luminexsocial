@@ -13,30 +13,66 @@ export default function Hero() {
     <section className="relative w-full min-h-screen bg-[#0B0D12] overflow-hidden flex flex-col justify-center" data-testid="section-hero">
       {/* BACKGROUND EFFECTS */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Gradient Orbs */}
-        <div className="gradient-orb orb-1" />
-        <div className="gradient-orb orb-2" />
-        
-        {/* SVG Flowing Lines */}
-        <svg className="absolute inset-0 w-full h-full opacity-50" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M-100,200 C200,100 400,400 600,200 C800,100 1000,300 1500,100"
-            className="flowing-line"
-            style={{ animationDuration: '20s' }}
-          />
-          <path
-            d="M-200,500 C150,300 450,700 750,500 C1050,300 1350,500 1600,400"
-            className="flowing-line"
-            style={{ animationDuration: '25s', animationDelay: '-5s' }}
-          />
-          <path
-            d="M0,800 C300,600 600,900 900,700 C1200,500 1500,700 1800,600"
-            className="flowing-line"
-            style={{ animationDuration: '30s', animationDelay: '-10s' }}
-          />
+        <svg 
+          className="hero-background-lines" 
+          width="100%" 
+          height="100%" 
+          viewBox="0 0 1920 1080"
+          preserveAspectRatio="xMidYMid slice"
+          style={{ position: 'absolute', top: 0, left: 0, zIndex: 0, opacity: 1 }}
+        >
+          <defs>
+            {/* Gradients */}
+            <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style={{ stopColor: '#0D21A1', stopOpacity: 0 }} />
+              <stop offset="30%" style={{ stopColor: '#0D21A1', stopOpacity: 0.3 }} />
+              <stop offset="70%" style={{ stopColor: '#0D21A1', stopOpacity: 0.3 }} />
+              <stop offset="100%" style={{ stopColor: '#0D21A1', stopOpacity: 0 }} />
+            </linearGradient>
+            
+            <radialGradient id="glow1">
+              <stop offset="0%" style={{ stopColor: '#0D21A1', stopOpacity: 0.25 }} />
+              <stop offset="100%" style={{ stopColor: '#0D21A1', stopOpacity: 0 }} />
+            </radialGradient>
+          </defs>
+          
+          {/* Background glow spots */}
+          <circle cx="400" cy="200" r="150" fill="url(#glow1)" filter="blur(60px)" />
+          <circle cx="1500" cy="400" r="200" fill="url(#glow1)" filter="blur(80px)" />
+          <circle cx="800" cy="700" r="120" fill="url(#glow1)" filter="blur(50px)" />
+          
+          {/* Flowing lines spanning full width */}
+          <path d="M -200 150 Q 400 80 800 150 T 1600 120 T 2200 150" 
+                stroke="url(#lineGradient1)" 
+                strokeWidth="2.5" 
+                fill="none" 
+                strokeLinecap="round" />
+          
+          <path d="M -100 400 Q 300 300 700 420 T 1400 350 T 2100 450" 
+                stroke="rgba(13, 33, 161, 0.25)" 
+                strokeWidth="2" 
+                fill="none" 
+                strokeLinecap="round" />
+          
+          <path d="M -150 700 Q 500 600 900 720 T 1700 650 T 2200 700" 
+                stroke="rgba(13, 33, 161, 0.2)" 
+                strokeWidth="2.5" 
+                fill="none" 
+                strokeLinecap="round" />
+          
+          {/* Vertical/diagonal accents */}
+          <path d="M 1600 -100 Q 1500 300 1650 600 T 1600 1200" 
+                stroke="rgba(13, 33, 161, 0.18)" 
+                strokeWidth="2" 
+                fill="none" />
+          
+          <path d="M 200 -50 Q 600 400 1000 300 T 1800 800" 
+                stroke="rgba(140, 143, 148, 0.15)" 
+                strokeWidth="1.5" 
+                fill="none" />
         </svg>
-        
-        {/* Subtle Grid Pattern */}
+
+        {/* Subtle Grid Pattern Overlay */}
         <div 
           className="absolute inset-0 opacity-[0.03]"
           style={{

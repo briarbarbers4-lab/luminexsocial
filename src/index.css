@@ -36,6 +36,31 @@
     overflow: hidden;
   }
 
+  .hero-background-lines {
+    animation: flowLines 20s ease-in-out infinite;
+  }
+
+  @keyframes flowLines {
+    0%, 100% { 
+      transform: translateX(0) translateY(0); 
+      opacity: 0.25;
+    }
+    50% { 
+      transform: translateX(20px) translateY(-10px); 
+      opacity: 0.35;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-background-lines {
+      opacity: 0.4;
+    }
+    
+    .hero-background-lines path:nth-child(n+4) {
+      display: none;
+    }
+  }
+
   .gradient-orb {
     position: absolute;
     border-radius: 50%;
@@ -82,6 +107,7 @@
       stroke-dashoffset: 0;
     }
   }
+
   .text-glow {
     text-shadow: 0 0 20px rgba(13, 33, 161, 0.3);
   }
