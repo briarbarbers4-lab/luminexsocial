@@ -11,25 +11,41 @@ export default function Hero() {
 
   return (
     <section className="relative w-full min-h-screen bg-[#0B0D12] overflow-hidden flex flex-col justify-center" data-testid="section-hero">
-      {/* BACKGROUND EFFECT */}
-      <div className="absolute inset-0 z-0 hero-background-mesh pointer-events-none">
-        <svg className="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
+      {/* BACKGROUND EFFECTS */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Gradient Orbs */}
+        <div className="gradient-orb orb-1" />
+        <div className="gradient-orb orb-2" />
+        
+        {/* SVG Flowing Lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-50" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
           <path
-            d="M-100,200 C100,100 300,300 500,200 C700,100 900,300 1100,200"
-            fill="none"
-            stroke="#0D21A1"
-            strokeWidth="2"
-            className="animated-line pulse-line"
+            d="M-100,200 C200,100 400,400 600,200 C800,100 1000,300 1500,100"
+            className="flowing-line"
+            style={{ animationDuration: '20s' }}
           />
           <path
-            d="M-100,400 C150,300 350,500 550,400 C750,300 950,500 1150,400"
-            fill="none"
-            stroke="#0D21A1"
-            strokeWidth="2"
-            className="animated-line pulse-line"
-            style={{ animationDelay: '-2s' }}
+            d="M-200,500 C150,300 450,700 750,500 C1050,300 1350,500 1600,400"
+            className="flowing-line"
+            style={{ animationDuration: '25s', animationDelay: '-5s' }}
+          />
+          <path
+            d="M0,800 C300,600 600,900 900,700 C1200,500 1500,700 1800,600"
+            className="flowing-line"
+            style={{ animationDuration: '30s', animationDelay: '-10s' }}
           />
         </svg>
+        
+        {/* Subtle Grid Pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(247, 248, 252, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(247, 248, 252, 0.1) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px',
+            maskImage: 'radial-gradient(circle at center, black, transparent 80%)',
+            WebkitMaskImage: 'radial-gradient(circle at center, black, transparent 80%)'
+          }}
+        />
       </div>
 
       {/* CONTENT */}
