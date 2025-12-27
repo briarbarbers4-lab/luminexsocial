@@ -8,7 +8,7 @@ const spaFallbackPlugin = () => {
     name: 'spa-fallback',
     configureServer(server: ViteDevServer) {
       return () => {
-        server.middlewares.use((req: any, res: any, next: any) => {
+        server.middlewares.use((req: any, _res: any, next: any) => {
           // For all non-file requests (no extension), serve index.html
           // This allows React Router to handle all page routes with status 200
           if (req.url && !req.url.includes('.') && !req.url.startsWith('/api')) {
@@ -47,7 +47,6 @@ export default defineConfig({
       clientPort: 443,
     },
     middlewareMode: false,
-    historyApiFallback: true, // Native Vite support for SPA routing
   },
   preview: {
     host: '0.0.0.0',
