@@ -6,7 +6,7 @@ const WorkShowcase = lazy(() => import('../components/WorkShowcase'));
 const Services = lazy(() => import('../components/Services'));
 const OurWorkPortfolio = lazy(() => import('../components/OurWorkPortfolio'));
 const Process = lazy(() => import('../components/Process'));
-const Testimonials = lazy(() => import('../components/Testimonials'));
+const TestimonialsSection = lazy(() => import('../components/TestimonialsSection'));
 const Contact = lazy(() => import('../components/Contact'));
 
 const SectionSuspense = ({ children }: { children: React.ReactNode }) => (
@@ -43,7 +43,7 @@ export default function HomePage() {
       </SectionSuspense>
       <SectionSuspense>
         <section id="testimonials">
-          <Testimonials />
+          <TestimonialsSection />
         </section>
       </SectionSuspense>
       <SectionSuspense>
