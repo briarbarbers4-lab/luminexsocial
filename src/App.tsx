@@ -10,7 +10,6 @@ import SectionIndicators from './components/SectionIndicators';
 // Page Components
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import PortfolioPage from './pages/PortfolioPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import BlogPage from './pages/BlogPage';
 
@@ -27,7 +26,6 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="*" element={<HomePage />} />
