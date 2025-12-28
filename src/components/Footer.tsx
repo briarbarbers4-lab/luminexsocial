@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Mail, Youtube } from 'lucide-react';
+import { Instagram, Linkedin, Youtube } from 'lucide-react';
 
 const footerLinks = {
   services: ['AI Automation', 'Video Editing', 'Content Creation'],
