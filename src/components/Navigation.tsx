@@ -88,9 +88,7 @@ export default function Navigation() {
           </nav>
 
           <a
-            href="https://calendly.com/luminexsocial/30min"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="hidden lg:block px-6 py-2.5 bg-royal-blue text-soft-white font-montreal text-sm font-semibold rounded-full hover:scale-105 hover:shadow-[0_0_24px_rgba(13,33,161,0.6)] transition-all duration-300 ml-auto flex-shrink-0"
             data-testid="button-get-started"
           >
@@ -154,9 +152,7 @@ export default function Navigation() {
           </nav>
 
           <a
-            href="https://calendly.com/luminexsocial/30min"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             onClick={() => setIsOpen(false)}
             className="px-8 py-3 bg-royal-blue text-soft-white font-montreal font-semibold rounded-full hover:shadow-[0_0_24px_rgba(13,33,161,0.6)] transition-all duration-300"
             style={{

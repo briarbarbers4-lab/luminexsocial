@@ -58,9 +58,7 @@ export default function Hero() {
             }`}
           >
             <a 
-              href="https://calendly.com/luminexsocial/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               className="px-10 py-4 bg-[#0D21A1] text-[#F7F8FC] font-semibold rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(13,33,161,0.4)]"
             >
               <Phone className="w-5 h-5" />
