@@ -33,7 +33,19 @@ export default function Hero() {
             }`}
             style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
           >
-            Scale Your Content Creation With <span className="font-allura text-royal-blue italic">AI Automation & Professional Video Editing</span>
+            Scale Your Content Creation With{' '}
+            <TypeAnimation
+              sequence={[
+                'AI Automation',
+                2000,
+                'Professional Video Editing',
+                2000,
+              ]}
+              wrapper="span"
+              className="font-allura text-royal-blue italic"
+              speed={50}
+              repeat={Infinity}
+            />
           </h1>
 
           <p 
