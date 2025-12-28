@@ -28,20 +28,12 @@ export default function Hero() {
           </p>
 
           <h1 
-            className={`font-helvetica text-4xl md:text-[72px] font-bold text-[#F7F8FC] leading-[1.1] tracking-[-0.02em] max-w-[1100px] transition-all duration-500 delay-200 ${
+            className={`text-4xl md:text-[72px] font-bold text-[#F7F8FC] leading-[1.1] tracking-[-0.02em] max-w-[1100px] transition-all duration-500 delay-200 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
+            style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
           >
-            <TypeAnimation
-              sequence={[
-                'Scale Your Content Creation With ',
-                100,
-                'Scale Your Content Creation With AI Automation & Professional Video Editing'
-              ]}
-              speed={50}
-              cursor={true}
-              repeat={0}
-            />
+            Scale Your Content Creation With <span className="font-allura text-royal-blue italic">AI Automation & Professional Video Editing</span>
           </h1>
 
           <p 

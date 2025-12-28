@@ -50,8 +50,9 @@ export default function Services() {
             className={`text-5xl md:text-6xl text-soft-white mb-4 transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
+            style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
           >
-            What We Do
+            What We <span className="font-allura text-royal-blue italic">Do</span>
           </h2>
           <p 
             className={`font-inter text-lg text-soft-white/70 max-w-2xl mx-auto transition-all duration-700 delay-200 ${

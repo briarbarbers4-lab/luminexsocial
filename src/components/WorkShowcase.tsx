@@ -54,8 +54,9 @@ export default function WorkShowcase() {
             className={`transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
+            style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
           >
-            Work That <span className="text-royal-blue italic">Speaks Volumes</span>
+            Work That <span className="font-allura text-royal-blue italic">Speaks Volumes</span>
           </h2>
           <p
             className={`font-inter text-lg md:text-xl text-soft-white/60 max-w-2xl mx-auto transition-all duration-700 delay-100 ${
