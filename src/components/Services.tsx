@@ -116,10 +116,13 @@ export default function Services() {
                         <span className="text-royal-blue font-semibold">Starting at {service.price}</span>
                         {' '}/ month
                       </p>
-                      <button className="ripple w-full px-6 py-3 bg-royal-blue text-soft-white font-montreal font-semibold rounded-full hover:shadow-[0_0_20px_rgba(13,33,161,0.4)] transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
+                      <a 
+                        href="#contact"
+                        className="ripple w-full px-6 py-3 bg-royal-blue text-soft-white font-montreal font-semibold rounded-full hover:shadow-[0_0_20px_rgba(13,33,161,0.4)] transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                      >
                         Learn More
                         <ArrowRight className="w-4 h-4" />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>

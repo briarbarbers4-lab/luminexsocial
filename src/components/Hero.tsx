@@ -58,13 +58,15 @@ export default function Hero() {
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <Link 
-              to="/contact"
+            <a 
+              href="https://calendly.com/luminexsocial/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-10 py-4 bg-[#0D21A1] text-[#F7F8FC] font-semibold rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(13,33,161,0.4)]"
             >
               <Phone className="w-5 h-5" />
               Book A Call
-            </Link>
+            </a>
 
             <a 
               href="#testimonials"

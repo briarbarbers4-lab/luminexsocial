@@ -39,28 +39,8 @@ export default function Footer() {
               <span className="font-coolvetica text-2xl text-soft-white">Luminex Social</span>
             </div>
             <p className="font-inter text-soft-white/70 mb-6 max-w-md">
-              Amplifying brands through AI-powered content creation, professional video editing, and strategic automation.
+              To empower brands by uniting AI automation and content creation streamlining operations, scaling execution, and delivering engaging content that drives growth and meaningful connections.
             </p>
-
-            <div
-              className="p-4 rounded-2xl inline-block"
-              style={{
-                background: 'rgba(13, 33, 161, 0.05)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(247, 248, 252, 0.1)',
-              }}
-            >
-              <div className="flex gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="bg-transparent border-none outline-none text-soft-white placeholder-soft-white/50 font-inter text-sm w-48"
-                />
-                <button className="px-4 py-2 bg-royal-blue text-soft-white rounded-lg hover:scale-105 transition-transform font-inter text-sm font-medium">
-                  <Mail className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
           </div>
 
           <div>
