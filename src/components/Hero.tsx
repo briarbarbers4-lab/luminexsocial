@@ -33,12 +33,14 @@ export default function Hero() {
             }`}
             style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
           >
-            Scale Your Content Creation With{' '}
+            Scale your business with{' '}
             <TypeAnimation
               sequence={[
+                'Professional Video Editing',
+                2000,
                 'AI Automation',
                 2000,
-                'Professional Video Editing',
+                'Content Creation',
                 2000,
               ]}
               wrapper="span"
