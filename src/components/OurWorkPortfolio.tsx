@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -21,8 +21,6 @@ interface Project {
     stat3: { value: string; label: string };
   };
 }
-
-const categories = ['All', 'AI Automation', 'Content Creation'];
 
 const projects: Project[] = [
   {
@@ -100,35 +98,27 @@ const projects: Project[] = [
 ];
 
 export default function OurWorkPortfolio() {
-  const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
 
-  const filteredProjects = useMemo(() => 
-    activeCategory === 'All'
-      ? projects
-      : projects.filter(p => p.category === activeCategory),
-    [activeCategory]
-  );
-
   const currentIndex = useMemo(() => 
     selectedProject 
-      ? filteredProjects.findIndex(p => p.id === selectedProject.id)
+      ? projects.findIndex(p => p.id === selectedProject.id)
       : -1,
-    [selectedProject, filteredProjects]
+    [selectedProject]
   );
 
   const handlePrevProject = useCallback(() => {
     if (currentIndex > 0) {
-      setSelectedProject(filteredProjects[currentIndex - 1]);
+      setSelectedProject(projects[currentIndex - 1]);
     }
-  }, [currentIndex, filteredProjects]);
+  }, [currentIndex]);
 
   const handleNextProject = useCallback(() => {
-    if (currentIndex < filteredProjects.length - 1) {
-      setSelectedProject(filteredProjects[currentIndex + 1]);
+    if (currentIndex < projects.length - 1) {
+      setSelectedProject(projects[currentIndex + 1]);
     }
-  }, [currentIndex, filteredProjects]);
+  }, [currentIndex]);
 
   return (
     <section ref={sectionRef} id="our-work" className="py-24 bg-[#0B0D12] relative overflow-hidden">
@@ -140,7 +130,7 @@ export default function OurWorkPortfolio() {
         </div>
 
         <div className="portfolio-grid">
-          {filteredProjects.map((project, index) => (
+          {projects.map((project) => (
             <div 
               key={project.id} 
               className="portfolio-card"
@@ -296,7 +286,7 @@ export default function OurWorkPortfolio() {
                 </button>
                 <button
                   onClick={handleNextProject}
-                  disabled={currentIndex >= filteredProjects.length - 1}
+                  disabled={currentIndex >= projects.length - 1}
                   className="flex items-center gap-2 px-6 py-3 rounded-full font-montreal font-medium transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
                   style={{
                     background: 'rgba(247, 248, 252, 0.1)',
