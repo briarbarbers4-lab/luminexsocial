@@ -8,7 +8,7 @@ interface Project {
   client: string;
   category: 'AI Automation' | 'Content Creation';
   thumbnail: string;
-  videoUrl: string;
+  videoUrl?: string;
   youtubeId?: string;
   viewCount: string;
   industry: string;
@@ -25,74 +25,74 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Product Launch Campaign',
-    client: 'TechBrand Inc',
+    title: 'Viral Content Series',
+    client: 'Luminex Social',
     category: 'Content Creation',
-    thumbnail: 'https://img.youtube.com/vi/VfqcZs9-tj4/maxresdefault.jpg',
-    videoUrl: 'https://ik.imagekit.io/luminexsocial/Video/Recent%20Sample%20Edit%20for%20a%20Client_What%20do%20you%20think%20of%20it_videoeditor%20_videoediting%20_contentcreat.mp4',
-    viewCount: '226K views',
-    industry: 'Digital Content',
+    thumbnail: 'https://img.youtube.com/vi/L1Eo7fMj-vE/maxresdefault.jpg',
+    youtubeId: 'L1Eo7fMj-vE',
+    viewCount: '800K views',
+    industry: 'Social Media',
     platform: 'YouTube',
-    challenge: 'Create engaging short-form video content that captures attention instantly.',
-    solution: 'Produced high-quality video with dynamic pacing, trending audio, and professional editing.',
+    challenge: 'Create multi-platform viral content optimized for different social channels.',
+    solution: 'Produced adaptable content with platform-specific editing, captions, and formats.',
     results: {
-      stat1: { value: '226K', label: 'Total Views' },
-      stat2: { value: '12%', label: 'Engagement Rate' },
-      stat3: { value: '3.2x', label: 'Shareability' },
+      stat1: { value: '800K', label: 'Total Views' },
+      stat2: { value: '11%', label: 'Engagement' },
+      stat3: { value: '2.9x', label: 'Viral Factor' },
     },
   },
   {
     id: 2,
-    title: 'Viral Reel Strategy',
-    client: 'EcoCreator',
-    category: 'Content Creation',
-    thumbnail: 'https://img.youtube.com/vi/KNWDCaKQADs/maxresdefault.jpg',
-    videoUrl: 'https://ik.imagekit.io/luminexsocial/Video/Animations%20from%20Recent%20Edits_What%20do%20you%20think%20of%20itFollow%20for%20more!...._aftereffects%20_premiere.mp4',
-    viewCount: '1.2M views',
-    industry: 'Social Media',
-    platform: 'Instagram',
-    challenge: 'Demonstrate professional editing and production quality for portfolio impact.',
-    solution: 'Compiled premium editing sequences with color grading, sound design, and motion graphics.',
-    results: {
-      stat1: { value: '1.2M', label: 'Total Views' },
-      stat2: { value: '40%', label: 'Audience Growth' },
-      stat3: { value: '4.5x', label: 'Engagement' },
-    },
-  },
-  {
-    id: 3,
-    title: 'Podcast Highlights',
-    client: 'The Future Pod',
+    title: 'Marketing Strategy',
+    client: 'Luminex Social',
     category: 'Content Creation',
     thumbnail: 'https://img.youtube.com/vi/xqKcV_bAsbM/maxresdefault.jpg',
-    videoUrl: 'https://ik.imagekit.io/luminexsocial/Video/CEO%20of%20Sun-Up%20Discipline%20@ashtonhall%20Idea%20by-%20@zennn.aep%20....._aftereffects%20_motiongraphics%20_vid.mp4',
-    viewCount: '450K views',
+    youtubeId: 'xqKcV_bAsbM',
+    viewCount: '5.2M views',
     industry: 'Marketing',
     platform: 'YouTube',
     challenge: 'Create compelling marketing content that drives conversions and engagement.',
     solution: 'Developed AI-optimized video strategy with data-driven editing and audience targeting.',
     results: {
-      stat1: { value: '450K', label: 'Total Reach' },
+      stat1: { value: '5.2M', label: 'Total Reach' },
       stat2: { value: '45%', label: 'Conversion Rate' },
       stat3: { value: '2.8x', label: 'ROI' },
     },
   },
   {
-    id: 4,
-    title: 'Motion Graphics Showcase',
-    client: 'Innovate Labs',
+    id: 3,
+    title: 'Professional Production',
+    client: 'Luminex Social',
     category: 'Content Creation',
-    thumbnail: 'https://img.youtube.com/vi/L1Eo7fMj-vE/maxresdefault.jpg',
-    videoUrl: 'https://ik.imagekit.io/luminexsocial/Video/Before%20vs%20After%20of%20Recent%20Edit_Comment%20_Project_%20to%20get%20the%20Project%20file%20of%20this%20edit......._en.mp4',
-    viewCount: '89K views',
-    industry: 'Social Media',
-    platform: 'YouTube, TikTok, Instagram',
-    challenge: 'Create multi-platform viral content optimized for different social channels.',
-    solution: 'Produced adaptable content with platform-specific editing, captions, and formats.',
+    thumbnail: 'https://img.youtube.com/vi/KNWDCaKQADs/maxresdefault.jpg',
+    youtubeId: 'KNWDCaKQADs',
+    viewCount: '1.8M views',
+    industry: 'Professional Services',
+    platform: 'YouTube',
+    challenge: 'Demonstrate professional editing and production quality for portfolio impact.',
+    solution: 'Compiled premium editing sequences with color grading, sound design, and motion graphics.',
     results: {
-      stat1: { value: '89K', label: 'Total Views' },
-      stat2: { value: '11%', label: 'Engagement' },
-      stat3: { value: '2.9x', label: 'Viral Factor' },
+      stat1: { value: '1.8M', label: 'Total Views' },
+      stat2: { value: '40%', label: 'Audience Growth' },
+      stat3: { value: '4.5x', label: 'Engagement' },
+    },
+  },
+  {
+    id: 4,
+    title: 'High Energy Content',
+    client: 'Luminex Social',
+    category: 'Content Creation',
+    thumbnail: 'https://img.youtube.com/vi/VfqcZs9-tj4/maxresdefault.jpg',
+    youtubeId: 'VfqcZs9-tj4',
+    viewCount: '2.5M views',
+    industry: 'Digital Content',
+    platform: 'YouTube',
+    challenge: 'Create engaging short-form video content that captures attention instantly.',
+    solution: 'Produced high-quality video with dynamic pacing, trending audio, and professional editing.',
+    results: {
+      stat1: { value: '2.5M', label: 'Total Views' },
+      stat2: { value: '12%', label: 'Engagement Rate' },
+      stat3: { value: '3.2x', label: 'Shareability' },
     },
   },
 ];
@@ -137,17 +137,10 @@ export default function OurWorkPortfolio() {
               onClick={() => setSelectedProject(project)}
             >
               <div className="video-wrapper group">
-                <video 
-                  src={project.videoUrl}
-                  className="w-full h-full object-cover"
-                  muted
-                  playsInline
-                  preload="metadata"
-                  onMouseEnter={(e) => e.currentTarget.play()}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.pause();
-                    e.currentTarget.currentTime = 0;
-                  }}
+                <img 
+                  src={project.thumbnail}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt={project.title}
                 />
                 <div className="play-overlay">
                   <div className="play-button-large">
@@ -204,13 +197,26 @@ export default function OurWorkPortfolio() {
               className="rounded-2xl overflow-hidden mb-10"
               style={{ aspectRatio: '16/9', background: '#000' }}
             >
-              <video
-                controls
-                autoPlay
-                className="w-full h-full"
-              >
-                <source src={selectedProject.videoUrl} type="video/mp4" />
-              </video>
+              {selectedProject.youtubeId ? (
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1&modestbranding=1&rel=0`}
+                  title={selectedProject.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              ) : (
+                <video
+                  controls
+                  autoPlay
+                  className="w-full h-full"
+                >
+                  <source src={selectedProject.videoUrl} type="video/mp4" />
+                </video>
+              )}
             </div>
 
             <div className="space-y-8">
@@ -224,6 +230,10 @@ export default function OurWorkPortfolio() {
                 <div className="flex gap-2">
                   <span className="font-inter text-sm" style={{ color: 'rgba(247, 248, 252, 0.6)' }}>Client:</span>
                   <span className="font-inter text-sm text-soft-white">{selectedProject.client}</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="font-inter text-sm" style={{ color: 'rgba(247, 248, 252, 0.6)' }}>Platform:</span>
+                  <span className="font-inter text-sm text-soft-white">{selectedProject.platform}</span>
                 </div>
               </div>
 
