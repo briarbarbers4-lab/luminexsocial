@@ -24,88 +24,75 @@ interface Project {
 
 const categories = ['All', 'AI Automation', 'Content Creation'];
 
-// ============================================================
-// 📁 PORTFOLIO PROJECTS (Our Work Section)
-// ============================================================
-// Instructions: Edit each project object below
-// - thumbnailVideo: Short preview (3-5 sec loop)
-// - fullVideo: Complete project video
-// - Update all text fields with your project details
-// ============================================================
-
 const projects: Project[] = [
   {
     id: 1,
-    title: 'YouTube Video 1 - High Energy Content',
-    client: 'Luminex Social',
+    title: 'Product Launch Campaign',
+    client: 'TechBrand Inc',
     category: 'Content Creation',
     thumbnail: 'https://img.youtube.com/vi/VfqcZs9-tj4/maxresdefault.jpg',
-    videoUrl: '',
-    youtubeId: 'VfqcZs9-tj4',
-    viewCount: '2.5M views',
+    videoUrl: 'https://ik.imagekit.io/luminexsocial/Video/Recent%20Sample%20Edit%20for%20a%20Client_What%20do%20you%20think%20of%20it_videoeditor%20_videoediting%20_contentcreat.mp4',
+    viewCount: '226K views',
     industry: 'Digital Content',
     platform: 'YouTube',
     challenge: 'Create engaging short-form video content that captures attention instantly.',
     solution: 'Produced high-quality video with dynamic pacing, trending audio, and professional editing.',
     results: {
-      stat1: { value: '2.5M', label: 'Total Views' },
+      stat1: { value: '226K', label: 'Total Views' },
       stat2: { value: '12%', label: 'Engagement Rate' },
       stat3: { value: '3.2x', label: 'Shareability' },
     },
   },
   {
     id: 2,
-    title: 'YouTube Video 2 - Professional Production',
-    client: 'Luminex Social',
+    title: 'Viral Reel Strategy',
+    client: 'EcoCreator',
     category: 'Content Creation',
     thumbnail: 'https://img.youtube.com/vi/KNWDCaKQADs/maxresdefault.jpg',
-    videoUrl: '',
-    youtubeId: 'KNWDCaKQADs',
-    viewCount: '1.8M views',
-    industry: 'Professional Services',
-    platform: 'YouTube',
+    videoUrl: 'https://ik.imagekit.io/luminexsocial/Video/Animations%20from%20Recent%20Edits_What%20do%20you%20think%20of%20itFollow%20for%20more!...._aftereffects%20_premiere.mp4',
+    viewCount: '1.2M views',
+    industry: 'Social Media',
+    platform: 'Instagram',
     challenge: 'Demonstrate professional editing and production quality for portfolio impact.',
     solution: 'Compiled premium editing sequences with color grading, sound design, and motion graphics.',
     results: {
-      stat1: { value: '1.8M', label: 'Total Views' },
+      stat1: { value: '1.2M', label: 'Total Views' },
       stat2: { value: '40%', label: 'Audience Growth' },
       stat3: { value: '4.5x', label: 'Engagement' },
     },
   },
   {
     id: 3,
-    title: 'YouTube Video 3 - Marketing Strategy',
-    client: 'Luminex Social',
-    category: 'AI Automation',
+    title: 'Podcast Highlights',
+    client: 'The Future Pod',
+    category: 'Content Creation',
     thumbnail: 'https://img.youtube.com/vi/xqKcV_bAsbM/maxresdefault.jpg',
-    videoUrl: '',
-    youtubeId: 'xqKcV_bAsbM',
-    viewCount: '5.2M views',
+    videoUrl: 'https://ik.imagekit.io/luminexsocial/Video/CEO%20of%20Sun-Up%20Discipline%20@ashtonhall%20Idea%20by-%20@zennn.aep%20....._aftereffects%20_motiongraphics%20_vid.mp4',
+    viewCount: '450K views',
     industry: 'Marketing',
     platform: 'YouTube',
     challenge: 'Create compelling marketing content that drives conversions and engagement.',
     solution: 'Developed AI-optimized video strategy with data-driven editing and audience targeting.',
     results: {
-      stat1: { value: '5.2M', label: 'Total Reach' },
+      stat1: { value: '450K', label: 'Total Reach' },
       stat2: { value: '45%', label: 'Conversion Rate' },
       stat3: { value: '2.8x', label: 'ROI' },
     },
   },
   {
     id: 4,
-    title: 'YouTube Video 4 - Viral Content Series',
-    client: 'Luminex Social',
+    title: 'Motion Graphics Showcase',
+    client: 'Innovate Labs',
     category: 'Content Creation',
     thumbnail: 'https://img.youtube.com/vi/L1Eo7fMj-vE/maxresdefault.jpg',
-    videoUrl: '',
-    youtubeId: 'L1Eo7fMj-vE',
-    viewCount: '800K views',
+    videoUrl: 'https://ik.imagekit.io/luminexsocial/Video/Before%20vs%20After%20of%20Recent%20Edit_Comment%20_Project_%20to%20get%20the%20Project%20file%20of%20this%20edit......._en.mp4',
+    viewCount: '89K views',
     industry: 'Social Media',
     platform: 'YouTube, TikTok, Instagram',
     challenge: 'Create multi-platform viral content optimized for different social channels.',
     solution: 'Produced adaptable content with platform-specific editing, captions, and formats.',
     results: {
-      stat1: { value: '800K', label: 'Total Views' },
+      stat1: { value: '89K', label: 'Total Views' },
       stat2: { value: '11%', label: 'Engagement' },
       stat3: { value: '2.9x', label: 'Viral Factor' },
     },
@@ -115,7 +102,7 @@ const projects: Project[] = [
 export default function OurWorkPortfolio() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.2 });
+  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
 
   const filteredProjects = useMemo(() => 
     activeCategory === 'All'
@@ -131,28 +118,6 @@ export default function OurWorkPortfolio() {
     [selectedProject, filteredProjects]
   );
 
-  useEffect(() => {
-    if (selectedProject && currentIndex === -1) {
-      setSelectedProject(null);
-    }
-  }, [selectedProject, currentIndex]);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!selectedProject) return;
-      if (e.key === 'Escape') {
-        setSelectedProject(null);
-      } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
-        setSelectedProject(filteredProjects[currentIndex - 1]);
-      } else if (e.key === 'ArrowRight' && currentIndex < filteredProjects.length - 1) {
-        setSelectedProject(filteredProjects[currentIndex + 1]);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedProject, currentIndex, filteredProjects]);
-
   const handlePrevProject = useCallback(() => {
     if (currentIndex > 0) {
       setSelectedProject(filteredProjects[currentIndex - 1]);
@@ -166,136 +131,51 @@ export default function OurWorkPortfolio() {
   }, [currentIndex, filteredProjects]);
 
   return (
-    <>
-      <section ref={sectionRef} className="py-24 md:py-32 bg-primary-dark relative">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="text-center mb-12">
-            <h2
-              className={`font-coolvetica text-5xl md:text-6xl text-soft-white mb-6 transition-all duration-700 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-            >
-              Our Work
-            </h2>
-
-            <div
-              className={`flex flex-wrap justify-center gap-4 transition-all duration-700 delay-100 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-            >
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className="px-7 py-3 rounded-full font-montreal font-medium text-base transition-all duration-300"
-                  style={{
-                    background: activeCategory === category
-                      ? '#0D21A1'
-                      : 'rgba(247, 248, 252, 0.08)',
-                    color: '#F7F8FC',
-                  }}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div
-            className="grid gap-8 mt-16 max-w-[1400px] mx-auto"
-            style={{
-              gridTemplateColumns: 'repeat(2, 1fr)',
-            }}
-          >
-            {filteredProjects.map((project, index) => (
-              <div
-                key={project.id}
-                onClick={() => setSelectedProject(project)}
-                className={`group relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(13,33,161,0.3)] ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{
-                  background: 'rgba(11, 13, 18, 0.6)',
-                  backdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(13, 33, 161, 0.2)',
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(247, 248, 252, 0.05)',
-                  transitionDelay: `${index * 100}ms`,
-                }}
-              >
-                <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
-                  {project.videoUrl && !project.youtubeId && (
-                    <video
-                      muted
-                      playsInline
-                      loop
-                      autoPlay={false}
-                      className="w-full h-full object-cover group-hover:block hidden"
-                      onMouseEnter={(e) => e.currentTarget.play()}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.pause();
-                        e.currentTarget.currentTime = 0;
-                      }}
-                      preload="none"
-                    >
-                      <source src={project.videoUrl} type="video/mp4" />
-                    </video>
-                  )}
-                  <img
-                    src={project.thumbnail}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:hidden"
-                    loading="lazy"
-                    decoding="async"
-                  />
-
-                  <div
-                    className="absolute inset-0 flex flex-col items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{
-                      background: 'linear-gradient(180deg, transparent 0%, rgba(11, 13, 18, 0.7) 100%)',
-                    }}
-                  >
-                    <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center"
-                      style={{
-                        background: '#0D21A1',
-                        boxShadow: '0 8px 32px rgba(13, 33, 161, 0.6)',
-                      }}
-                    >
-                      <Play className="w-6 h-6 text-soft-white ml-1" fill="currentColor" />
-                    </div>
-                    <span className="font-montreal text-base font-semibold text-soft-white">
-                      View Full Project
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <div className="mb-3">
-                    <span
-                      className="px-4 py-1.5 rounded-full font-inter text-xs font-semibold uppercase"
-                      style={{
-                        background: 'rgba(13, 33, 161, 0.15)',
-                        border: '1px solid rgba(13, 33, 161, 0.3)',
-                        color: '#0D21A1',
-                      }}
-                    >
-                      {project.category}
-                    </span>
-                  </div>
-                  <h3 className="font-montreal text-xl font-semibold text-soft-white mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="font-inter text-sm" style={{ color: 'rgba(247, 248, 252, 0.7)' }}>
-                    {project.client}
-                  </p>
-                </div>
-
-                <div className="absolute inset-0 pointer-events-none transition-all duration-300 group-hover:shadow-[0_20px_60px_rgba(13,33,161,0.4)] group-hover:border-[rgba(13,33,161,0.5)]" />
-              </div>
-            ))}
-          </div>
+    <section ref={sectionRef} id="our-work" className="py-24 bg-[#0B0D12] relative overflow-hidden">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="text-center mb-16 md:mb-24">
+          <h2 className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            Our Work
+          </h2>
         </div>
-      </section>
+
+        <div className="portfolio-grid">
+          {filteredProjects.map((project, index) => (
+            <div 
+              key={project.id} 
+              className="portfolio-card"
+              onClick={() => setSelectedProject(project)}
+            >
+              <div className="video-wrapper group">
+                <video 
+                  src={project.videoUrl}
+                  className="w-full h-full object-cover"
+                  muted
+                  playsInline
+                  preload="metadata"
+                  onMouseEnter={(e) => e.currentTarget.play()}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.pause();
+                    e.currentTarget.currentTime = 0;
+                  }}
+                />
+                <div className="play-overlay">
+                  <div className="play-button-large">
+                    <Play className="fill-current w-8 h-8 ml-1" />
+                  </div>
+                </div>
+                <div className="stats-overlay">
+                  <span>{project.viewCount}</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="font-montreal text-xl font-semibold text-soft-white mb-2">{project.title}</h3>
+                <p className="font-inter text-soft-white/60 text-sm">{project.client}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {selectedProject && (
         <div
@@ -334,25 +214,13 @@ export default function OurWorkPortfolio() {
               className="rounded-2xl overflow-hidden mb-10"
               style={{ aspectRatio: '16/9', background: '#000' }}
             >
-              {selectedProject.youtubeId ? (
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=0&modestbranding=1&rel=0`}
-                  title={selectedProject.title}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
-              ) : (
-                <video
-                  controls
-                  className="w-full h-full"
-                >
-                  <source src={selectedProject.videoUrl} type="video/mp4" />
-                </video>
-              )}
+              <video
+                controls
+                autoPlay
+                className="w-full h-full"
+              >
+                <source src={selectedProject.videoUrl} type="video/mp4" />
+              </video>
             </div>
 
             <div className="space-y-8">
@@ -360,30 +228,12 @@ export default function OurWorkPortfolio() {
                 <h2 className="font-montreal text-3xl md:text-4xl font-semibold text-soft-white">
                   {selectedProject.title}
                 </h2>
-                <span
-                  className="px-4 py-1.5 rounded-full font-inter text-xs font-semibold uppercase"
-                  style={{
-                    background: 'rgba(13, 33, 161, 0.15)',
-                    border: '1px solid rgba(13, 33, 161, 0.3)',
-                    color: '#0D21A1',
-                  }}
-                >
-                  {selectedProject.category}
-                </span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="flex gap-2">
                   <span className="font-inter text-sm" style={{ color: 'rgba(247, 248, 252, 0.6)' }}>Client:</span>
                   <span className="font-inter text-sm text-soft-white">{selectedProject.client}</span>
-                </div>
-                <div className="flex gap-2">
-                  <span className="font-inter text-sm" style={{ color: 'rgba(247, 248, 252, 0.6)' }}>Industry:</span>
-                  <span className="font-inter text-sm text-soft-white">{selectedProject.industry}</span>
-                </div>
-                <div className="flex gap-2">
-                  <span className="font-inter text-sm" style={{ color: 'rgba(247, 248, 252, 0.6)' }}>Platform:</span>
-                  <span className="font-inter text-sm text-soft-white">{selectedProject.platform}</span>
                 </div>
               </div>
 
@@ -461,6 +311,6 @@ export default function OurWorkPortfolio() {
           </div>
         </div>
       )}
-    </>
+    </section>
   );
 }
