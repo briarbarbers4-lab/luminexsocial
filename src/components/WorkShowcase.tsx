@@ -51,6 +51,7 @@ export default function WorkShowcase() {
       ref={sectionRef} 
       id="work-showcase" 
       className="pb-24 md:pb-32 bg-[#0B0D12] relative overflow-visible mt-8 md:mt-12 z-10"
+      style={{ borderTop: '1px solid #0B0D12' }}
     >
       <div className="container mx-auto px-6 md:px-12">
         {/* Video Grid: 3 on top, 2 on bottom */}

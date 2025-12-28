@@ -11,7 +11,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen bg-[#0B0D12] overflow-hidden flex flex-col justify-center" data-testid="section-hero">
+    <section className="relative w-full min-h-screen bg-[#0B0D12] overflow-hidden flex flex-col justify-center" data-testid="section-hero" style={{ marginBottom: '-1px' }}>
       {/* BACKGROUND EFFECTS */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <svg 
