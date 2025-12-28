@@ -2,6 +2,7 @@ import { Phone, ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { TypeAnimation } from 'react-type-animation';
+import AbstractWaves from './AbstractWaves';
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -13,78 +14,24 @@ export default function Hero() {
   return (
     <section className="relative w-full min-h-screen bg-[#0B0D12] overflow-hidden flex flex-col justify-center" data-testid="section-hero">
       {/* BACKGROUND EFFECTS */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <svg 
-          className="hero-background-lines" 
-          width="100%" 
-          height="100%" 
-          viewBox="0 0 1920 1080"
-          preserveAspectRatio="xMidYMid slice"
-          style={{ position: 'absolute', top: 0, left: 0, zIndex: 0, opacity: 1 }}
-        >
-          <defs>
-            <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: '#0D21A1', stopOpacity: 0 }} />
-              <stop offset="30%" style={{ stopColor: '#0D21A1', stopOpacity: 0.3 }} />
-              <stop offset="70%" style={{ stopColor: '#0D21A1', stopOpacity: 0.3 }} />
-              <stop offset="100%" style={{ stopColor: '#0D21A1', stopOpacity: 0 }} />
-            </linearGradient>
-            
-            <radialGradient id="glow1">
-              <stop offset="0%" style={{ stopColor: '#0D21A1', stopOpacity: 0.25 }} />
-              <stop offset="100%" style={{ stopColor: '#0D21A1', stopOpacity: 0 }} />
-            </radialGradient>
-          </defs>
-          
-          <circle cx="400" cy="200" r="150" fill="url(#glow1)" filter="blur(60px)" />
-          <circle cx="1500" cy="400" r="200" fill="url(#glow1)" filter="blur(80px)" />
-          <circle cx="800" cy="700" r="120" fill="url(#glow1)" filter="blur(50px)" />
-          
-          <path d="M -200 150 Q 400 80 800 150 T 1600 120 T 2200 150" 
-                stroke="url(#lineGradient1)" 
-                strokeWidth="2.5" 
-                fill="none" 
-                strokeLinecap="round" />
-          
-          <path d="M -100 400 Q 300 300 700 420 T 1400 350 T 2100 450" 
-                stroke="rgba(13, 33, 161, 0.25)" 
-                strokeWidth="2" 
-                fill="none" 
-                strokeLinecap="round" />
-          
-          <path d="M -150 700 Q 500 600 900 720 T 1700 650 T 2200 700" 
-                stroke="rgba(13, 33, 161, 0.2)" 
-                strokeWidth="2.5" 
-                fill="none" 
-                strokeLinecap="round" />
-        </svg>
-
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(247, 248, 252, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(247, 248, 252, 0.1) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-            maskImage: 'radial-gradient(circle at center, black, transparent 80%)',
-            WebkitMaskImage: 'radial-gradient(circle at center, black, transparent 80%)'
-          }}
-        />
+      <div className="absolute inset-0 z-0">
+        <AbstractWaves />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto w-full px-10 md:px-20 pt-20">
         <div className="flex flex-col items-start">
           <p 
-            className={`font-inter text-[14px] uppercase tracking-[0.1em] text-[#F7F8FC]/70 mb-6 transition-all duration-300 ${
+            className={`font-allura text-[24px] text-[#0D21A1] mb-6 transition-all duration-300 ${
               isLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            • CONTENT CREATORS & BUSINESSES:
+            Digital Intelligence & Automation
           </p>
 
           <h1 
             className={`font-helvetica text-4xl md:text-[72px] font-bold text-[#F7F8FC] leading-[1.1] tracking-[-0.02em] max-w-[1100px] transition-all duration-500 delay-200 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
-            style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
           >
             <TypeAnimation
               sequence={[
@@ -113,7 +60,7 @@ export default function Hero() {
           >
             <Link 
               to="/contact"
-              className="px-10 py-4 bg-[#F7F8FC] text-[#0B0D12] font-semibold rounded-lg flex items-center justify-center gap-2 border-2 border-[#F7F8FC] transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(247,248,252,0.2)]"
+              className="px-10 py-4 bg-[#0D21A1] text-[#F7F8FC] font-semibold rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(13,33,161,0.4)]"
             >
               <Phone className="w-5 h-5" />
               Book A Call
@@ -123,14 +70,14 @@ export default function Hero() {
               href="#testimonials"
               className="px-10 py-4 bg-transparent text-[#F7F8FC] font-semibold rounded-lg border-2 border-[#F7F8FC]/30 transition-all duration-300 hover:border-[#0D21A1] hover:bg-[#0D21A1]/10 flex items-center justify-center"
             >
-              Learn More ▼
+              Learn More <span className="font-allura ml-2 text-xl italic">Premium Experience</span>
             </a>
           </div>
         </div>
 
         <div className="absolute bottom-10 right-10 md:right-20 hidden lg:block">
-          <p className="font-inter italic text-[16px] text-[#F7F8FC]/60">
-            Our Partners &rarr;
+          <p className="font-allura text-[24px] text-[#F7F8FC]/40">
+            Luminex Social &rarr;
           </p>
         </div>
       </div>
@@ -141,3 +88,4 @@ export default function Hero() {
     </section>
   );
 }
+

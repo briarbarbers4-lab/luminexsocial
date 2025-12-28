@@ -1,0 +1,62 @@
+Create a premium hero section background using abstract flowing hill / wave lines similar to high-end AI and SaaS agency websites.
+
+Brand & Visual Identity (STRICT):
+- Primary Dark: #0B0D12 (main background)
+- Signature Royal Blue: #0D21A1 (glow highlights, accents)
+- Soft White: #F7F8FC (text contrast)
+- Overall look: dark, elegant, intelligent, futuristic
+
+Background Design:
+- Full-width hero background (min-height: 90vh)
+- Base background color: #0B0D12
+- Add smooth, organic flowing wave / hill lines across the hero section
+- Lines should feel like:
+  - AI data streams
+  - Automation flow
+  - Digital intelligence
+- No sharp edges, no geometric patterns
+- Use soft gradients and blur for depth
+
+Wave Line Styling:
+- Primary glow color: #0D21A1 (royal blue)
+- Secondary subtle glow: slightly lighter blue (#1E3ADF or similar)
+- Very soft white highlights (#F7F8FC at low opacity)
+- Lines should fade gently into the background
+- Layered depth:
+  - Foreground waves slightly brighter
+  - Background waves faint and blurred
+
+Motion (Optional but Preferred):
+- Slow horizontal movement
+- Subtle parallax effect between wave layers
+- Very smooth and elegant animation (no fast motion)
+- CSS or SVG animation preferred
+
+Layout Constraints:
+- Background must stay BEHIND content
+- Left side reserved for headline & CTA
+- Right side can show more wave depth
+- Ensure text readability (do not overpower content)
+
+Typography Usage:
+- Headlines: Helvetica (Bold / Medium)
+- Subheadings / accents: Allura (sparingly, elegant)
+- Body text & UI: Inter (Regular / Semi-Bold)
+
+Technical Requirements:
+- No images
+- Use pure HTML + CSS (Tailwind preferred)
+- SVG or canvas-based waves allowed
+- Clean, reusable hero section component
+- Optimized for performance and modern browsers
+
+Agency Context:
+- Company: Luminex Social
+- Industry: AI Automation & Content Creation
+- Tone: premium, trustworthy, intelligent, modern
+- Avoid crypto, gaming, or neon cyberpunk aesthetics
+
+Deliverables:
+- Complete hero section code (HTML + CSS)
+- Reusable background component
+- Clear structure and comments
