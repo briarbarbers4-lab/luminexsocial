@@ -1,9 +1,21 @@
 import { Instagram, Linkedin, Youtube } from 'lucide-react';
 
 const footerLinks = {
-  services: ['AI Automation', 'Video Editing', 'Content Creation'],
-  company: ['About Us', 'Case Studies', 'Careers'],
-  contact: ['ayyan@luminexsocial.com', '+923145659189', 'Schedule a Call', 'Support'],
+  services: [
+    { name: 'AI Automation', href: '#services' },
+    { name: 'Video Editing', href: '#services' },
+    { name: 'Content Creation', href: '#services' }
+  ],
+  company: [
+    { name: 'What we do', href: '#services' },
+    { name: 'Our work', href: '#our-work' },
+    { name: 'Testimonials', href: '#testimonials' }
+  ],
+  contact: [
+    { name: 'ayyan@luminexsocial.com', href: 'mailto:ayyan@luminexsocial.com' },
+    { name: '+923145659189', href: 'https://wa.me/923145659189' },
+    { name: 'Schedule a Call', href: '#contact' }
+  ],
 };
 
 const socialLinks = [
@@ -48,8 +60,8 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
-                  <a href="#" className="font-inter text-soft-white/60 hover:text-royal-blue transition-colors text-sm">
-                    {link}
+                  <a href={link.href} className="font-inter text-soft-white/60 hover:text-royal-blue transition-colors text-sm">
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -61,8 +73,8 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
-                  <a href="#" className="font-inter text-soft-white/60 hover:text-royal-blue transition-colors text-sm">
-                    {link}
+                  <a href={link.href} className="font-inter text-soft-white/60 hover:text-royal-blue transition-colors text-sm">
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -74,8 +86,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.contact.map((link, index) => (
                 <li key={index}>
-                  <a href="#" className="font-inter text-soft-white/60 hover:text-royal-blue transition-colors text-sm">
-                    {link}
+                  <a 
+                    href={link.href} 
+                    className="font-inter text-soft-white/60 hover:text-royal-blue transition-colors text-sm"
+                    {...(link.href.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  >
+                    {link.name}
                   </a>
                 </li>
               ))}
