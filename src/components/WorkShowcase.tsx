@@ -16,7 +16,7 @@ const videoUrls = [
 ];
 
 export default function WorkShowcase() {
-  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
+  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.2 });
 
   const videos: VideoItem[] = useMemo(() => [
     {
@@ -47,13 +47,25 @@ export default function WorkShowcase() {
   ], []);
 
   return (
-    <section 
-      ref={sectionRef} 
-      id="work-showcase" 
-      className="pb-24 md:pb-32 bg-[#0B0D12] relative overflow-visible mt-8 md:mt-12 z-10"
-      style={{ borderTop: '1px solid #0B0D12' }}
-    >
+    <section ref={sectionRef} id="work-showcase" className="py-24 md:py-32 bg-[#0B0D12] relative overflow-visible">
       <div className="container mx-auto px-6 md:px-12">
+        <div className="text-center mb-16 md:mb-24">
+          <h2
+            className={`transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            Work That <span className="text-royal-blue italic">Speaks Volumes</span>
+          </h2>
+          <p
+            className={`font-inter text-lg md:text-xl text-soft-white/60 max-w-2xl mx-auto transition-all duration-700 delay-100 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            From concept to viral content
+          </p>
+        </div>
+
         {/* Video Grid: 3 on top, 2 on bottom */}
         <div className="flex flex-col items-center justify-center gap-8">
           {/* Top Row - 3 Videos */}
