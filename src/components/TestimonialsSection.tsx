@@ -43,20 +43,33 @@ const testimonials = [
   }
 ];
 
+const textTestimonials = [
+  { name: "Sarah Johnson", role: "Marketing Director", text: "Luminex Social tripled our content output without adding a single team member. Their AI automation saved us 25 hours per week." },
+  { name: "Mike Chen", role: "Content Creator", text: "The video editing quality is insane. Every reel they produce goes viral. 2M+ views consistently." },
+  { name: "Alex Rivera", role: "Startup Founder", text: "Finally, an agency that understands both AI and creative. They automated our entire lead funnel while creating scroll-stopping content." },
+  { name: "Jessica Park", role: "E-commerce Brand Owner", text: "We went from 500 followers to 50K in 3 months. Their content strategy and video editing are unmatched." },
+  { name: "David Thompson", role: "SaaS CEO", text: "The AI chatbot they built handles 80% of our customer inquiries. Response time dropped from 4 hours to 2 minutes." },
+  { name: "Lisa Martinez", role: "Agency Owner", text: "Best investment we've made. Professional video editing + automation = unstoppable growth machine." },
+  { name: "Robert Kim", role: "YouTuber", text: "Their team delivered 20 high-quality video edits in a week. Fast turnaround, zero revisions needed." },
+  { name: "Emma Wilson", role: "Business Consultant", text: "Automation that actually works. They integrated everything—CRM, email, social media—all running 24/7." },
+  { name: "Tom Anderson", role: "Personal Brand Coach", text: "Incredible attention to detail. Every video feels custom-made, not templated. True professionals." },
+];
+
 export default function TestimonialsSection() {
   return (
-    <section className="relative py-24 bg-[#0B0D12] overflow-hidden">
+    <section id="testimonials" className="relative py-24 bg-[#0B0D12] overflow-hidden">
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="text-center mb-16">
-          <h2 className="font-helvetica text-4xl md:text-5xl font-bold text-soft-white mb-6">
-            Client <span className="text-royal-blue">Success Stories</span>
+          <h2 className="testimonials-heading">
+            There's a reason people are <span className="text-royal-blue italic">raving</span> about us.
           </h2>
           <p className="font-inter text-lg text-soft-white/60 max-w-2xl mx-auto">
             Hear from the creators and businesses who scaled their content and automated their workflows with Luminex Social.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Video Testimonials */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
           {testimonials.map((t) => (
             <div 
               key={t.id}
@@ -66,18 +79,12 @@ export default function TestimonialsSection() {
                 <div className="relative aspect-[9/16] bg-black/40 rounded-xl mb-6 overflow-hidden group">
                   <video 
                     src={t.videoUrl} 
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                    className="w-full h-full object-cover"
+                    controls
                     muted
                     playsInline
-                    loop
-                    onMouseOver={(e) => e.currentTarget.play()}
-                    onMouseOut={(e) => e.currentTarget.pause()}
+                    preload="metadata"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition-opacity">
-                    <div className="w-16 h-16 rounded-full bg-royal-blue/20 backdrop-blur-sm border border-royal-blue/40 flex items-center justify-center">
-                      <Play className="w-6 h-6 text-soft-white fill-soft-white" />
-                    </div>
-                  </div>
                 </div>
               ) : (
                 <div className="aspect-[9/16] bg-soft-white/5 rounded-xl mb-6 flex items-center justify-center">
@@ -102,7 +109,41 @@ export default function TestimonialsSection() {
             </div>
           ))}
         </div>
+
+        {/* Text Testimonials Grid with Animations */}
+        <div className="testimonials-grid h-[800px] overflow-hidden relative">
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0B0D12] to-transparent z-10" />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0B0D12] to-transparent z-10" />
+          
+          <div className="testimonial-column scroll-down">
+            {[...textTestimonials.slice(0, 3), ...textTestimonials.slice(0, 3)].map((t, i) => (
+              <TestimonialCard key={i} {...t} />
+            ))}
+          </div>
+          <div className="testimonial-column scroll-up">
+            {[...textTestimonials.slice(3, 6), ...textTestimonials.slice(3, 6)].map((t, i) => (
+              <TestimonialCard key={i} {...t} />
+            ))}
+          </div>
+          <div className="testimonial-column scroll-down">
+            {[...textTestimonials.slice(6, 9), ...textTestimonials.slice(6, 9)].map((t, i) => (
+              <TestimonialCard key={i} {...t} />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
+  );
+}
+
+function TestimonialCard({ name, role, text }: { name: string; role: string; text: string }) {
+  return (
+    <div className="bg-soft-white/5 border border-soft-white/10 rounded-2xl p-8 min-h-[200px]">
+      <p className="font-inter text-soft-white/85 leading-relaxed mb-6">"{text}"</p>
+      <div className="flex flex-col">
+        <strong className="text-soft-white font-montreal">{name}</strong>
+        <span className="text-soft-white/40 text-sm font-inter">{role}</span>
+      </div>
+    </div>
   );
 }

@@ -1,0 +1,545 @@
+Make these 7 changes to the Luminex Social website:
+
+=== 1. ADD TYPEWRITER EFFECT TO HERO HEADING ===
+
+Install and use typewriter effect on main headline:
+
+Target text: "Scale Your Content Creation With AI Automation & Professional Video Editing"
+
+Implementation:
+- Use CSS typewriter animation OR use a library like 'react-type-animation'
+- Typing speed: 50ms per character
+- Show cursor blinking after text completes
+- Loop: false (type once on page load)
+
+Example with react-type-animation:
+```jsx
+import { TypeAnimation } from 'react-type-animation';
+
+<h1>
+  <TypeAnimation
+    sequence={[
+      'Scale Your Content Creation With ',
+      100,
+      'Scale Your Content Creation With AI Automation & Professional Video Editing'
+    ]}
+    speed={50}
+    cursor={true}
+    repeat={0}
+  />
+</h1>
+```
+
+OR pure CSS:
+```css
+.hero-heading {
+  overflow: hidden;
+  border-right: 3px solid #0D21A1;
+  white-space: nowrap;
+  animation: typing 3.5s steps(60) 0.5s 1 normal both,
+             blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+```
+
+=== 2. MAKE ENTIRE WEBSITE BACKGROUND BLACK ===
+
+Change all section backgrounds to solid black:
+```css
+body {
+  background: #0B0D12;
+}
+
+/* All sections */
+section {
+  background: #0B0D12;
+}
+
+/* Remove any white/colored backgrounds */
+.services-section,
+.portfolio-section,
+.testimonials-section,
+.process-section,
+.contact-section,
+footer {
+  background: #0B0D12 !important;
+}
+```
+
+Keep only the hero section with subtle gradient lines.
+All other sections: pure black (#0B0D12).
+
+=== 3. CHANGE ALL SECTION HEADINGS TO "ALLURE" FONT ===
+
+Update typography for ALL section headings:
+```css
+h2, .section-heading {
+  font-family: 'Allure', serif !important;
+  /* If Allure not available, use fallback */
+  font-family: 'Allure', 'Playfair Display', serif !important;
+}
+```
+
+Import Allure font (add to HTML head):
+```html
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+```
+
+NOTE: Font name is "Allura" (with 'a' at end), not "Allure"
+
+Apply to:
+- "What We Do"
+- "Work That Speaks Volumes"
+- "Our Work"
+- "How We Work"
+- "What Our Clients Say" / Testimonials
+- All H2 headings
+
+Keep body text in Inter, subheadings in Neue Montreal.
+
+=== 4. FIX TESTIMONIAL VIDEOS - REMOVE AUTOPLAY ===
+
+In testimonials section:
+
+REMOVE autoplay on hover:
+```html
+<!-- OLD (remove) -->
+<video autoplay loop muted playsinline>
+
+<!-- NEW (correct) -->
+<video controls muted playsinline preload="metadata">
+  <source src="testimonial-video.mp4" type="video/mp4" />
+</video>
+```
+
+Requirements:
+- Add controls (play/pause button visible)
+- Remove autoplay
+- Remove loop
+- Keep muted initially
+- Users click play button to watch
+- preload="metadata" (shows thumbnail)
+
+Add poster image (thumbnail):
+```html
+<video controls muted playsinline poster="thumbnail.jpg">
+  <source src="video.mp4" type="video/mp4" />
+</video>
+```
+
+Audio MUST work when user clicks play.
+
+=== 5. REDESIGN PORTFOLIO SECTION - GRID LAYOUT ===
+
+Create portfolio grid matching first screenshot:
+
+LAYOUT:
+- 2x2 grid of video cards
+- Each card: aspect ratio 16:9 (horizontal)
+- Large play button overlay
+- Video thumbnail visible
+- Stats overlay (views count)
+- Project title at bottom
+
+Structure:
+```html
+<section class="portfolio-section">
+  <h2>Our Work</h2>
+  
+  <div class="portfolio-grid">
+    <!-- Card 1 -->
+    <div class="portfolio-card">
+      <div class="video-wrapper">
+        <video poster="thumbnail1.jpg">
+          <source src="project1.mp4" type="video/mp4" />
+        </video>
+        <div class="play-overlay">
+          <div class="play-button">▶</div>
+        </div>
+        <div class="stats-overlay">
+          <span class="views">226K views</span>
+        </div>
+      </div>
+      <div class="card-info">
+        <h3>Product Launch Campaign</h3>
+        <p>TechBrand Inc</p>
+      </div>
+    </div>
+    
+    <!-- Repeat for 3 more cards -->
+  </div>
+</section>
+```
+
+CSS:
+```css
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 40px;
+}
+
+.portfolio-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(247, 248, 252, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(13, 33, 161, 0.5);
+}
+
+.video-wrapper {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.portfolio-card:hover .play-overlay {
+  opacity: 0.9;
+}
+
+.play-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #0B0D12;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.play-button:hover {
+  transform: scale(1.1);
+}
+
+.stats-overlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #F7F8FC;
+}
+
+.card-info {
+  padding: 20px;
+}
+
+.card-info h3 {
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #F7F8FC;
+  margin-bottom: 8px;
+}
+
+.card-info p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(247, 248, 252, 0.7);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+```
+
+4 project cards with:
+- Video thumbnail
+- Large play button
+- View count overlay (top-left)
+- Project title + client name
+- Click to play video OR open modal
+
+=== 6. ADD TEXT TESTIMONIALS WITH SCROLL ANIMATION ===
+
+Create testimonials section matching second screenshot:
+
+LAYOUT:
+- Heading: "There's a reason people are raving about us." ("raving" in red/Royal Blue)
+- 3 columns of testimonial cards
+- LEFT column: scrolls DOWN
+- CENTER column: scrolls UP
+- RIGHT column: scrolls DOWN
+
+Structure:
+```html
+<section class="testimonials-section">
+  <h2 class="testimonials-heading">
+    There's a reason people are 
+    <span class="highlight">raving</span> 
+    about us.
+  </h2>
+  
+  <div class="testimonials-grid">
+    <!-- LEFT COLUMN (scroll down) -->
+    <div class="testimonial-column scroll-down">
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "Luminex Social tripled our content output without adding a single team member. Their AI automation saved us 25 hours per week."
+        </p>
+        <div class="testimonial-author">
+          <strong>Sarah Johnson</strong>
+          <span>Marketing Director</span>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "The video editing quality is insane. Every reel they produce goes viral. 2M+ views consistently."
+        </p>
+        <div class="testimonial-author">
+          <strong>Mike Chen</strong>
+          <span>Content Creator</span>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "Finally, an agency that understands both AI and creative. They automated our entire lead funnel while creating scroll-stopping content."
+        </p>
+        <div class="testimonial-author">
+          <strong>Alex Rivera</strong>
+          <span>Startup Founder</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- CENTER COLUMN (scroll up) -->
+    <div class="testimonial-column scroll-up">
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "We went from 500 followers to 50K in 3 months. Their content strategy and video editing are unmatched."
+        </p>
+        <div class="testimonial-author">
+          <strong>Jessica Park</strong>
+          <span>E-commerce Brand Owner</span>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "The AI chatbot they built handles 80% of our customer inquiries. Response time dropped from 4 hours to 2 minutes."
+        </p>
+        <div class="testimonial-author">
+          <strong>David Thompson</strong>
+          <span>SaaS CEO</span>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "Best investment we've made. Professional video editing + automation = unstoppable growth machine."
+        </p>
+        <div class="testimonial-author">
+          <strong>Lisa Martinez</strong>
+          <span>Agency Owner</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- RIGHT COLUMN (scroll down) -->
+    <div class="testimonial-column scroll-down">
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "Their team delivered 20 high-quality video edits in a week. Fast turnaround, zero revisions needed."
+        </p>
+        <div class="testimonial-author">
+          <strong>Robert Kim</strong>
+          <span>YouTuber</span>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "Automation that actually works. They integrated everything—CRM, email, social media—all running 24/7."
+        </p>
+        <div class="testimonial-author">
+          <strong>Emma Wilson</strong>
+          <span>Business Consultant</span>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "Incredible attention to detail. Every video feels custom-made, not templated. True professionals."
+        </p>
+        <div class="testimonial-author">
+          <strong>Tom Anderson</strong>
+          <span>Personal Brand Coach</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+CSS + Animation:
+```css
+.testimonials-section {
+  padding: 100px 40px;
+  background: #0B0D12;
+  overflow: hidden;
+}
+
+.testimonials-heading {
+  font-family: 'Allura', serif;
+  font-size: 56px;
+  text-align: center;
+  color: #F7F8FC;
+  margin-bottom: 80px;
+}
+
+.testimonials-heading .highlight {
+  color: #0D21A1; /* Royal Blue */
+  font-style: italic;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.testimonial-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Scroll animations */
+.scroll-down {
+  animation: scrollDown 30s linear infinite;
+}
+
+.scroll-up {
+  animation: scrollUp 30s linear infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scrollUp {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+/* Pause on hover */
+.testimonial-column:hover {
+  animation-play-state: paused;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(247, 248, 252, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  min-height: 200px;
+}
+
+.testimonial-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(247, 248, 252, 0.85);
+  margin-bottom: 24px;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.testimonial-author strong {
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #F7F8FC;
+}
+
+.testimonial-author span {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(247, 248, 252, 0.6);
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .scroll-down, .scroll-up {
+    animation: none;
+  }
+}
+```
+
+NO IMAGES - just text testimonials with names and roles.
+
+=== MOBILE RESPONSIVE ===
+
+Ensure all new elements are mobile-friendly:
+- Typewriter effect works on mobile
+- Portfolio grid: 2 columns → 1 column
+- Testimonials: 3 columns → 1 column, disable scroll animation
+- All text readable on small screens
+
+=== SUMMARY OF CHANGES ===
+
+✅ 1. Typewriter effect on hero heading
+✅ 2. All backgrounds changed to black (#0B0D12)
+✅ 3. Section headings use "Allura" font
+✅ 4. Testimonial videos: controls added, autoplay removed, audio works
+✅ 5. Portfolio: 2x2 grid with large play buttons and view counts
+✅ 6. Text testimonials: 3 columns, scrolling animation, no images
+
+Implement all changes maintaining Luminex Social branding (Royal Blue #0D21A1, Soft White #F7F8FC).

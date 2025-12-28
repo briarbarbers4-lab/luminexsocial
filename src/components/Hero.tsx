@@ -1,6 +1,7 @@
 import { Phone, ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { TypeAnimation } from 'react-type-animation';
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -22,7 +23,6 @@ export default function Hero() {
           style={{ position: 'absolute', top: 0, left: 0, zIndex: 0, opacity: 1 }}
         >
           <defs>
-            {/* Gradients */}
             <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" style={{ stopColor: '#0D21A1', stopOpacity: 0 }} />
               <stop offset="30%" style={{ stopColor: '#0D21A1', stopOpacity: 0.3 }} />
@@ -36,12 +36,10 @@ export default function Hero() {
             </radialGradient>
           </defs>
           
-          {/* Background glow spots */}
           <circle cx="400" cy="200" r="150" fill="url(#glow1)" filter="blur(60px)" />
           <circle cx="1500" cy="400" r="200" fill="url(#glow1)" filter="blur(80px)" />
           <circle cx="800" cy="700" r="120" fill="url(#glow1)" filter="blur(50px)" />
           
-          {/* Flowing lines spanning full width */}
           <path d="M -200 150 Q 400 80 800 150 T 1600 120 T 2200 150" 
                 stroke="url(#lineGradient1)" 
                 strokeWidth="2.5" 
@@ -59,20 +57,8 @@ export default function Hero() {
                 strokeWidth="2.5" 
                 fill="none" 
                 strokeLinecap="round" />
-          
-          {/* Vertical/diagonal accents */}
-          <path d="M 1600 -100 Q 1500 300 1650 600 T 1600 1200" 
-                stroke="rgba(13, 33, 161, 0.18)" 
-                strokeWidth="2" 
-                fill="none" />
-          
-          <path d="M 200 -50 Q 600 400 1000 300 T 1800 800" 
-                stroke="rgba(140, 143, 148, 0.15)" 
-                strokeWidth="1.5" 
-                fill="none" />
         </svg>
 
-        {/* Subtle Grid Pattern Overlay */}
         <div 
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -84,10 +70,8 @@ export default function Hero() {
         />
       </div>
 
-      {/* CONTENT */}
       <div className="relative z-10 max-w-[1400px] mx-auto w-full px-10 md:px-20 pt-20">
         <div className="flex flex-col items-start">
-          {/* EYEBROW */}
           <p 
             className={`font-inter text-[14px] uppercase tracking-[0.1em] text-[#F7F8FC]/70 mb-6 transition-all duration-300 ${
               isLoaded ? 'opacity-100' : 'opacity-0'
@@ -96,17 +80,24 @@ export default function Hero() {
             • CONTENT CREATORS & BUSINESSES:
           </p>
 
-          {/* HEADLINE */}
           <h1 
             className={`font-helvetica text-4xl md:text-[72px] font-bold text-[#F7F8FC] leading-[1.1] tracking-[-0.02em] max-w-[1100px] transition-all duration-500 delay-200 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
           >
-            Scale Your Content Creation With <span className="text-[#0D21A1]">AI Automation</span> & Professional Video Editing
+            <TypeAnimation
+              sequence={[
+                'Scale Your Content Creation With ',
+                100,
+                'Scale Your Content Creation With AI Automation & Professional Video Editing'
+              ]}
+              speed={50}
+              cursor={true}
+              repeat={0}
+            />
           </h1>
 
-          {/* SUBHEADING */}
           <p 
             className={`font-inter text-[18px] md:text-[20px] text-[#F7F8FC]/75 leading-[1.5] max-w-[800px] mt-6 transition-all duration-500 delay-400 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -115,7 +106,6 @@ export default function Hero() {
             Struggling with content creation AND repetitive tasks? We edit your videos to perfection and automate your workflows to save 20+ hours weekly
           </p>
 
-          {/* CTA BUTTONS */}
           <div 
             className={`flex flex-col sm:flex-row gap-5 mt-12 transition-all duration-500 delay-600 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -129,16 +119,15 @@ export default function Hero() {
               Book A Call
             </Link>
 
-            <Link 
-              to="/portfolio"
+            <a 
+              href="#testimonials"
               className="px-10 py-4 bg-transparent text-[#F7F8FC] font-semibold rounded-lg border-2 border-[#F7F8FC]/30 transition-all duration-300 hover:border-[#0D21A1] hover:bg-[#0D21A1]/10 flex items-center justify-center"
             >
               Learn More ▼
-            </Link>
+            </a>
           </div>
         </div>
 
-        {/* TRUST INDICATOR */}
         <div className="absolute bottom-10 right-10 md:right-20 hidden lg:block">
           <p className="font-inter italic text-[16px] text-[#F7F8FC]/60">
             Our Partners &rarr;
@@ -146,7 +135,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* MOBILE SCROLL INDICATOR */}
       <div className="lg:hidden absolute bottom-5 left-1/2 -translate-x-1/2">
         <ChevronDown className="w-6 h-6 text-[#0D21A1] animate-bounce" />
       </div>

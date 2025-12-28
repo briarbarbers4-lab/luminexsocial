@@ -47,7 +47,7 @@ export default function Services() {
         {/* Header */}
         <div className="text-center mb-20">
           <h2 
-            className={`font-coolvetica text-5xl md:text-6xl text-soft-white mb-4 transition-all duration-700 ${
+            className={`text-5xl md:text-6xl text-soft-white mb-4 transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
