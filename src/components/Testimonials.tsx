@@ -21,21 +21,9 @@ const testimonials = [
     company: "CreativeWorks",
     role: "Brand Manager",
   },
-  {
-    quote: "Their AI automation tools revolutionized our workflow. We're now able to scale our content production without sacrificing quality.",
-    author: "David Park",
-    company: "ScaleUp Media",
-    role: "Operations Lead",
-  },
-  {
-    quote: "The team is incredibly talented and professional. They delivered our project on time and exceeded all our requirements.",
-    author: "Lisa Thompson",
-    company: "BrightFuture Co",
-    role: "Founder",
-  },
 ];
 
-const clientLogos = ['TechVision', 'GrowthLabs', 'CreativeWorks', 'ScaleUp', 'BrightFuture', 'NextGen'];
+const clientLogos = ['TechVision', 'GrowthLabs', 'CreativeWorks'];
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
