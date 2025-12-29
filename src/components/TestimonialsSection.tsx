@@ -61,7 +61,7 @@ export default function TestimonialsSection() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="text-center mb-16">
           <h2 className="testimonials-heading">
-            There's a reason people are <span className="text-royal-blue italic">raving</span> about us.
+            There's a reason people are <span className="font-allura text-royal-blue italic">raving</span> about us.
           </h2>
           <p className="font-inter text-lg text-soft-white/60 max-w-2xl mx-auto">
             Hear from the creators and businesses who scaled their content and automated their workflows with Luminex Social.
