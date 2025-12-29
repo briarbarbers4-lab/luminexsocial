@@ -101,7 +101,7 @@ export default function Blog() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            Insights & Resources
+            Insights & <span className="font-allura text-royal-blue italic">Resources</span>
           </h2>
           <p 
             className={`font-montreal text-xl text-primary-dark/70 mb-8 transition-all duration-700 delay-100 ${

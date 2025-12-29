@@ -28,7 +28,7 @@ export default function Contact() {
           className={`text-center mb-12 transition-all duration-1000 opacity-100 translate-y-0`}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-coolvetica text-soft-white mb-4 leading-tight">
-            Let's Create Something Amazing
+            Let's Create Something <span className="font-allura text-royal-blue italic">Amazing</span>
           </h2>
           <p className="text-lg md:text-xl text-soft-white/70 font-inter max-w-2xl mx-auto">
             Get in touch for a free consultation

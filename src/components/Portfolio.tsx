@@ -54,7 +54,7 @@ export default function Portfolio() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            Our Work Speaks
+            Our Work <span className="font-allura text-royal-blue italic">Speaks</span>
           </h2>
 
           <div className={`flex flex-wrap justify-center gap-4 transition-all duration-700 ${

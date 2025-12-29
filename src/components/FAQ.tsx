@@ -69,7 +69,7 @@ export default function FAQ() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            Frequently Asked Questions
+            Frequently Asked <span className="font-allura text-royal-blue italic">Questions</span>
           </h2>
           <p 
             className={`font-montreal text-xl text-soft-white/70 transition-all duration-700 delay-100 ${

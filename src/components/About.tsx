@@ -50,7 +50,7 @@ export default function About() {
           <div className="space-y-6 md:space-y-8">
             <div className="space-y-3">
               <h2 className="text-4xl md:text-5xl font-bold font-coolvetica text-white leading-tight">
-                Who We Are
+                Who We <span className="font-allura text-royal-blue italic">Are</span>
               </h2>
               <p className="text-lg md:text-xl text-white font-neue-montreal">
                 Your Partner in Digital Excellence
@@ -132,7 +132,7 @@ export default function About() {
         >
           <div className="text-center space-y-3 max-w-2xl mx-auto">
             <h3 className="text-3xl md:text-4xl font-bold font-coolvetica text-white">
-              Meet Our Team
+              Meet Our <span className="font-allura text-royal-blue italic">Team</span>
             </h3>
             <p className="text-secondary-text font-inter text-white">
               Talented individuals united by a passion for excellence and innovation

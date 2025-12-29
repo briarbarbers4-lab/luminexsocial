@@ -36,7 +36,7 @@ export default function Process() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            How We Work Together
+            How We Work <span className="font-allura text-royal-blue italic">Together</span>
           </h2>
           <p 
             className={`font-inter text-lg text-soft-white/70 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
