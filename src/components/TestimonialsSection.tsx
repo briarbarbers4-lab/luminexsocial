@@ -7,7 +7,7 @@ const testimonials = [
     client: "Brett Boudrow",
     role: "Content Creator",
     rating: 5,
-    text: "Working with Luminex transformed our content workflow. The AI automation alone saved us hours every single week."
+    text: "Worked with Khan (Furqan). He is super duper fast, Whenever I have concerns or I want something changed, He hops on a zoom call with me literally that day or next day"
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const testimonials = [
     client: "Alex Rivera",
     role: "E-commerce Founder",
     rating: 5,
-    text: "The quality of video editing is top-tier. They understand the hooks and pacing needed for viral shorts."
+    text: "So far I am satisfied with their work, On time, Profesional, really good at communication and understand's what we are looking for"
   },
   {
     id: 3,
