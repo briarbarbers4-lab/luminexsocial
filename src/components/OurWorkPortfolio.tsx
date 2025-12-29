@@ -28,7 +28,7 @@ const projects: Project[] = [
     title: 'Summer ARC Edit',
     client: 'Luminex Social',
     category: 'Content Creation',
-    thumbnail: 'https://youtu.be/L1Eo7fMj-vE',
+    thumbnail: 'https://img.youtube.com/vi/L1Eo7fMj-vE/maxresdefault.jpg',
     youtubeId: 'L1Eo7fMj-vE',
     viewCount: ' ',
     industry: 'Social Media',
@@ -46,7 +46,7 @@ const projects: Project[] = [
     title: 'Ethereum',
     client: 'Luminex Social',
     category: 'Content Creation',
-    thumbnail: 'https://youtu.be/IeM04ObtEbA',
+    thumbnail: 'https://img.youtube.com/vi/IeM04ObtEbA/maxresdefault.jpg',
     youtubeId: 'IeM04ObtEbA',
     viewCount: ' ',
     industry: 'Crypto',
@@ -64,7 +64,7 @@ const projects: Project[] = [
     title: 'Professional Production',
     client: 'Luminex Social',
     category: 'Content Creation',
-    thumbnail: 'https://youtu.be/hxWDYQMgNn0',
+    thumbnail: 'https://img.youtube.com/vi/hxWDYQMgNn0/maxresdefault.jpg',
     youtubeId: 'hxWDYQMgNn0',
     viewCount: '1.8M views',
     industry: ' ',
@@ -82,7 +82,7 @@ const projects: Project[] = [
     title: 'High Energy Content',
     client: 'Luminex Social',
     category: 'Content Creation',
-    thumbnail: 'https://youtu.be/hg98fzJTKh4',
+    thumbnail: 'https://img.youtube.com/vi/hg98fzJTKh4/maxresdefault.jpg',
     youtubeId: 'hg98fzJTKh4',
     viewCount: '2.5M views',
     industry: 'Digital Content',
@@ -107,18 +107,6 @@ export default function OurWorkPortfolio() {
       : -1,
     [selectedProject]
   );
-
-  const handlePrevProject = useCallback(() => {
-    if (currentIndex > 0) {
-      setSelectedProject(projects[currentIndex - 1]);
-    }
-  }, [currentIndex]);
-
-  const handleNextProject = useCallback(() => {
-    if (currentIndex < projects.length - 1) {
-      setSelectedProject(projects[currentIndex + 1]);
-    }
-  }, [currentIndex]);
 
   return (
     <section ref={sectionRef} id="our-work" className="py-24 bg-[#0B0D12] relative overflow-hidden">
@@ -150,9 +138,6 @@ export default function OurWorkPortfolio() {
                     <Play className="fill-current w-8 h-8 ml-1" />
                   </div>
                 </div>
-                <div className="stats-overlay">
-                  <span>{project.viewCount}</span>
-                </div>
               </div>
               <div className="p-6">
                 <h3 className="font-montreal text-xl font-semibold text-soft-white mb-2">{project.title}</h3>
@@ -177,12 +162,7 @@ export default function OurWorkPortfolio() {
           />
 
           <div
-            className="relative max-w-[1200px] w-full max-h-[90vh] overflow-y-auto rounded-3xl p-6 md:p-10 z-10"
-            style={{
-              background: 'rgba(11, 13, 18, 0.9)',
-              backdropFilter: 'blur(30px)',
-              border: '1px solid rgba(247, 248, 252, 0.1)',
-            }}
+            className="relative max-w-[1000px] w-full aspect-video rounded-3xl overflow-hidden z-10 shadow-[0_0_50px_rgba(0,0,0,0.5)]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -196,121 +176,26 @@ export default function OurWorkPortfolio() {
               <X className="w-5 h-5 text-soft-white" />
             </button>
 
-            <div
-              className="rounded-2xl overflow-hidden mb-10"
-              style={{ aspectRatio: '16/9', background: '#000' }}
-            >
-              {selectedProject.youtubeId ? (
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1&modestbranding=1&rel=0`}
-                  title={selectedProject.title}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
-              ) : (
-                <video
-                  controls
-                  autoPlay
-                  className="w-full h-full"
-                >
-                  <source src={selectedProject.videoUrl} type="video/mp4" />
-                </video>
-              )}
-            </div>
-
-            <div className="space-y-8">
-              <div className="flex flex-wrap items-center gap-4">
-                <h2 className="font-montreal text-3xl md:text-4xl font-semibold text-soft-white">
-                  {selectedProject.title}
-                </h2>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="flex gap-2">
-                  <span className="font-inter text-sm" style={{ color: 'rgba(247, 248, 252, 0.6)' }}>Client:</span>
-                  <span className="font-inter text-sm text-soft-white">{selectedProject.client}</span>
-                </div>
-                <div className="flex gap-2">
-                  <span className="font-inter text-sm" style={{ color: 'rgba(247, 248, 252, 0.6)' }}>Platform:</span>
-                  <span className="font-inter text-sm text-soft-white">{selectedProject.platform}</span>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="font-montreal text-xl font-semibold text-soft-white mb-3">Challenge</h3>
-                <p className="font-inter text-base" style={{ color: 'rgba(247, 248, 252, 0.8)' }}>
-                  {selectedProject.challenge}
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-montreal text-xl font-semibold text-soft-white mb-3">Solution</h3>
-                <p className="font-inter text-base" style={{ color: 'rgba(247, 248, 252, 0.8)' }}>
-                  {selectedProject.solution}
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-montreal text-xl font-semibold text-soft-white mb-6">Results</h3>
-                <div className="grid grid-cols-3 gap-6">
-                  <div className="text-center p-6 rounded-2xl" style={{ background: 'rgba(13, 33, 161, 0.1)' }}>
-                    <div className="font-coolvetica text-3xl md:text-4xl text-royal-blue mb-2">
-                      {selectedProject.results.stat1.value}
-                    </div>
-                    <div className="font-inter text-sm" style={{ color: 'rgba(247, 248, 252, 0.6)' }}>
-                      {selectedProject.results.stat1.label}
-                    </div>
-                  </div>
-                  <div className="text-center p-6 rounded-2xl" style={{ background: 'rgba(13, 33, 161, 0.1)' }}>
-                    <div className="font-coolvetica text-3xl md:text-4xl text-royal-blue mb-2">
-                      {selectedProject.results.stat2.value}
-                    </div>
-                    <div className="font-inter text-sm" style={{ color: 'rgba(247, 248, 252, 0.6)' }}>
-                      {selectedProject.results.stat2.label}
-                    </div>
-                  </div>
-                  <div className="text-center p-6 rounded-2xl" style={{ background: 'rgba(13, 33, 161, 0.1)' }}>
-                    <div className="font-coolvetica text-3xl md:text-4xl text-royal-blue mb-2">
-                      {selectedProject.results.stat3.value}
-                    </div>
-                    <div className="font-inter text-sm" style={{ color: 'rgba(247, 248, 252, 0.6)' }}>
-                      {selectedProject.results.stat3.label}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex justify-between pt-6">
-                <button
-                  onClick={handlePrevProject}
-                  disabled={currentIndex <= 0}
-                  className="flex items-center gap-2 px-6 py-3 rounded-full font-montreal font-medium transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
-                  style={{
-                    background: 'rgba(247, 248, 252, 0.1)',
-                    color: '#F7F8FC',
-                  }}
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                  Previous Project
-                </button>
-                <button
-                  onClick={handleNextProject}
-                  disabled={currentIndex >= projects.length - 1}
-                  className="flex items-center gap-2 px-6 py-3 rounded-full font-montreal font-medium transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
-                  style={{
-                    background: 'rgba(247, 248, 252, 0.1)',
-                    color: '#F7F8FC',
-                  }}
-                >
-                  Next Project
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
+            {selectedProject.youtubeId ? (
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/${selectedProject.youtubeId}?autoplay=1&modestbranding=1&rel=0`}
+                title={selectedProject.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            ) : (
+              <video
+                controls
+                autoPlay
+                className="w-full h-full"
+              >
+                <source src={selectedProject.videoUrl} type="video/mp4" />
+              </video>
+            )}
           </div>
         </div>
       )}
