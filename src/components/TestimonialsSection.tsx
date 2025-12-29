@@ -24,22 +24,6 @@ const testimonials = [
     role: "Marketing Director",
     rating: 5,
     text: "Professional, efficient, and innovative. Their systems allowed us to scale our output without hiring more staff."
-  },
-  {
-    id: 4,
-    videoUrl: "",
-    client: "Michael Chen",
-    role: "Tech Influencer",
-    rating: 5,
-    text: "Highly recommended for any creator looking to automate the boring parts and focus on creativity."
-  },
-  {
-    id: 5,
-    videoUrl: "",
-    client: "Elena Rodriguez",
-    role: "Business Coach",
-    rating: 5,
-    text: "The ROI was immediate. Better videos, less time spent, more engagement across all my social channels."
   }
 ];
 
