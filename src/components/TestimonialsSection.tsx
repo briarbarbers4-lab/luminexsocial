@@ -12,8 +12,8 @@ const testimonials = [
   {
     id: 2,
     videoUrl: "https://ik.imagekit.io/imkyby1j5/Video/IMG_1005.MP4",
-    client: "Alex Rivera",
-    role: "E-commerce Founder",
+    client: "Kahyl Jadavji",
+    role: "Founder - Marketing Agency",
     rating: 5,
     text: "So far I am satisfied with their work, On time, Profesional, really good at communication and understand's what we are looking for"
   },
