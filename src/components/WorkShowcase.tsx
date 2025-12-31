@@ -54,6 +54,7 @@ export default function WorkShowcase() {
                   playsInline
                   preload="auto"
                   className="w-full h-full object-cover"
+                  onCanPlay={(e) => (e.target as HTMLVideoElement).play()}
                 >
                   <source src={short.videoUrl} type="video/mp4" />
                 </video>
