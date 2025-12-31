@@ -41,14 +41,14 @@ export default function Contact() {
           className={`transition-all duration-1000 opacity-100 translate-y-0 flex justify-center`}
         >
           <div
-            className="w-full max-w-[1000px] rounded-3xl overflow-hidden backdrop-blur-md"
+            className="w-full max-w-[800px] rounded-3xl overflow-hidden backdrop-blur-md"
             style={{
-              background: 'rgba(11, 13, 18, 0.6)',
-              border: '1.5px solid rgba(13, 33, 161, 0.4)',
-              boxShadow: '0 0 40px rgba(13, 33, 161, 0.15), inset 0 0 40px rgba(13, 33, 161, 0.05)',
+              background: 'rgba(11, 13, 18, 0.4)',
+              border: '1px solid rgba(13, 33, 161, 0.3)',
+              boxShadow: '0 0 30px rgba(13, 33, 161, 0.1)',
             }}
           >
-            <div className="calendly-inline-widget w-full" data-url="https://calendly.com/luminexsocial05/30min?hide_gdpr_banner=1&primary_color=0d21a1" style={{ minWidth: '320px', height: '700px' }}></div>
+            <div className="calendly-inline-widget w-full" data-url="https://calendly.com/luminexsocial05/30min?hide_gdpr_banner=1&primary_color=0d21a1" style={{ minWidth: '320px', height: '1000px' }}></div>
           </div>
         </div>
       </div>
