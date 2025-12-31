@@ -1,14 +1,14 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const shortsData = [
-  { id: '1', youtubeId: 'jTHGqYFefz4' },
-  { id: '2', youtubeId: 'uCD_nGtHw6I' },
-  { id: '3', youtubeId: '_TUU9o5ajkU' },
-  { id: '4', youtubeId: 'yFmD715GUqs' },
-  { id: '5', youtubeId: 'c60T45_lvZs' },
-  { id: '6', youtubeId: 'QkvUvnA-31w' },
-  { id: '7', youtubeId: 'Zw52Jgsf_NE' },
-  { id: '8', youtubeId: 'tAZotqu7hl0' },
+  { id: '1', videoUrl: 'https://ik.imagekit.io/5pahp6yywb/Crafted%20London.mp4' },
+  { id: '2', videoUrl: 'https://ik.imagekit.io/5pahp6yywb/8%20Months%20Ago%20I%20Founded%20203%20Media_V5.mp4' },
+  { id: '3', videoUrl: 'https://ik.imagekit.io/5pahp6yywb/Strategy%20For%20LinkedIn%20Growth_V1.mp4' },
+  { id: '4', videoUrl: 'https://ik.imagekit.io/5pahp6yywb/drive-download-20251231T110107Z-3-001/SubMagic_V3.mp4' },
+  { id: '5', videoUrl: 'https://ik.imagekit.io/5pahp6yywb/drive-download-20251231T110107Z-3-001/GO%20VIRAL%20BEFORE%20YOU%20PUBLISH_V3.mp4' },
+  { id: '6', videoUrl: 'https://ik.imagekit.io/5pahp6yywb/drive-download-20251231T110107Z-3-001/Followers_V1.mp4' },
+  { id: '7', videoUrl: 'https://ik.imagekit.io/5pahp6yywb/drive-download-20251231T110107Z-3-001/Olaf%20Carlson_V2.mp4' },
+  { id: '8', videoUrl: 'https://ik.imagekit.io/5pahp6yywb/drive-download-20251231T110107Z-3-001/Marketing_V2.mp4' },
 ];
 
 export default function WorkShowcase() {
@@ -47,15 +47,15 @@ export default function WorkShowcase() {
                   border: '1px solid rgba(247, 248, 252, 0.1)',
                 }}
               >
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src={`https://www.youtube.com/embed/${short.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${short.youtubeId}&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&widget_referrer=1&enablejsapi=1&origin=${window.location.origin}`}
-                  title={`Short ${index}`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  className="w-full h-full object-cover scale-[1.3] brightness-[1.1]"
-                />
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src={short.videoUrl} type="video/mp4" />
+                </video>
               </div>
             </div>
           ))}
@@ -68,7 +68,7 @@ export default function WorkShowcase() {
           100% { transform: translateX(-50%); }
         }
         .animate-scroll-left {
-          animation: scroll-left 60s linear infinite;
+          animation: scroll-left 40s linear infinite;
           display: flex;
           width: fit-content;
         }
