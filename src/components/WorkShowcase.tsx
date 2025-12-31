@@ -52,6 +52,7 @@ export default function WorkShowcase() {
                   loop
                   muted
                   playsInline
+                  preload="auto"
                   className="w-full h-full object-cover"
                 >
                   <source src={short.videoUrl} type="video/mp4" />
