@@ -9,13 +9,6 @@ const shortsData = [
   { id: '6', youtubeId: 'QkvUvnA-31w' },
   { id: '7', youtubeId: 'Zw52Jgsf_NE' },
   { id: '8', youtubeId: 'tAZotqu7hl0' },
-  { id: '9', youtubeId: 'ayAjLHOl-MQ' },
-  { id: '10', youtubeId: 'c0o1mOpvWHg' },
-  { id: '11', youtubeId: '8CMyACDvgiw' },
-  { id: '12', youtubeId: '1KTLmD7okxY' },
-  { id: '13', youtubeId: 'NlDgJn20OLA' },
-  { id: '14', youtubeId: 'iSsuDui9ztU' },
-  { id: '15', youtubeId: '1zwTqSBPJYI' },
 ];
 
 export default function WorkShowcase() {
@@ -57,11 +50,11 @@ export default function WorkShowcase() {
                 <iframe
                   width="100%"
                   height="100%"
-                  src={`https://www.youtube.com/embed/${short.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${short.youtubeId}&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1`}
+                  src={`https://www.youtube.com/embed/${short.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${short.youtubeId}&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&widget_referrer=1&enablejsapi=1&origin=${window.location.origin}`}
                   title={`Short ${index}`}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  className="w-full h-full object-cover scale-[1.05]"
+                  className="w-full h-full object-cover scale-[1.3] brightness-[1.1]"
                 />
               </div>
             </div>
