@@ -18,8 +18,8 @@ export default function WorkShowcase() {
   const displayShorts = [...shortsData, ...shortsData];
 
   return (
-    <section ref={sectionRef} id="work-showcase" className="py-12 bg-[#0B0D12] overflow-hidden">
-      <div className="container mx-auto px-6 mb-8">
+    <section ref={sectionRef} id="work-showcase" className="py-16 bg-[#0B0D12] overflow-hidden">
+      <div className="container mx-auto px-6 mb-10">
         <div className="text-center">
           <h2
             className={`transition-all duration-700 ${
