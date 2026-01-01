@@ -113,7 +113,7 @@ export default function Hero() {
 }
 
 const influencers = [
-  { name: "Omar", stat: "10K followers", image: "hhttps://ik.imagekit.io/5pahp6yywb/Omar.jpg" },
+  { name: "Omar", stat: "10K followers", image: "https://ik.imagekit.io/5pahp6yywb/Omar.jpg?updatedAt=1767255691021" },
   { name: "OB Health", stat: "272K followers", image: "https://ik.imagekit.io/5pahp6yywb/OB%20Health.jpg" },
   { name: "Umar Sheikh", stat: "43.7k followers", image: "https://ik.imagekit.io/5pahp6yywb/Umar%20sheikh.jpg" },
   { name: "Andrew Watt", stat: "17.4k followers", image: "https://ik.imagekit.io/5pahp6yywb/Website%20Text%20restimonais'/picture%202.jpg" },
