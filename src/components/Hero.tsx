@@ -80,10 +80,10 @@ export default function Hero() {
           </div>
 
           {/* Influencer Strip */}
-          <div className="w-full mt-24 overflow-hidden relative">
+          <div className="w-full mt-24 overflow-hidden relative group">
             <p className="text-[#F7F8FC]/40 text-sm font-inter mb-6 uppercase tracking-[0.2em]">You're in good hands:</p>
-            <div className="flex animate-scroll-influencers whitespace-nowrap items-center">
-              {[...influencers, ...influencers].map((person, index) => (
+            <div className="flex animate-scroll-influencers whitespace-nowrap items-center hover:pause">
+              {[...influencers, ...influencers, ...influencers].map((person, index) => (
                 <div key={index} className="inline-flex items-center gap-4 px-12">
                   <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#0D21A1]/30">
                     <img src={person.image} alt={person.name} className="w-full h-full object-cover" />
