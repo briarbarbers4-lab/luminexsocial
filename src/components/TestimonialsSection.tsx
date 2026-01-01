@@ -27,6 +27,13 @@ const testimonials = [
   }
 ];
 
+const imageTestimonials = [
+  "https://ik.imagekit.io/5pahp6yywb/Website%20Text%20restimonais'/image%203.png",
+  "https://ik.imagekit.io/5pahp6yywb/Website%20Text%20restimonais'/image%201.png",
+  "https://ik.imagekit.io/5pahp6yywb/Website%20Text%20restimonais'/image.png",
+  "https://ik.imagekit.io/5pahp6yywb/Website%20Text%20restimonais'/image%202.png",
+];
+
 const textTestimonials = [
   { name: "Sarah Johnson", role: "Marketing Director", text: "Luminex Social tripled our content output without adding a single team member. Their AI automation saved us 25 hours per week." },
   { name: "Mike Chen", role: "Content Creator", text: "The video editing quality is insane. Every reel they produce goes viral. 2M+ views consistently." },
@@ -50,6 +57,32 @@ export default function TestimonialsSection() {
           <p className="font-inter text-lg text-soft-white/60 max-w-2xl mx-auto">
             Hear from the creators and businesses who scaled their content and automated their workflows with Luminex Social.
           </p>
+        </div>
+
+        {/* Image Testimonial Carousel */}
+        <div className="relative w-full overflow-hidden py-10 mb-20">
+          <div className="flex animate-scroll-right-to-left whitespace-nowrap">
+            {[...imageTestimonials, ...imageTestimonials, ...imageTestimonials].map((img, index) => (
+              <div
+                key={index}
+                className="inline-block px-4"
+              >
+                <div
+                  className="rounded-2xl overflow-hidden shadow-2xl bg-[#0B0D12]"
+                  style={{
+                    width: '350px',
+                    border: '1px solid rgba(247, 248, 252, 0.1)',
+                  }}
+                >
+                  <img
+                    src={img}
+                    alt={`Testimonial ${index}`}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Video Testimonials */}
@@ -116,6 +149,17 @@ export default function TestimonialsSection() {
           </div>
         </div>
       </div>
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes scroll-right-to-left {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.33%); }
+        }
+        .animate-scroll-right-to-left {
+          animation: scroll-right-to-left 30s linear infinite;
+          display: flex;
+          width: fit-content;
+        }
+      `}} />
     </section>
   );
 }
