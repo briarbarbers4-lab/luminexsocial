@@ -34,20 +34,22 @@ export default function Hero() {
             style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
           >
             Scale your business with{' '}
-            <TypeAnimation
-              sequence={[
-                'Professional Video Editing',
-                2000,
-                'AI Automation',
-                2000,
-                'Content Creation',
-                2000,
-              ]}
-              wrapper="span"
-              className="font-allura text-royal-blue italic"
-              speed={50}
-              repeat={Infinity}
-            />
+            <span className="block mt-2 md:mt-4">
+              <TypeAnimation
+                sequence={[
+                  'Professional Video Editing',
+                  2000,
+                  'AI Automation',
+                  2000,
+                  'Content Creation',
+                  2000,
+                ]}
+                wrapper="span"
+                className="font-allura text-royal-blue italic"
+                speed={50}
+                repeat={Infinity}
+              />
+            </span>
           </h1>
 
           <p 
