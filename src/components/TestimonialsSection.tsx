@@ -36,7 +36,7 @@ const imageTestimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="relative py-16 bg-[#0B0D12] overflow-hidden">
+    <section id="testimonials" className="relative pt-0 pb-16 bg-[#0B0D12] overflow-hidden">
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="text-center mb-12">
           <h2 className="testimonials-heading">
