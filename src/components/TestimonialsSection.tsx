@@ -41,9 +41,9 @@ const textTestimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="relative py-24 bg-[#0B0D12] overflow-hidden">
+    <section id="testimonials" className="relative py-12 bg-[#0B0D12] overflow-hidden">
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="testimonials-heading">
             There's a reason people are <span className="font-allura text-royal-blue italic">raving</span> about us.
           </h2>

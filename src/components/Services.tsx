@@ -42,10 +42,10 @@ export default function Services() {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.2 });
 
   return (
-    <section ref={sectionRef} className="py-32 md:py-48 bg-transparent relative overflow-hidden">
+    <section ref={sectionRef} className="py-12 md:py-16 bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <h2 
             className={`text-5xl md:text-6xl text-soft-white mb-4 transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'

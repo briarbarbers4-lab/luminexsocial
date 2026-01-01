@@ -20,12 +20,12 @@ export default function Contact() {
   }, []);
 
   return (
-    <section className="relative py-24 md:py-40 bg-transparent overflow-hidden">
+    <section className="relative py-12 md:py-16 bg-transparent overflow-hidden">
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
         {/* Header Section */}
         <div
           ref={contentRef as any}
-          className={`text-center mb-12 transition-all duration-1000 opacity-100 translate-y-0`}
+          className={`text-center mb-8 transition-all duration-1000 opacity-100 translate-y-0`}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-coolvetica text-soft-white mb-4 leading-tight">
             Let's Create Something <span className="font-allura text-royal-blue italic">Amazing</span>

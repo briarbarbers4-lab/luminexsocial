@@ -109,9 +109,9 @@ export default function OurWorkPortfolio() {
   );
 
   return (
-    <section ref={sectionRef} id="our-work" className="py-24 bg-[#0B0D12] relative overflow-hidden">
+    <section ref={sectionRef} id="our-work" className="py-12 bg-[#0B0D12] relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="text-center mb-16 md:mb-24">
+        <div className="text-center mb-12">
           <h2 
             className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
