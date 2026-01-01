@@ -78,6 +78,24 @@ export default function Hero() {
               Learn More <span className="font-allura ml-2 text-xl italic">Premium Experience</span>
             </a>
           </div>
+
+          {/* Influencer Strip */}
+          <div className="w-full mt-24 overflow-hidden relative">
+            <p className="text-[#F7F8FC]/40 text-sm font-inter mb-6 uppercase tracking-[0.2em]">You're in good hands:</p>
+            <div className="flex animate-scroll-influencers whitespace-nowrap items-center">
+              {[...influencers, ...influencers].map((person, index) => (
+                <div key={index} className="inline-flex items-center gap-4 px-12">
+                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#0D21A1]/30">
+                    <img src={person.image} alt={person.name} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="text-[#F7F8FC] font-montreal font-bold text-lg leading-none mb-1">{person.name}</h4>
+                    <p className="text-[#F7F8FC]/40 font-inter text-sm leading-none">{person.stat}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="absolute bottom-10 right-10 md:right-20 hidden lg:block">
@@ -93,4 +111,14 @@ export default function Hero() {
     </section>
   );
 }
+
+const influencers = [
+  { name: "Jay Vawzen", stat: "187K followers", image: "https://ik.imagekit.io/5pahp6yywb/influencers/jay.png" },
+  { name: "Izan Garcia", stat: "55.5K followers", image: "https://ik.imagekit.io/5pahp6yywb/influencers/izan.png" },
+  { name: "Umar Sheikh", stat: "414k followers", image: "https://ik.imagekit.io/5pahp6yywb/influencers/umar.png" },
+  { name: "Henry", stat: "Growth Consultant", image: "https://ik.imagekit.io/5pahp6yywb/influencers/henry.png" },
+  { name: "Finance Guy", stat: "250K subs", image: "https://ik.imagekit.io/5pahp6yywb/influencers/finance.png" },
+  { name: "Alex Rivera", stat: "Marketing Guru", image: "https://ik.imagekit.io/5pahp6yywb/influencers/alex.png" },
+  { name: "Sarah J", stat: "Content Expert", image: "https://ik.imagekit.io/5pahp6yywb/influencers/sarah.png" },
+];
 
