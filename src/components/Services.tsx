@@ -42,7 +42,7 @@ export default function Services() {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.2 });
 
   return (
-    <section ref={sectionRef} className="pt-16 pb-0 bg-transparent relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <div className="text-center mb-12">

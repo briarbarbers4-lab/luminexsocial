@@ -109,7 +109,7 @@ export default function OurWorkPortfolio() {
   );
 
   return (
-    <section ref={sectionRef} id="our-work" className="pt-0 pb-16 bg-[#0B0D12] relative overflow-hidden">
+    <section ref={sectionRef} id="our-work" className="py-16 bg-[#0B0D12] relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-12">
           <h2 
