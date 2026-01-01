@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.luminexsocial.com/sitemap.xml
