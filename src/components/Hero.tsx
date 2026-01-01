@@ -115,10 +115,10 @@ export default function Hero() {
 const influencers = [
   { name: "Omar", stat: "10K followers", image: "hhttps://ik.imagekit.io/5pahp6yywb/Omar.jpg" },
   { name: "OB Health", stat: "272K followers", image: "https://ik.imagekit.io/5pahp6yywb/OB%20Health.jpg" },
-  { name: "Umar Sheikh", stat: "414k followers", image: "https://ik.imagekit.io/5pahp6yywb/influencers/umar.png" },
-  { name: "Henry", stat: "Growth Consultant", image: "https://ik.imagekit.io/5pahp6yywb/influencers/henry.png" },
-  { name: "Finance Guy", stat: "250K subs", image: "https://ik.imagekit.io/5pahp6yywb/influencers/finance.png" },
-  { name: "Alex Rivera", stat: "Marketing Guru", image: "https://ik.imagekit.io/5pahp6yywb/influencers/alex.png" },
-  { name: "Sarah J", stat: "Content Expert", image: "https://ik.imagekit.io/5pahp6yywb/influencers/sarah.png" },
+  { name: "Umar Sheikh", stat: "43.7k followers", image: "https://ik.imagekit.io/5pahp6yywb/Umar%20sheikh.jpg" },
+  { name: "Andrew Watt", stat: "17.4k followers", image: "https://ik.imagekit.io/5pahp6yywb/Website%20Text%20restimonais'/picture%202.jpg" },
+  { name: "Brett Boudrow", stat: "1.4k followers", image: "https://ik.imagekit.io/5pahp6yywb/Website%20Text%20restimonais'/picture%204.jpg" },
+  { name: "Steven Baterina", stat: "5k followers", image: "https://ik.imagekit.io/5pahp6yywb/Website%20Text%20restimonais'/Picture%201.jpg" },
+  { name: "Kahyl Jadavji", stat: "12.6k followers", image: "https://ik.imagekit.io/5pahp6yywb/Website%20Text%20restimonais'/picture%203.jpg" },
 ];
 
