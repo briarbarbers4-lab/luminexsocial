@@ -120,7 +120,7 @@ const influencers = [
   { name: "Umar Sheikh", stat: "43.7k followers", image: "https://ik.imagekit.io/5pahp6yywb/Umar%20sheikh.jpg" },
   { name: "Andrew Watt", stat: "17.4k followers", image: "https://ik.imagekit.io/5pahp6yywb/Pics/Ginger%20nigga.jpg" },
   { name: "Brett Boudrow", stat: "1.4k followers", image: "https://ik.imagekit.io/5pahp6yywb/Pics/Brett.jpg" },
-  { name: "Steven Baterina", stat: "5k followers", image: "https://ik.imagekit.io/5pahp6yywb/Website%20Text%20restimonais'/Picture%201.jpg" },
-  { name: "Kahyl Jadavji", stat: "12.6k followers", image: "https://ik.imagekit.io/5pahp6yywb/Website%20Text%20restimonais'/picture%203.jpg" },
+  { name: "Steven Baterina", stat: "5k followers", image: "https://ik.imagekit.io/5pahp6yywb/Pics/Steven%20Baterina.jpg" },
+  { name: "Kahyl Jadavji", stat: "12.6k followers", image: "https://ik.imagekit.io/5pahp6yywb/Pics/Kahyl.jpg" },
 ];
 
