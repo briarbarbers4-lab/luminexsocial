@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { VideoItem } from '../data/videoData';
 
@@ -21,8 +20,6 @@ export default function VideoModal({
   hasPrev,
   hasNext,
 }: VideoModalProps) {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-
   if (!isOpen) return null;
 
   return (
@@ -45,7 +42,7 @@ export default function VideoModal({
           <div className="w-full aspect-video bg-black rounded-xl overflow-hidden">
             <video
               src={video.videoUrl}
-              autoPlay={isVideoPlaying}
+              autoPlay
               controls
               muted
               playsInline

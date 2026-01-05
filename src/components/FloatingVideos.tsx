@@ -80,12 +80,12 @@ export default function FloatingVideos({ videoItems }: FloatingVideosProps) {
       {selectedVideo && (
         <VideoModal
           video={{
-            id: selectedVideo.id,
+            id: Number(selectedVideo.id) || 0,
             videoUrl: selectedVideo.videoUrl,
             thumbnail: selectedVideo.thumbnail,
             title: selectedVideo.title,
             category: 'Ambient',
-            viewCount: 0,
+            viewCount: '0',
             client: 'Personal',
             gridSize: 'medium',
             objective: 'Ambient Background',
