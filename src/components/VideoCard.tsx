@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Play } from 'lucide-react';
 import { VideoItem } from '../data/videoData';
+import OptimizedVideo from './OptimizedVideo';
 
 interface VideoCardProps {
   video: VideoItem;
@@ -43,11 +44,8 @@ export default function VideoCard({ video, onClick }: VideoCardProps) {
       {/* Video/Thumbnail */}
       <div className="absolute inset-0 z-10 w-full h-full bg-black">
         {isHovering ? (
-          <video
+          <OptimizedVideo
             src={video.videoUrl}
-            autoPlay
-            muted
-            loop
             className="w-full h-full object-cover"
             onLoadedData={() => setIsLoading(false)}
           />

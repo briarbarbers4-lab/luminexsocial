@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Play } from 'lucide-react';
+import OptimizedVideo from './OptimizedVideo';
 
 interface FloatingVideoCardProps {
   id: string;
@@ -89,14 +90,9 @@ export default function FloatingVideoCard({
         }}
       >
         {/* Video Element */}
-        <video
-          ref={videoRef}
+        <OptimizedVideo
           src={videoUrl}
           poster={thumbnail}
-          autoPlay
-          loop
-          muted
-          playsInline
           className="w-full h-full object-cover animate-float"
           style={{
             animation: isPlaying ? 'float 6s ease-in-out infinite' : 'none',
