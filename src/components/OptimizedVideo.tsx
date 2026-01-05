@@ -6,9 +6,19 @@ interface OptimizedVideoProps {
   className?: string;
   onLoadedData?: () => void;
   style?: React.CSSProperties;
+  width?: number | string;
+  height?: number | string;
 }
 
-export default function OptimizedVideo({ src, poster, className, onLoadedData, style }: OptimizedVideoProps) {
+export default function OptimizedVideo({ 
+  src, 
+  poster, 
+  className, 
+  onLoadedData, 
+  style,
+  width,
+  height 
+}: OptimizedVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -17,7 +27,10 @@ export default function OptimizedVideo({ src, poster, className, onLoadedData, s
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 }
+      { 
+        threshold: 0.1,
+        rootMargin: '50px' // Start loading slightly before entering viewport
+      }
     );
 
     if (videoRef.current) {
@@ -35,9 +48,12 @@ export default function OptimizedVideo({ src, poster, className, onLoadedData, s
     if (!videoRef.current) return;
     
     if (isVisible) {
-      videoRef.current.play().catch(() => {
-        // Handle potential play() interruption
-      });
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Handle potential play() interruption
+        });
+      }
     } else {
       videoRef.current.pause();
     }
@@ -52,8 +68,15 @@ export default function OptimizedVideo({ src, poster, className, onLoadedData, s
       loop
       playsInline
       preload="metadata"
-      className={className}
-      style={style}
+      width={width}
+      height={height}
+      className={`${className} object-cover`}
+      style={{
+        ...style,
+        transform: 'translateZ(0)', // Force GPU acceleration
+        backfaceVisibility: 'hidden',
+        willChange: 'transform'
+      }}
       onLoadedData={onLoadedData}
     />
   );

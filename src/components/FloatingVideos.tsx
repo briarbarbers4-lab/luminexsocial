@@ -87,7 +87,10 @@ export default function FloatingVideos({ videoItems }: FloatingVideosProps) {
             category: 'Ambient',
             viewCount: 0,
             client: 'Personal',
-            gridSize: 'medium'
+            gridSize: 'medium',
+            objective: 'Ambient Background',
+            results: 'Enhanced UX',
+            platform: 'Web'
           }}
           isOpen={selectedVideo !== null}
           onClose={() => setSelectedVideo(null)}

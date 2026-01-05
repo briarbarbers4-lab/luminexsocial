@@ -47,7 +47,13 @@ export default function VideoModal({
               src={video.videoUrl}
               autoPlay={isVideoPlaying}
               controls
+              muted
+              playsInline
               className="w-full h-full object-contain"
+              style={{
+                transform: 'translateZ(0)',
+                willChange: 'transform'
+              }}
             />
           </div>
 
