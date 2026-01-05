@@ -38,11 +38,10 @@ interface FloatingVideoItem {
 }
 
 interface FloatingVideosProps {
-  section?: 'hero' | 'services' | 'portfolio' | 'testimonials' | 'process';
   videoItems: FloatingVideoItem[];
 }
 
-export default function FloatingVideos({ section = 'hero', videoItems }: FloatingVideosProps) {
+export default function FloatingVideos({ videoItems }: FloatingVideosProps) {
   const [selectedVideo, setSelectedVideo] = useState<FloatingVideoItem | null>(null);
   const [visibleVideos, setVisibleVideos] = useState<Record<string, boolean>>({});
 
@@ -105,10 +104,22 @@ export default function FloatingVideos({ section = 'hero', videoItems }: Floatin
       {/* Video Modal */}
       {selectedVideo && (
         <VideoModal
-          title={selectedVideo.title}
-          videoUrl={selectedVideo.videoUrl}
-          thumbnail={selectedVideo.thumbnail}
+          video={{
+            id: selectedVideo.id,
+            videoUrl: selectedVideo.videoUrl,
+            thumbnail: selectedVideo.thumbnail,
+            title: selectedVideo.title,
+            category: 'Ambient',
+            viewCount: '0',
+            client: 'Personal',
+            gridSize: 'medium'
+          }}
+          isOpen={selectedVideo !== null}
           onClose={() => setSelectedVideo(null)}
+          onNext={() => {}}
+          onPrev={() => {}}
+          hasNext={false}
+          hasPrev={false}
         />
       )}
     </>

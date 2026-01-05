@@ -15,11 +15,9 @@ interface FloatingVideoCardProps {
 }
 
 export default function FloatingVideoCard({
-  id,
   videoUrl,
   thumbnail,
   title,
-  position,
   rotation,
   parallaxSpeed,
   isVisible = true,
@@ -28,14 +26,12 @@ export default function FloatingVideoCard({
   const [isHovered, setIsHovered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const [translateY, setTranslateY] = useState(0);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Parallax scroll effect
   useEffect(() => {
     const handleScroll = () => {
       if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
         const scrollOffset = window.scrollY * parallaxSpeed;
         setTranslateY(scrollOffset);
       }
@@ -49,17 +45,11 @@ export default function FloatingVideoCard({
   const handleMouseEnter = () => {
     setIsHovered(true);
     setIsPlaying(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
     setIsPlaying(true);
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
   };
 
   return (
