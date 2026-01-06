@@ -6,6 +6,7 @@ import BackgroundOverlay from './components/BackgroundOverlay';
 import AnimatedBackground from './components/AnimatedBackground';
 import BackToTop from './components/BackToTop';
 import SectionIndicators from './components/SectionIndicators';
+import RedirectManager from './components/RedirectManager';
 
 // Page Components
 import HomePage from './pages/HomePage';
@@ -16,6 +17,7 @@ import BlogPage from './pages/BlogPage';
 function App() {
   return (
     <Router>
+      <RedirectManager />
       <BackgroundOverlay />
       <AnimatedBackground />
       <div className="min-h-screen bg-transparent relative z-20">
