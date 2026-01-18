@@ -28,10 +28,10 @@ const testimonials = [
 ];
 
 const imageTestimonials = [
-  "https://ik.imagekit.io/5pahp6yywb/Testimonials%20Text/image.png",
-  "https://ik.imagekit.io/5pahp6yywb/Testimonials%20Text/Image%203.png",
-  "https://ik.imagekit.io/5pahp6yywb/Testimonials%20Text/image%201.png",
-  "https://ik.imagekit.io/5pahp6yywb/Testimonials%20Text/image%202.png",
+  "https://ik.imagekit.io/5pahp6yywb/Text%20Testimonails%20website/Kahyl.png",
+  "https://ik.imagekit.io/5pahp6yywb/Text%20Testimonails%20website/Steven.png",
+  "https://ik.imagekit.io/5pahp6yywb/Text%20Testimonails%20website/Andrew.png",
+  "https://ik.imagekit.io/5pahp6yywb/Text%20Testimonails%20website/Brett.png",
 ];
 
 export default function TestimonialsSection() {
