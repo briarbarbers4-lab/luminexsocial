@@ -11,7 +11,6 @@ import SectionIndicators from './components/SectionIndicators';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import TestimonialsPage from './pages/TestimonialsPage';
-import BlogPage from './pages/BlogPage';
 
 function App() {
   return (
