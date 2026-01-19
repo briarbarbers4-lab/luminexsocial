@@ -1,4 +1,4 @@
-import { Bot, Sparkles, CheckCircle2, ArrowRight, Zap, Star } from 'lucide-react';
+import { Bot, Sparkles, TrendingUp, CheckCircle2, ArrowRight, Zap, Star, Users, Award } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useState } from 'react';
 
@@ -45,6 +45,29 @@ const mainServices = [
     accentColor: 'purple',
     stats: { projects: '500+', satisfaction: '98%' }
   },
+  {
+    icon: TrendingUp,
+    title: 'Digital Strategy & Growth',
+    subtitle: 'That Scales Your Business',
+    description: 'Data-driven strategies that accelerate growth and maximize ROI across all digital channels.',
+    fullDescription: 'Unlock your business potential with comprehensive digital strategies. From market analysis to performance optimization, we create roadmaps that drive sustainable growth and measurable results.',
+    features: [
+      'Market Research & Analysis',
+      'Competitive Intelligence',
+      'Growth Strategy Development',
+      'Performance Optimization',
+      'Analytics & Reporting',
+      'Conversion Rate Optimization',
+      'A/B Testing & Experiments',
+      'ROI Tracking & Attribution',
+      'Campaign Management',
+      'Brand Strategy & Positioning'
+    ],
+    price: 'Custom Pricing',
+    gradient: 'from-green-500/20 to-teal-500/20',
+    accentColor: 'green',
+    stats: { growth: '300%', clients: '150+' }
+  },
 ];
 
 export default function Services() {
@@ -87,8 +110,30 @@ export default function Services() {
           </p>
         </div>
 
+        {/* Stats Section */}
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-20 transition-all duration-700 delay-300 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-bold text-royal-blue mb-2">500+</div>
+            <div className="text-soft-white/70 font-inter">Projects Completed</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-bold text-royal-blue mb-2">98%</div>
+            <div className="text-soft-white/70 font-inter">Client Satisfaction</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-bold text-royal-blue mb-2">150+</div>
+            <div className="text-soft-white/70 font-inter">Happy Clients</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-bold text-royal-blue mb-2">24/7</div>
+            <div className="text-soft-white/70 font-inter">Support Available</div>
+          </div>
+        </div>
+
         {/* Services Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {mainServices.map((service, index) => {
             const Icon = service.icon;
             const isHovered = hoveredCard === index;
@@ -159,6 +204,8 @@ export default function Services() {
                           <span className="text-xs text-royal-blue font-medium">
                             {service.stats.timeSaved && `${service.stats.timeSaved}hrs saved`}
                             {service.stats.projects && `${service.stats.projects} projects`}
+                            {service.stats.growth && `${service.stats.growth} growth`}
+                            {service.stats.clients && `${service.stats.clients} clients`}
                           </span>
                         </div>
                       </div>
@@ -222,7 +269,7 @@ export default function Services() {
                           boxShadow: '0 4px 20px rgba(13, 33, 161, 0.3)'
                         }}
                       >
-                        <span>Start Your Project</span>
+                        <span>Get Started Today</span>
                         <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${
                           isHovered ? 'translate-x-1' : 'translate-x-0'
                         }`} />
@@ -235,16 +282,83 @@ export default function Services() {
           })}
         </div>
 
+        {/* Testimonials Section */}
+        <div className={`mt-20 transition-all duration-700 delay-400 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <h3 className="text-3xl md:text-4xl font-bold text-soft-white text-center mb-12">What Our Clients Say</h3>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="bg-gradient-to-br from-royal-blue/10 to-purple-500/10 rounded-2xl p-6 border border-royal-blue/20">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <p className="text-soft-white/90 mb-4 italic">"Their AI automation saved us 30 hours per week and increased our leads by 200%."</p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-royal-blue rounded-full flex items-center justify-center">
+                  <Users className="w-5 h-5 text-soft-white" />
+                </div>
+                <div>
+                  <div className="font-semibold text-soft-white">Sarah Johnson</div>
+                  <div className="text-sm text-soft-white/60">CEO, TechStart Inc.</div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl p-6 border border-purple-500/20">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <p className="text-soft-white/90 mb-4 italic">"The content they created tripled our engagement rates across all platforms."</p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
+                  <Award className="w-5 h-5 text-soft-white" />
+                </div>
+                <div>
+                  <div className="font-semibold text-soft-white">Mike Chen</div>
+                  <div className="text-sm text-soft-white/60">Marketing Director, GrowthCo</div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-green-500/10 to-teal-500/10 rounded-2xl p-6 border border-green-500/20">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <p className="text-soft-white/90 mb-4 italic">"Their strategy increased our revenue by 300% in just 6 months."</p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                  <TrendingUp className="w-5 h-5 text-soft-white" />
+                </div>
+                <div>
+                  <div className="font-semibold text-soft-white">Emily Rodriguez</div>
+                  <div className="text-sm text-soft-white/60">Founder, ScaleUp Ventures</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom CTA */}
         <div className={`text-center mt-20 transition-all duration-700 delay-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-full mb-6">
+            <Zap className="w-4 h-4 text-red-400" />
+            <span className="text-red-400 font-medium text-sm">Limited Time: Free Strategy Session Worth $500</span>
+          </div>
           <p className="text-soft-white/60 mb-6">Ready to transform your business?</p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-royal-blue text-royal-blue font-montreal font-semibold rounded-2xl hover:bg-royal-blue hover:text-soft-white transition-all duration-300 hover:shadow-lg hover:shadow-royal-blue/20"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-royal-blue to-blue-600 text-soft-white font-montreal font-semibold rounded-2xl hover:shadow-2xl hover:shadow-royal-blue/30 transition-all duration-300 transform hover:scale-105"
+            style={{
+              boxShadow: '0 4px 20px rgba(13, 33, 161, 0.3)'
+            }}
           >
-            <span>Schedule Free Consultation</span>
+            <span>Claim Your Free Session</span>
             <ArrowRight className="w-5 h-5" />
           </a>
         </div>
