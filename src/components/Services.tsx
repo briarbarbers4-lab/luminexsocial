@@ -294,14 +294,14 @@ export default function Services() {
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-soft-white/90 mb-4 italic">"Their AI automation saved us 30 hours per week and increased our leads by 200%."</p>
+              <p className="text-soft-white/90 mb-4 italic">"Working with their team has been a game-changer for our workflows. The AI automation they set up saved us hours every week, and the video edits were clean, professional, and on-brand. Highly reliable and easy to work with."</p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-royal-blue rounded-full flex items-center justify-center">
                   <Users className="w-5 h-5 text-soft-white" />
                 </div>
                 <div>
                   <div className="font-semibold text-soft-white">Sarah Johnson</div>
-                  <div className="text-sm text-soft-white/60">CEO, TechStart Inc.</div>
+                  <div className="text-sm text-soft-white/60">CEO, Marketing Agency.</div>
                 </div>
               </div>
             </div>
@@ -311,14 +311,14 @@ export default function Services() {
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-soft-white/90 mb-4 italic">"The content they created tripled our engagement rates across all platforms."</p>
+              <p className="text-soft-white/90 mb-4 italic">"Their AI automation systems helped streamline our lead handling, while the video editing elevated our content quality instantly. Communication was smooth, delivery was fast, and the results spoke for themselves."</p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
                   <Award className="w-5 h-5 text-soft-white" />
                 </div>
                 <div>
                   <div className="font-semibold text-soft-white">Mike Chen</div>
-                  <div className="text-sm text-soft-white/60">Marketing Director, GrowthCo</div>
+                  <div className="text-sm text-soft-white/60">Marketing Director</div>
                 </div>
               </div>
             </div>
@@ -328,7 +328,7 @@ export default function Services() {
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-soft-white/90 mb-4 italic">"Their strategy increased our revenue by 300% in just 6 months."</p>
+              <p className="text-soft-white/90 mb-4 italic">"Their AI automation streamlined our workflows, and the video edits were sharp and professional. Great communication and fast delivery.S"</p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
                   <TrendingUp className="w-5 h-5 text-soft-white" />
