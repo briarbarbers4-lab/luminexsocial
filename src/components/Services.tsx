@@ -43,7 +43,7 @@ const mainServices = [
     price: 'Custom Pricing',
     gradient: 'from-purple-500/20 to-pink-500/20',
     accentColor: 'purple',
-    stats: { projects: '500+', satisfaction: '98%' }
+    stats: { projects: '200+', satisfaction: '98%' }
   },
   {
     icon: TrendingUp,
@@ -66,7 +66,7 @@ const mainServices = [
     price: 'Custom Pricing',
     gradient: 'from-green-500/20 to-teal-500/20',
     accentColor: 'green',
-    stats: { growth: '300%', clients: '150+' }
+    stats: { clients: '50+' }
   },
 ];
 
@@ -115,7 +115,7 @@ export default function Services() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-royal-blue mb-2">500+</div>
+            <div className="text-4xl md:text-5xl font-bold text-royal-blue mb-2">200+</div>
             <div className="text-soft-white/70 font-inter">Projects Completed</div>
           </div>
           <div className="text-center">
@@ -123,7 +123,7 @@ export default function Services() {
             <div className="text-soft-white/70 font-inter">Client Satisfaction</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-royal-blue mb-2">150+</div>
+            <div className="text-4xl md:text-5xl font-bold text-royal-blue mb-2">50+</div>
             <div className="text-soft-white/70 font-inter">Happy Clients</div>
           </div>
           <div className="text-center">
@@ -204,7 +204,6 @@ export default function Services() {
                           <span className="text-xs text-royal-blue font-medium">
                             {service.stats.timeSaved && `${service.stats.timeSaved}hrs saved`}
                             {service.stats.projects && `${service.stats.projects} projects`}
-                            {service.stats.growth && `${service.stats.growth} growth`}
                             {service.stats.clients && `${service.stats.clients} clients`}
                           </span>
                         </div>
