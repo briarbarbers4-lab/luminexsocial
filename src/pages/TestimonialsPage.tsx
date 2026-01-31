@@ -80,8 +80,15 @@ export default function TestimonialsPage() {
                     muted
                     playsInline
                     loop
-                    onMouseOver={(e) => e.currentTarget.play()}
-                    onMouseOut={(e) => e.currentTarget.pause()}
+                    onMouseOver={(e) => {
+                      e.currentTarget.muted = false;
+                      e.currentTarget.play();
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.muted = true;
+                      e.currentTarget.pause();
+                      e.currentTarget.currentTime = 0;
+                    }}
                   />
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition-opacity">
                     <div className="w-16 h-16 rounded-full bg-royal-blue/20 backdrop-blur-sm border border-royal-blue/40 flex items-center justify-center">

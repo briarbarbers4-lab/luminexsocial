@@ -89,6 +89,9 @@ export default function TestimonialsSection() {
                     muted
                     playsInline
                     preload="metadata"
+                    onMouseOver={(e) => {
+                      e.currentTarget.muted = false;
+                    }}
                   />
                 </div>
               ) : (
