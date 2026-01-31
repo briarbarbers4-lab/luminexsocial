@@ -20,10 +20,10 @@ const testimonials = [
   {
     id: 3,
     videoUrl: "https://ik.imagekit.io/rqhbqqo2qx/fakyu%20ayana_.mp4",
-    client: "Sarah Jenkins",
-    role: "Marketing Director",
+    client: "Sarim Khan",
+    role: "3D Modelling Agency Owner",
     rating: 5,
-    text: "Professional, efficient, and innovative. Their systems allowed us to scale our output without hiring more staff."
+    text: "I am actually competing with alot of competitors in my market because of him (Ayyan)"
   }
 ];
 
