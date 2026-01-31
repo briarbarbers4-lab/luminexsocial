@@ -20,27 +20,11 @@ const testimonials = [
   },
   {
     id: 3,
-    videoUrl: "",
-    client: "Sarah Jenkins",
-    role: "Marketing Director",
+    videoUrl: "https://ik.imagekit.io/rqhbqqo2qx/fakyu%20ayana_.mp4",
+    client: "Sarim Khan",
+    role: "3D Modelling Agency Owner",
     rating: 5,
-    text: "Professional, efficient, and innovative. Their systems allowed us to scale our output without hiring more staff."
-  },
-  {
-    id: 4,
-    videoUrl: "",
-    client: "Michael Chen",
-    role: "Tech Influencer",
-    rating: 5,
-    text: "Highly recommended for any creator looking to automate the boring parts and focus on creativity."
-  },
-  {
-    id: 5,
-    videoUrl: "",
-    client: "Elena Rodriguez",
-    role: "Business Coach",
-    rating: 5,
-    text: "The ROI was immediate. Better videos, less time spent, more engagement across all my social channels."
+    text: "I am actually competing with alot of competitors in my market because of him (Ayyan)"
   }
 ];
 
