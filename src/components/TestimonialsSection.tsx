@@ -19,7 +19,7 @@ const testimonials = [
   },
   {
     id: 3,
-    videoUrl: "",
+    videoUrl: "https://ik.imagekit.io/rqhbqqo2qx/fakyu%20ayana_.mp4",
     client: "Sarah Jenkins",
     role: "Marketing Director",
     rating: 5,
