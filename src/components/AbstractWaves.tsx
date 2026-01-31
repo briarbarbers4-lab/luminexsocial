@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const AbstractWaves: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Small delay to allow smooth transition after mount
+    const timer = setTimeout(() => setIsVisible(true), 50);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none bg-[#0B0D12]">
+    <div 
+      className={`absolute inset-0 overflow-hidden pointer-events-none bg-[#0B0D12] transition-opacity duration-500 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
       {/* Glow Effects */}
       <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#0D21A1]/20 blur-[120px]" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#0D21A1]/10 blur-[100px]" />

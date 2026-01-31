@@ -5,9 +5,17 @@ import AbstractWaves from './AbstractWaves';
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showTypewriter, setShowTypewriter] = useState(false);
 
   useEffect(() => {
+    // Start typewriter after a brief delay to ensure smooth rendering
+    const timer = setTimeout(() => {
+      setShowTypewriter(true);
+    }, 100);
+    
     setIsLoaded(true);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -35,20 +43,23 @@ export default function Hero() {
           >
             Scale your business with{' '}
             <span className="block mt-2 md:mt-4">
-              <TypeAnimation
-                sequence={[
-                  'Professional Video Editing',
-                  2000,
-                  'AI Automation',
-                  2000,
-                  'Content Creation',
-                  2000,
-                ]}
-                wrapper="span"
-                className="font-allura text-royal-blue italic"
-                speed={50}
-                repeat={Infinity}
-              />
+              {showTypewriter && (
+                <TypeAnimation
+                  sequence={[
+                    'Professional Video Editing',
+                    2000,
+                    'AI Automation',
+                    2000,
+                    'Content Creation',
+                    2000,
+                  ]}
+                  wrapper="span"
+                  className="font-allura text-royal-blue italic"
+                  speed={65}
+                  repeat={Infinity}
+                  cursor={true}
+                />
+              )}
             </span>
           </h1>
 

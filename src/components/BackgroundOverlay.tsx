@@ -2,7 +2,7 @@ export default function BackgroundOverlay() {
   return (
     <>
       {/* Fixed Premium Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden will-change-opacity">
         {/* Base dark gradient */}
         <div 
           className="absolute inset-0"

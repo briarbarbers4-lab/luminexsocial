@@ -7,11 +7,14 @@ export default function AnimatedBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    // Set canvas size with device pixel ratio for sharper rendering
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.scale(dpr, dpr);
 
     let animationId: number;
     let particles: Array<{
@@ -26,8 +29,8 @@ export default function AnimatedBackground() {
     // Initialize particles
     for (let i = 0; i < 50; i++) {
       particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
         vx: (Math.random() - 0.5) * 0.5,
         vy: -Math.random() * 0.3,
         radius: Math.random() * 1.5,
@@ -36,7 +39,7 @@ export default function AnimatedBackground() {
     }
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
       // Draw particles
       particles.forEach((particle) => {
@@ -45,8 +48,8 @@ export default function AnimatedBackground() {
         particle.opacity -= 0.002;
 
         if (particle.opacity <= 0 || particle.y < 0) {
-          particle.x = Math.random() * canvas.width;
-          particle.y = canvas.height;
+          particle.x = Math.random() * window.innerWidth;
+          particle.y = window.innerHeight;
           particle.opacity = Math.random() * 0.5;
         }
 
@@ -59,17 +62,22 @@ export default function AnimatedBackground() {
       animationId = requestAnimationFrame(animate);
     };
 
-    animate();
+    // Start animation after a brief delay to prioritize main content
+    const startTimeout = setTimeout(() => {
+      animate();
+    }, 50);
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx.scale(dpr, dpr);
     };
 
     window.addEventListener('resize', handleResize);
 
     return () => {
       cancelAnimationFrame(animationId);
+      clearTimeout(startTimeout);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
@@ -77,8 +85,8 @@ export default function AnimatedBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 z-10 pointer-events-none"
-      style={{ opacity: 0.4 }}
+      className="fixed inset-0 z-10 pointer-events-none will-change-opacity"
+      style={{ opacity: 0.4, width: '100%', height: '100%' }}
     />
   );
 }

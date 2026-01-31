@@ -125,6 +125,11 @@
   50% { transform: translate(40px, -40px) scale(1.1); }
 }
 
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, -20px); }
+}
+
 .flowing-line {
   fill: none;
   stroke: rgba(13, 33, 161, 0.2);
@@ -323,6 +328,10 @@
 @keyframes shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
 }
 
 .animate-float-gentle {
