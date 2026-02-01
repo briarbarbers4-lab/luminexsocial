@@ -43,6 +43,7 @@ export default defineConfig({
     port: 5000,
     strictPort: true,
     cors: true,
+    allowedHosts: true,
     hmr: {
       clientPort: 443,
     },
