@@ -7,7 +7,8 @@ const testimonials = [
     client: "Brett Boudrow",
     role: "Content Creator",
     rating: 5,
-    text: "Worked with Khan (Furqan). He is super duper fast, Whenever I have concerns or I want something changed, He hops on a zoom call with me literally that day or next day"
+    text: "Worked with Khan (Furqan). He is super duper fast, Whenever I have concerns or I want something changed, He hops on a zoom call with me literally that day or next day",
+    caseStudyUrl: "https://www.notion.so/Case-Study-2f9baae6cd1f80cc9609c399cf101306?source=copy_link"
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ const testimonials = [
     client: "Kahyl Jadavji",
     role: "Founder - Marketing Agency",
     rating: 5,
-    text: "So far I am satisfied with their work, On time, Profesional, really good at communication and understand's what we are looking for"
+    text: "So far I am satisfied with their work, On time, Profesional, really good at communication and understand's what we are looking for",
+    caseStudyUrl: ""
   },
   {
     id: 3,
@@ -23,7 +25,8 @@ const testimonials = [
     client: "Sarim Khan",
     role: "3D Modelling Agency Owner",
     rating: 5,
-    text: "I am actually competing with alot of competitors in my market because of him (Ayyan)"
+    text: "I am actually competing with alot of competitors in my market because of him (Ayyan)",
+    caseStudyUrl: ""
   }
 ];
 
@@ -98,6 +101,21 @@ export default function TestimonialsSection() {
                 <div className="aspect-[9/16] bg-soft-white/5 rounded-xl mb-6 flex items-center justify-center">
                   <Quote className="w-12 h-12 text-royal-blue/20" />
                 </div>
+              )}
+
+              {/* Case Study Button */}
+              {t.caseStudyUrl && (
+                <a
+                  href={t.caseStudyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-inter font-medium text-royal-blue bg-royal-blue/10 border border-royal-blue/30 rounded-lg hover:bg-royal-blue/20 transition-all duration-300 mb-6"
+                >
+                  <span>Case Study:</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
               )}
 
               <div className="space-y-4">
