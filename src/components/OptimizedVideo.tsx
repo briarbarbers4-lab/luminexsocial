@@ -29,7 +29,7 @@ export default function OptimizedVideo({
       },
       { 
         threshold: 0.1,
-        rootMargin: '50px' // Start loading slightly before entering viewport
+        rootMargin: '200px' // Increased margin for smoother loading
       }
     );
 
@@ -48,12 +48,16 @@ export default function OptimizedVideo({
     if (!videoRef.current) return;
     
     if (isVisible) {
-      const playPromise = videoRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Handle potential play() interruption
-        });
-      }
+      // Small delay to prevent micro-stutter during rapid scrolling
+      const playTimeout = setTimeout(() => {
+        const playPromise = videoRef.current?.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // Handle potential play() interruption
+          });
+        }
+      }, 50);
+      return () => clearTimeout(playTimeout);
     } else {
       videoRef.current.pause();
     }
@@ -67,13 +71,13 @@ export default function OptimizedVideo({
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="none" // Changed to none to save bandwidth on initial load
       width={width}
       height={height}
       className={`${className} object-cover`}
       style={{
         ...style,
-        transform: 'translateZ(0)', // Force GPU acceleration
+        transform: 'translate3d(0,0,0)', // Better GPU acceleration
         backfaceVisibility: 'hidden',
         willChange: 'transform'
       }}

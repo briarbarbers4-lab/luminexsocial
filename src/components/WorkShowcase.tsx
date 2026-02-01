@@ -1,4 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import OptimizedVideo from './OptimizedVideo';
 
 const shortsData = [
   { id: '1', videoUrl: 'https://ik.imagekit.io/5pahp6yywb/Crafted%20London.mp4' },
@@ -47,22 +48,16 @@ export default function WorkShowcase() {
                   border: '1px solid rgba(247, 248, 252, 0.1)',
                 }}
               >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
+                <OptimizedVideo
+                  src={short.videoUrl}
                   className="w-full h-full object-cover"
-                  onCanPlay={(e) => (e.target as HTMLVideoElement).play()}
-                >
-                  <source src={short.videoUrl} type="video/mp4" />
-                </video>
+                />
               </div>
             </div>
           ))}
         </div>
       </div>
+
 
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes scroll-left {
