@@ -26,7 +26,7 @@ const testimonials = [
     role: "3D Modelling Agency Owner",
     rating: 5,
     text: "I am actually competing with alot of competitors in my market because of him (Ayyan)",
-    caseStudyUrl: ""
+    caseStudyUrl: "https://www.notion.so/Case-Study-2f9baae6cd1f80cc9609c399cf101306?source=copy_link"
   }
 ];
 
