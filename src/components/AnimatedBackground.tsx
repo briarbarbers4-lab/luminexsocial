@@ -38,34 +38,37 @@ export default function AnimatedBackground() {
       });
     }
 
+    // Draw particles
     const animate = () => {
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-      // Draw particles
-      particles.forEach((particle) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        particle.opacity -= 0.002;
+      // Simple physics update
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.opacity -= 0.002;
 
-        if (particle.opacity <= 0 || particle.y < 0) {
-          particle.x = Math.random() * window.innerWidth;
-          particle.y = window.innerHeight;
-          particle.opacity = Math.random() * 0.5;
+        if (p.opacity <= 0 || p.y < 0) {
+          p.x = Math.random() * window.innerWidth;
+          p.y = window.innerHeight;
+          p.opacity = Math.random() * 0.5;
         }
 
-        ctx.fillStyle = `rgba(247, 248, 252, ${particle.opacity})`;
+        ctx.fillStyle = `rgba(247, 248, 252, ${p.opacity})`;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fill();
-      });
+      }
 
       animationId = requestAnimationFrame(animate);
     };
 
-    // Start animation after a brief delay to prioritize main content
+    // Start animation after a longer delay to prioritize main content
     const startTimeout = setTimeout(() => {
       animate();
-    }, 50);
+    }, 1000);
+
 
     const handleResize = () => {
       canvas.width = window.innerWidth * dpr;
