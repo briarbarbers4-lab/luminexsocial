@@ -11,7 +11,7 @@ export default function Hero() {
     // Start typewriter after a brief delay to ensure smooth rendering
     const timer = setTimeout(() => {
       setShowTypewriter(true);
-    }, 100);
+    }, 2000);
 
     setIsLoaded(true);
 

@@ -10,14 +10,14 @@ interface OptimizedVideoProps {
   height?: number | string;
 }
 
-export default function OptimizedVideo({ 
-  src, 
-  poster, 
-  className, 
-  onLoadedData, 
+export default function OptimizedVideo({
+  src,
+  poster,
+  className,
+  onLoadedData,
   style,
   width,
-  height 
+  height
 }: OptimizedVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -27,9 +27,9 @@ export default function OptimizedVideo({
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { 
-        threshold: 0.1,
-        rootMargin: '200px' // Increased margin for smoother loading
+      {
+        threshold: 0.25,
+        rootMargin: '50px' // Reduced margin to delay playback until closer to viewport
       }
     );
 
@@ -46,7 +46,7 @@ export default function OptimizedVideo({
 
   useEffect(() => {
     if (!videoRef.current) return;
-    
+
     if (isVisible) {
       // Small delay to prevent micro-stutter during rapid scrolling
       const playTimeout = setTimeout(() => {
@@ -71,7 +71,7 @@ export default function OptimizedVideo({
       muted
       loop
       playsInline
-      preload="none" // Changed to none to save bandwidth on initial load
+      preload="metadata" // Changed to metadata to avoid buffering when not needed, but allow quick start
       width={width}
       height={height}
       className={`${className} object-cover`}

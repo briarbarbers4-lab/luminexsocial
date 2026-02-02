@@ -113,31 +113,23 @@
     <!-- Remove 'defer' if you want widget to load faster (Will affect website loading) -->
     <script defer>
       (function() {
-        window.VG_CONFIG = {
-          ID: "87k9op58y2gml4h3", // YOUR AGENT ID
-          region: 'na', // YOUR ACCOUNT REGION 
-          render: 'bottom-right', // can be 'full-width' or 'bottom-left' or 'bottom-right'
-          // modalMode: true, // Set this to 'true' to open the widget in modal mode
-          stylesheets: [
-            // Base CONVOCORE CSS
-            "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css",
-            // Add your custom css stylesheets, Can also add relative URL ('/public/your-file.css)
-          ],
-          // THIS IS SUPPOSED TO BE CHANGED OR REMOVED.
-          // user: {
-          //     name: 'John Doe', // User's name
-          //     email: 'johndoe@gmail.com', // User's email
-          //     phone: '+1234567890', // User's phone number
-          // }
-          // Optional user data -- end
-          // **
-          // userID: 'USER_ID', // If you want to use your own user_id
-          // autostart: true, // Whether to autostart the chatbot with the proactive message
-        }
-        var VG_SCRIPT = document.createElement("script");
-        VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
-        VG_SCRIPT.defer = true; // Remove 'defer' if you want widget to load faster (Will affect website loading)
-        document.body.appendChild(VG_SCRIPT);
+        const loadVoiceflow = () => {
+          window.VG_CONFIG = {
+            ID: "87k9op58y2gml4h3", // YOUR AGENT ID
+            region: 'na', // YOUR ACCOUNT REGION 
+            render: 'bottom-right', // can be 'full-width' or 'bottom-left' or 'bottom-right'
+            stylesheets: [
+              "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css",
+            ],
+          }
+          var VG_SCRIPT = document.createElement("script");
+          VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
+          VG_SCRIPT.defer = true;
+          document.body.appendChild(VG_SCRIPT);
+        };
+
+        // Defer loading to ensure main site content (videos, animations) has priority
+        setTimeout(loadVoiceflow, 4000);
       })()
     </script>
   </head>
