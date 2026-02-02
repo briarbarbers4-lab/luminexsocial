@@ -12,7 +12,7 @@ export default function Hero() {
     const timer = setTimeout(() => {
       setShowTypewriter(true);
     }, 100);
-    
+
     setIsLoaded(true);
 
     return () => clearTimeout(timer);
@@ -27,18 +27,16 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto w-full px-10 md:px-20 pt-20">
         <div className="flex flex-col items-start">
-          <p 
-            className={`font-allura text-[24px] text-[#0D21A1] mb-6 transition-all duration-300 ${
-              isLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
+          <p
+            className={`font-allura text-[24px] text-[#0D21A1] mb-6 transition-all duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
           >
             Digital Intelligence & Automation
           </p>
 
-          <h1 
-            className={`text-4xl md:text-[72px] font-bold text-[#F7F8FC] leading-[1.1] tracking-[-0.02em] max-w-[1100px] transition-all duration-500 delay-200 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+          <h1
+            className={`text-4xl md:text-[72px] font-bold text-[#F7F8FC] leading-[1.1] tracking-[-0.02em] max-w-[1100px] transition-all duration-500 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
             style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
           >
             Scale your business with{' '}
@@ -63,20 +61,18 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p 
-            className={`font-inter text-[18px] md:text-[20px] text-[#F7F8FC]/75 leading-[1.5] max-w-[800px] mt-6 transition-all duration-500 delay-400 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+          <p
+            className={`font-inter text-[18px] md:text-[20px] text-[#F7F8FC]/75 leading-[1.5] max-w-[800px] mt-6 transition-all duration-500 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
           >
             Struggling with content creation AND repetitive tasks? We edit your videos to perfection and automate your workflows to save 20+ hours weekly
           </p>
 
-          <div 
-            className={`flex flex-col sm:flex-row gap-5 mt-12 transition-all duration-500 delay-600 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+          <div
+            className={`flex flex-col sm:flex-row gap-5 mt-12 transition-all duration-500 delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
           >
-            <a 
+            <a
               href="#contact"
               className="px-10 py-4 bg-[#0D21A1] text-[#F7F8FC] font-semibold rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(13,33,161,0.4)]"
             >
@@ -84,7 +80,7 @@ export default function Hero() {
               Book A Call
             </a>
 
-            <a 
+            <a
               href="#testimonials"
               className="px-10 py-4 bg-transparent text-[#F7F8FC] font-semibold rounded-lg border-2 border-[#F7F8FC]/30 transition-all duration-300 hover:border-[#0D21A1] hover:bg-[#0D21A1]/10 flex items-center justify-center"
             >
@@ -99,7 +95,14 @@ export default function Hero() {
               {[...influencers, ...influencers, ...influencers].map((person, index) => (
                 <div key={index} className="inline-flex items-center gap-4 px-12">
                   <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#0D21A1]/30">
-                    <img src={person.image} alt={person.name} className="w-full h-full object-cover" />
+                    <img
+                      src={`${person.image}${person.image.includes('?') ? '&' : '?'}tr=w-100`}
+                      alt={person.name}
+                      className="w-full h-full object-cover"
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="text-left">
                     <h4 className="text-[#F7F8FC] font-montreal font-bold text-lg leading-none mb-1">{person.name}</h4>

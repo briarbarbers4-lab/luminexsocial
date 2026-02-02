@@ -77,7 +77,7 @@ export default function Three3DBackground() {
     const objects: FloatingObject[] = [];
 
     // 1. Torus with glow
-    const torusGeometry = new THREE.TorusGeometry(15, 5, 64, 100);
+    const torusGeometry = new THREE.TorusGeometry(15, 5, 48, 64);
     const torusMaterial = new THREE.MeshPhongMaterial({
       color: 0x0d21a1,
       emissive: 0x0d21a1,
@@ -97,7 +97,7 @@ export default function Three3DBackground() {
     });
 
     // Add glow to torus
-    const torusGlowGeometry = new THREE.TorusGeometry(15.5, 5.3, 64, 100);
+    const torusGlowGeometry = new THREE.TorusGeometry(15.5, 5.3, 48, 64);
     const torusGlowMaterial = new THREE.MeshBasicMaterial({
       color: 0x0d21a1,
       transparent: true,
