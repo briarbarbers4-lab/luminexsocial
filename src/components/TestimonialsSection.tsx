@@ -7,8 +7,8 @@ const testimonials = [
     client: "Brett Boudrow",
     role: "Content Creator",
     rating: 5,
-    text: "Worked with Khan (Furqan). He is super duper fast, Whenever I have concerns or I want something changed, He hops on a zoom call with me literally that day or next day",
-    caseStudyUrl: "https://www.notion.so/Case-Study-2f9baae6cd1f80cc9609c399cf101306?source=copy_link"
+    text: "He helped me scaled from 5k to 20k, Has always been on time and super duper fast",
+    caseStudyUrl: "https://www.notion.so/Case-Study-Brett-Boudrow-305baae6cd1f807ba11fe82adf03eeb5?source=copy_link"
   },
   {
     id: 2,
@@ -79,14 +79,14 @@ export default function TestimonialsSection() {
         {/* Video Testimonials */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
           {testimonials.map((t) => (
-            <div 
+            <div
               key={t.id}
               className="glass-effect rounded-2xl overflow-hidden p-6 transition-all duration-500 hover:translate-y-[-8px] hover:border-royal-blue/30"
             >
               {t.videoUrl ? (
                 <div className="relative aspect-[9/16] bg-black/40 rounded-xl mb-6 overflow-hidden group">
-                  <video 
-                    src={t.videoUrl} 
+                  <video
+                    src={t.videoUrl}
                     className="w-full h-full object-cover"
                     controls
                     muted
@@ -136,7 +136,8 @@ export default function TestimonialsSection() {
           ))}
         </div>
       </div>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes scroll-right-to-left {
           0% { transform: translateX(0); }
           100% { transform: translateX(-33.33%); }
