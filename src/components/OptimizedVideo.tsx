@@ -21,15 +21,21 @@ export default function OptimizedVideo({
 }: OptimizedVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasIntersected, setHasIntersected] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          setHasIntersected(true);
+        } else {
+          setIsVisible(false);
+        }
       },
       {
-        threshold: 0.25,
-        rootMargin: '50px' // Reduced margin to delay playback until closer to viewport
+        threshold: 0,
+        rootMargin: '200px' // Load when it gets close to viewport
       }
     );
 
@@ -38,14 +44,12 @@ export default function OptimizedVideo({
     }
 
     return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
+      observer.disconnect();
     };
   }, []);
 
   useEffect(() => {
-    if (!videoRef.current) return;
+    if (!videoRef.current || !hasIntersected) return;
 
     if (isVisible) {
       // Small delay to prevent micro-stutter during rapid scrolling
@@ -61,27 +65,30 @@ export default function OptimizedVideo({
     } else {
       videoRef.current.pause();
     }
-  }, [isVisible]);
+  }, [isVisible, hasIntersected]);
+
+  // Generate a poster from Imagekit if not provided
+  const generatedPoster = poster || (src.includes('ik.imagekit.io') ? `${src}/ik-thumbnail.jpg` : undefined);
 
   return (
     <video
       ref={videoRef}
-      src={src}
-      poster={poster}
+      poster={generatedPoster}
       muted
       loop
       playsInline
-      preload="metadata" // Changed to metadata to avoid buffering when not needed, but allow quick start
+      preload="none" // Prevent loading metadata on page load
       width={width}
       height={height}
-      className={`${className} object-cover`}
+      className={`${className || ''} object-cover`}
       style={{
         ...style,
-        transform: 'translate3d(0,0,0)', // Better GPU acceleration
-        backfaceVisibility: 'hidden',
-        willChange: 'transform'
+        transform: 'translateZ(0)', // Better GPU acceleration
+        backgroundColor: '#000', // Better fallback
       }}
       onLoadedData={onLoadedData}
-    />
+    >
+      {hasIntersected && <source src={src} type="video/mp4" />}
+    </video>
   );
 }

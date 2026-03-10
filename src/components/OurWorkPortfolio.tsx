@@ -1,5 +1,5 @@
-import { useState, useMemo, useCallback } from 'react';
-import { X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { useState } from 'react';
+import { X, Play } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 interface Project {
@@ -101,18 +101,11 @@ export default function OurWorkPortfolio() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
 
-  const currentIndex = useMemo(() => 
-    selectedProject 
-      ? projects.findIndex(p => p.id === selectedProject.id)
-      : -1,
-    [selectedProject]
-  );
-
   return (
     <section ref={sectionRef} id="our-work" className="py-16 bg-[#0B0D12] relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-12">
-          <h2 
+          <h2
             className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
           >
@@ -122,16 +115,17 @@ export default function OurWorkPortfolio() {
 
         <div className="portfolio-grid">
           {projects.map((project) => (
-            <div 
-              key={project.id} 
+            <div
+              key={project.id}
               className="portfolio-card"
               onClick={() => setSelectedProject(project)}
             >
               <div className="video-wrapper group">
-                <img 
+                <img
                   src={project.thumbnail}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   alt={project.title}
+                  loading="lazy"
                 />
                 <div className="play-overlay">
                   <div className="play-button-large">

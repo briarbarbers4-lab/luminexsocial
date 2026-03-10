@@ -46,17 +46,15 @@ export default function TestimonialsPage() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="text-center mb-16">
-          <h1 
-            className={`font-helvetica text-4xl md:text-6xl font-bold text-soft-white mb-6 transition-all duration-700 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+          <h1
+            className={`font-helvetica text-4xl md:text-6xl font-bold text-soft-white mb-6 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
           >
             Client <span className="text-royal-blue">Success Stories</span>
           </h1>
-          <p 
-            className={`font-inter text-lg text-soft-white/60 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
-              isLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
+          <p
+            className={`font-inter text-lg text-soft-white/60 max-w-2xl mx-auto transition-all duration-700 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
           >
             Hear from the creators and businesses who scaled their content and automated their workflows with Luminex Social.
           </p>
@@ -65,21 +63,21 @@ export default function TestimonialsPage() {
         {/* Hero Containers Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {testimonials.map((t, i) => (
-            <div 
+            <div
               key={t.id}
-              className={`glass-effect rounded-2xl overflow-hidden p-6 transition-all duration-700 ${
-                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-              }`}
+              className={`glass-effect rounded-2xl overflow-hidden p-6 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                }`}
               style={{ transitionDelay: `${300 + i * 100}ms` }}
             >
               {t.videoUrl ? (
                 <div className="relative aspect-[9/16] bg-black/40 rounded-xl mb-6 overflow-hidden group">
-                  <video 
-                    src={t.videoUrl} 
+                  <video
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                     muted
                     playsInline
                     loop
+                    preload="none"
+                    poster={t.videoUrl.includes('ik.imagekit.io') ? `${t.videoUrl}/ik-thumbnail.jpg` : undefined}
                     onMouseOver={(e) => {
                       e.currentTarget.muted = false;
                       e.currentTarget.play();
@@ -89,7 +87,9 @@ export default function TestimonialsPage() {
                       e.currentTarget.pause();
                       e.currentTarget.currentTime = 0;
                     }}
-                  />
+                  >
+                    <source src={t.videoUrl} type="video/mp4" />
+                  </video>
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition-opacity">
                     <div className="w-16 h-16 rounded-full bg-royal-blue/20 backdrop-blur-sm border border-royal-blue/40 flex items-center justify-center">
                       <Play className="w-6 h-6 text-soft-white fill-soft-white" />

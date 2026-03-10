@@ -69,6 +69,7 @@ export default function TestimonialsSection() {
                     src={img}
                     alt={`Testimonial ${index}`}
                     className="w-full h-auto object-contain"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -86,16 +87,18 @@ export default function TestimonialsSection() {
               {t.videoUrl ? (
                 <div className="relative aspect-[9/16] bg-black/40 rounded-xl mb-6 overflow-hidden group">
                   <video
-                    src={t.videoUrl}
+                    poster={t.videoUrl.includes('ik.imagekit.io') ? `${t.videoUrl}/ik-thumbnail.jpg` : undefined}
                     className="w-full h-full object-cover"
                     controls
                     muted
                     playsInline
-                    preload="metadata"
+                    preload="none"
                     onMouseOver={(e) => {
                       e.currentTarget.muted = false;
                     }}
-                  />
+                  >
+                    <source src={t.videoUrl} type="video/mp4" />
+                  </video>
                 </div>
               ) : (
                 <div className="aspect-[9/16] bg-soft-white/5 rounded-xl mb-6 flex items-center justify-center">
