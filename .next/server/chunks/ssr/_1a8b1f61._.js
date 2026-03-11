@@ -1,0 +1,3 @@
+module.exports=[37361,a=>{"use strict";var b=a.i(27669);function c(a={}){let{threshold:d=.15,rootMargin:e="0px",triggerOnce:f=!0}=a,g=(0,b.useRef)(null),[h,i]=(0,b.useState)(!1),j=(0,b.useRef)(!1);return(0,b.useEffect)(()=>{if(j.current&&f)return;let a=new IntersectionObserver(([b])=>{b.isIntersecting?(i(!0),j.current=!0,f&&a.unobserve(b.target)):f||i(!1)},{threshold:d,rootMargin:e});return g.current&&a.observe(g.current),()=>{a.disconnect()}},[d,e,f]),{ref:g,isVisible:h}}a.s(["useScrollReveal",()=>c])},41548,a=>{"use strict";let b=(0,a.i(64375).default)("Star",[["polygon",{points:"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2",key:"8f66p6"}]]);a.s(["Star",()=>b],41548)}];
+
+//# sourceMappingURL=_1a8b1f61._.js.map

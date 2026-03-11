@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react';
  */
 export function useThrottledScroll(callback: (scrollY: number) => void, delay: number = 16) {
   const lastCallRef = useRef(0);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {

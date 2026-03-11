@@ -1,14 +1,6 @@
 "use client";
 import { useEffect, useRef } from 'react';
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'spline-viewer': any;
-    }
-  }
-}
-
 interface SplineViewerProps {
   url: string;
   className?: string;

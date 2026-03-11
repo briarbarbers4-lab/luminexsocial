@@ -1,20 +1,29 @@
-"use client";
-import { lazy, Suspense } from 'react';
+'use client';
+import dynamic from 'next/dynamic';
 import Hero from '../components/Hero';
 import PageTransition from '../components/PageTransition';
 
-const WorkShowcase = lazy(() => import('../components/WorkShowcase'));
-const Services = lazy(() => import('../components/Services'));
-const OurWorkPortfolio = lazy(() => import('../components/OurWorkPortfolio'));
-const Process = lazy(() => import('../components/Process'));
-const TestimonialsSection = lazy(() => import('../components/TestimonialsSection'));
-const Contact = lazy(() => import('../components/Contact'));
-
-const SectionSuspense = ({ children }: { children: React.ReactNode }) => (
-  <Suspense fallback={<div className="min-h-screen bg-primary-dark" />}>
-    {children}
-  </Suspense>
-);
+// Use Next.js dynamic() instead of React.lazy() for App Router compatibility
+const WorkShowcase = dynamic(() => import('../components/WorkShowcase'), {
+  loading: () => <div className="min-h-[50vh] bg-[#0B0D12]" />,
+  ssr: false, // Heavy scroll animations — skip SSR
+});
+const Services = dynamic(() => import('../components/Services'), {
+  loading: () => <div className="min-h-[50vh] bg-[#0B0D12]" />,
+});
+const OurWorkPortfolio = dynamic(() => import('../components/OurWorkPortfolio'), {
+  loading: () => <div className="min-h-[50vh] bg-[#0B0D12]" />,
+});
+const Process = dynamic(() => import('../components/Process'), {
+  loading: () => <div className="min-h-[50vh] bg-[#0B0D12]" />,
+});
+const TestimonialsSection = dynamic(() => import('../components/TestimonialsSection'), {
+  loading: () => <div className="min-h-[50vh] bg-[#0B0D12]" />,
+});
+const Contact = dynamic(() => import('../components/Contact'), {
+  loading: () => <div className="min-h-[50vh] bg-[#0B0D12]" />,
+  ssr: false, // Loads Calendly script via useEffect
+});
 
 export default function HomePage() {
   return (
@@ -22,36 +31,25 @@ export default function HomePage() {
       <section id="hero" className="relative">
         <Hero />
       </section>
-      <SectionSuspense>
-        <section id="videos">
-          <WorkShowcase />
-        </section>
-      </SectionSuspense>
-      <SectionSuspense>
-        <section id="services" className="relative">
-          <Services />
-        </section>
-      </SectionSuspense>
-      <SectionSuspense>
-        <section id="portfolio">
-          <OurWorkPortfolio />
-        </section>
-      </SectionSuspense>
-      <SectionSuspense>
-        <section id="process">
-          <Process />
-        </section>
-      </SectionSuspense>
-      <SectionSuspense>
-        <section id="testimonials">
-          <TestimonialsSection />
-        </section>
-      </SectionSuspense>
-      <SectionSuspense>
-        <section id="contact">
-          <Contact />
-        </section>
-      </SectionSuspense>
+      <section id="videos">
+        <WorkShowcase />
+      </section>
+      <section id="services" className="relative">
+        <Services />
+      </section>
+      <section id="portfolio">
+        <OurWorkPortfolio />
+      </section>
+      <section id="process">
+        <Process />
+      </section>
+      <section id="testimonials">
+        <TestimonialsSection />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
     </PageTransition>
   );
 }
+
