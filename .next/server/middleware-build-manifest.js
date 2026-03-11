@@ -1,30 +1,6 @@
 globalThis.__BUILD_MANIFEST = {
   "pages": {
-    "/AboutPage": [
-      "static/chunks/c778d17f19805d02.js",
-      "static/chunks/b0afc0175a7495be.js",
-      "static/chunks/turbopack-dd7087b041c7b18a.js"
-    ],
-    "/HomePage": [
-      "static/chunks/66935da9f0ec7578.js",
-      "static/chunks/b0afc0175a7495be.js",
-      "static/chunks/turbopack-308b57b1f87cc448.js"
-    ],
-    "/TestimonialsPage": [
-      "static/chunks/e67b5cbb9adacc2f.js",
-      "static/chunks/b0afc0175a7495be.js",
-      "static/chunks/turbopack-878caf7a34493b05.js"
-    ],
-    "/_app": [
-      "static/chunks/882612368d0bcaa3.js",
-      "static/chunks/b0afc0175a7495be.js",
-      "static/chunks/turbopack-cf1032948dd28431.js"
-    ],
-    "/_error": [
-      "static/chunks/89baa30207e6a371.js",
-      "static/chunks/b0afc0175a7495be.js",
-      "static/chunks/turbopack-f606d88e1e9746b7.js"
-    ]
+    "/_app": []
   },
   "devFiles": [],
   "polyfillFiles": [

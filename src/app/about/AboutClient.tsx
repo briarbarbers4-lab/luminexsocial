@@ -1,15 +1,14 @@
 "use client";
-import PageTransition from '../components/PageTransition';
-import { useScrollRevealAnimation } from '../hooks/useScrollAnimations';
+import { useRef } from 'react';
 
 export default function AboutPage() {
-  const { ref: storyRef, isVisible: storyVisible } = useScrollRevealAnimation();
-  const { ref: teamRef, isVisible: teamVisible } = useScrollRevealAnimation();
-  const { ref: statsRef, isVisible: statsVisible } = useScrollRevealAnimation();
-  const { ref: whyRef, isVisible: whyVisible } = useScrollRevealAnimation();
+  const storyRef = useRef<HTMLElement>(null);
+  const teamRef = useRef<HTMLElement>(null);
+  const statsRef = useRef<HTMLElement>(null);
+  const whyRef = useRef<HTMLElement>(null);
 
   return (
-    <PageTransition>
+    <div>
       <main className="pt-32 pb-20">
         {/* Hero Banner */}
         <section className="relative py-20 overflow-hidden">
@@ -186,6 +185,7 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-    </PageTransition>
+    </div>
   );
 }
+
