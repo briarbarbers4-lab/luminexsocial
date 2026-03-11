@@ -97,34 +97,30 @@ export default function Blog() {
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 
-            className={`font-coolvetica text-5xl md:text-6xl text-primary-dark mb-4 transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+          <h2
+            className={`font-coolvetica text-5xl md:text-6xl text-primary-dark mb-4 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
           >
             Insights & <span className="font-allura text-royal-blue italic">Resources</span>
           </h2>
-          <p 
-            className={`font-montreal text-xl text-primary-dark/70 mb-8 transition-all duration-700 delay-100 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+          <p
+            className={`font-montreal text-xl text-primary-dark/70 mb-8 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
           >
             Tips, trends, and tutorials from our team
           </p>
 
           {/* Category Filter */}
-          <div className={`flex flex-wrap justify-center gap-3 transition-all duration-700 delay-150 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
+          <div className={`flex flex-wrap justify-center gap-3 transition-all duration-700 delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full font-montreal font-medium text-sm transition-all duration-300 ${
-                  activeCategory === category
-                    ? 'bg-royal-blue text-soft-white shadow-[0_0_20px_rgba(13,33,161,0.3)]'
-                    : 'bg-white text-primary-dark border border-deep-purple/20 hover:border-royal-blue/50 hover:scale-105'
-                }`}
+                className={`px-6 py-2 rounded-full font-montreal font-medium text-sm transition-all duration-300 ${activeCategory === category
+                  ? 'bg-royal-blue text-soft-white shadow-[0_0_20px_rgba(13,33,161,0.3)]'
+                  : 'bg-white text-primary-dark border border-deep-purple/20 hover:border-royal-blue/50 hover:scale-105'
+                  }`}
               >
                 {category}
               </button>
@@ -133,13 +129,12 @@ export default function Blog() {
         </div>
 
         {/* Featured Post */}
-        <div 
-          className={`mb-12 transition-all duration-700 delay-200 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+        <div
+          className={`mb-12 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
         >
           <a href={`#blog-${featuredPost.id}`} className="group">
-            <div 
+            <div
               className="relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 h-96 md:h-[450px]"
               style={{
                 background: 'rgba(13, 33, 161, 0.05)',
@@ -148,67 +143,68 @@ export default function Blog() {
               }}
             >
               {/* Background Image */}
-              <img 
-                src={featuredPost.image} 
+              <img
+                src={featuredPost.image}
                 alt={featuredPost.title}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              / loading="lazy">
+                loading="lazy"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/30 to-transparent"></div>
 
-              {/* Content */}
-              <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12">
-                <div className="flex items-start justify-between">
-                  <span className="px-3 py-1 bg-royal-blue/80 backdrop-blur-sm text-soft-white text-xs font-inter rounded-full border border-royal-blue/50">
-                    {featuredPost.category}
-                  </span>
-                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm text-soft-white text-xs font-inter rounded-full">
-                    FEATURED
-                  </span>
+                {/* Content */}
+                <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12">
+                  <div className="flex items-start justify-between">
+                    <span className="px-3 py-1 bg-royal-blue/80 backdrop-blur-sm text-soft-white text-xs font-inter rounded-full border border-royal-blue/50">
+                      {featuredPost.category}
+                    </span>
+                    <span className="px-3 py-1 bg-white/10 backdrop-blur-sm text-soft-white text-xs font-inter rounded-full">
+                      FEATURED
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="font-montreal text-3xl md:text-4xl text-soft-white mb-4 leading-tight group-hover:text-royal-blue transition-colors">
+                      {featuredPost.title}
+                    </h3>
+                    <p className="font-inter text-soft-white/80 text-lg mb-6 line-clamp-3">
+                      {featuredPost.excerpt}
+                    </p>
+
+                    <div className="flex flex-wrap items-center gap-6 text-soft-white/70 text-sm">
+                      <div className="flex items-center gap-2">
+                        <User className="w-4 h-4" />
+                        <span className="font-inter">{featuredPost.author}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        <span className="font-inter">{featuredPost.date}</span>
+                      </div>
+                      <span className="font-inter">{featuredPost.readTime}</span>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="font-montreal text-3xl md:text-4xl text-soft-white mb-4 leading-tight group-hover:text-royal-blue transition-colors">
-                    {featuredPost.title}
-                  </h3>
-                  <p className="font-inter text-soft-white/80 text-lg mb-6 line-clamp-3">
-                    {featuredPost.excerpt}
-                  </p>
-
-                  <div className="flex flex-wrap items-center gap-6 text-soft-white/70 text-sm">
-                    <div className="flex items-center gap-2">
-                      <User className="w-4 h-4" />
-                      <span className="font-inter">{featuredPost.author}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
-                      <span className="font-inter">{featuredPost.date}</span>
-                    </div>
-                    <span className="font-inter">{featuredPost.readTime}</span>
+                {/* Hover Button */}
+                <div className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex items-center gap-2 px-6 py-3 bg-royal-blue text-soft-white rounded-full font-inter hover:scale-105 transition-transform duration-300">
+                    Read Article
+                    <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
               </div>
-
-              {/* Hover Button */}
-              <div className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="flex items-center gap-2 px-6 py-3 bg-royal-blue text-soft-white rounded-full font-inter hover:scale-105 transition-transform duration-300">
-                  Read Article
-                  <ArrowRight className="w-4 h-4" />
-                </div>
-              </div>
-            </div>
-          </a>
+            </a>
         </div>
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {regularPosts.map((post, index) => (
-            <a 
+            <a
               key={post.id}
               href={`#blog-${post.id}`}
               className={`group transition-all duration-700 opacity-100 translate-y-0`}
               style={{ transitionDelay: isVisible ? `${300 + index * 75}ms` : '0ms' }}
             >
-              <div 
+              <div
                 className="rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 h-full flex flex-col hover:shadow-[0_20px_40px_rgba(13,33,161,0.15)] hover:-translate-y-1"
                 style={{
                   background: 'rgba(255, 255, 255, 0.5)',
@@ -218,11 +214,12 @@ export default function Blog() {
               >
                 {/* Image Container */}
                 <div className="relative w-full h-48 overflow-hidden">
-                  <img 
-                    src={post.image} 
+                  <img
+                    src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  / loading="lazy">
+                    loading="lazy"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
@@ -270,9 +267,8 @@ export default function Blog() {
         </div>
 
         {/* View All Button */}
-        <div className={`text-center transition-all duration-700 delay-500 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
+        <div className={`text-center transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
           <a href="#blog-all">
             <button className="ripple px-8 py-4 bg-royal-blue text-soft-white rounded-full font-montreal font-medium transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(13,33,161,0.2)]">
               View All Articles
