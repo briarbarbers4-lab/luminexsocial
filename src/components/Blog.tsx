@@ -152,7 +152,7 @@ export default function Blog() {
                 src={featuredPost.image} 
                 alt={featuredPost.title}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
+              / loading="lazy">
               <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/30 to-transparent"></div>
 
               {/* Content */}
@@ -222,7 +222,7 @@ export default function Blog() {
                     src={post.image} 
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                  / loading="lazy">
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 

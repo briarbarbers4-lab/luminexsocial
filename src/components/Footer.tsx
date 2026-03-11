@@ -46,7 +46,7 @@ export default function Footer() {
                     src="https://ik.imagekit.io/luminexsocial/Logo_V1.png?updatedAt=1765875231435" 
                     alt="Luminex Social Logo" 
                     className="w-full h-full object-cover"
-                  />
+                  / loading="lazy">
                 </div>
               </a>
               <span className="font-coolvetica text-2xl text-soft-white">Luminex Social</span>

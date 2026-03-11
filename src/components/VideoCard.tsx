@@ -56,7 +56,7 @@ export default function VideoCard({ video, onClick }: VideoCardProps) {
               src={video.thumbnail}
               alt={video.title}
               className="w-full h-full object-cover"
-              onLoad={() => setIsLoading(false)}
+              onLoad={() = loading="lazy"> setIsLoading(false)}
             />
             {isLoading && (
               <div className="absolute inset-0 bg-gradient-to-r from-royal-blue/20 to-transparent animate-pulse" />
