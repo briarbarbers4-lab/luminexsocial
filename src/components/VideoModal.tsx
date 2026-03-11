@@ -1,3 +1,4 @@
+"use client";
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { VideoItem } from '../data/videoData';
 

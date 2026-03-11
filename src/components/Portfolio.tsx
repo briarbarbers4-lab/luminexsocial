@@ -1,3 +1,4 @@
+"use client";
 import { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';

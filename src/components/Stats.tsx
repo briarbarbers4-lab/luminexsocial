@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState, useRef } from 'react';
 import { useInView } from '../hooks/useInView';
 import { useScrollRevealAnimation } from '../hooks/useScrollAnimations';

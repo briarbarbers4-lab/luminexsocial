@@ -1,3 +1,4 @@
+"use client";
 import { Sparkles } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 

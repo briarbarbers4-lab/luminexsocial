@@ -1,0 +1,6 @@
+﻿src/components/Button.tsx(76,13): error TS2353: Object literal may only specify known properties, and ''--tw-translate-x'' does not exist in type 'Properties<string | number, string & {}>'.
+src/components/SplineViewer.tsx(36,7): error TS2339: Property 'spline-viewer' does not exist on type 'JSX.IntrinsicElements'.
+src/components/Stats.tsx(46,30): error TS2345: Argument of type 'RefObject<HTMLElement | null>' is not assignable to parameter of type 'RefObject<HTMLElement>'.
+  Type 'HTMLElement | null' is not assignable to type 'HTMLElement'.
+    Type 'null' is not assignable to type 'HTMLElement'.
+src/hooks/useThrottledScroll.ts(10,18): error TS2554: Expected 1 arguments, but got 0.

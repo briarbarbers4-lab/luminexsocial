@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 
 interface PremiumLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {

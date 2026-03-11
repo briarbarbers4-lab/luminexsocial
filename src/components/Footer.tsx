@@ -1,3 +1,4 @@
+"use client";
 import { Instagram, Linkedin, Youtube } from 'lucide-react';
 
 const footerLinks = {

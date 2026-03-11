@@ -1,5 +1,7 @@
+"use client";
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
@@ -11,7 +13,7 @@ const navLinks = [
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,8 +51,8 @@ export default function Navigation() {
           maxWidth: '500px',
           width: 'calc(100% - 32px)',
           height: '56px',
-          background: isScrolled 
-            ? 'rgba(11, 13, 18, 0.8)' 
+          background: isScrolled
+            ? 'rgba(11, 13, 18, 0.8)'
             : 'rgba(11, 13, 18, 0.7)',
           backdropFilter: 'blur(24px) saturate(180%)',
           WebkitBackdropFilter: 'blur(24px) saturate(180%)',
@@ -66,13 +68,12 @@ export default function Navigation() {
             {navLinks.map((link) => (
               <Link
                 key={link.path}
-                to={link.path}
-                className={`font-montreal text-sm font-medium transition-colors duration-200 ${
-                  location.pathname === link.path
+                href={link.path}
+                className={`font-montreal text-sm font-medium transition-colors duration-200 ${pathname === link.path
                     ? 'text-royal-blue'
                     : 'text-soft-white/80 hover:text-royal-blue'
-                }`}
-                aria-current={location.pathname === link.path ? 'page' : undefined}
+                  }`}
+                aria-current={pathname === link.path ? 'page' : undefined}
                 data-testid={`link-nav-${link.name.toLowerCase()}`}
               >
                 {link.name}
@@ -83,9 +84,8 @@ export default function Navigation() {
       </header>
 
       <div
-        className={`fixed inset-0 z-[999] lg:hidden transition-all duration-500 ${
-          isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
-        }`}
+        className={`fixed inset-0 z-[999] lg:hidden transition-all duration-500 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+          }`}
         data-testid="mobile-menu-overlay"
       >
         <div
@@ -102,13 +102,12 @@ export default function Navigation() {
             {navLinks.map((link, index) => (
               <Link
                 key={link.path}
-                to={link.path}
+                href={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`font-montreal text-2xl font-semibold transition-all duration-300 ${
-                  location.pathname === link.path
+                className={`font-montreal text-2xl font-semibold transition-all duration-300 ${pathname === link.path
                     ? 'text-royal-blue'
                     : 'text-soft-white/80 hover:text-royal-blue'
-                }`}
+                  }`}
                 style={{
                   animation: isOpen
                     ? `fadeInUp 0.5s ease-out ${index * 0.08}s forwards`

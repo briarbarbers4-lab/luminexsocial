@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useRef } from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -72,9 +73,6 @@ export default function Button({
             width: '10px',
             height: '10px',
             animation: `ripple 0.6s ease-out`,
-            '--tw-translate-x': `-50%`,
-            '--tw-translate-y': `-50%`,
-            transform: 'translate(var(--tw-translate-x), var(--tw-translate-y))',
           }}
         />
       ))}

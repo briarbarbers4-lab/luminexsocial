@@ -1,3 +1,4 @@
+"use client";
 import { Users, Award, Globe, Zap, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 

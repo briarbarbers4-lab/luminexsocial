@@ -1,3 +1,4 @@
+"use client";
 import { Search, Palette, RefreshCw, Rocket } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 

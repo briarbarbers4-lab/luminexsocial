@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState, RefObject } from 'react';
 
 export function useInView(ref: RefObject<HTMLElement>, options?: IntersectionObserverInit) {

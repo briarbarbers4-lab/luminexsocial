@@ -1,3 +1,4 @@
+"use client";
 import PageTransition from '../components/PageTransition';
 import { useScrollRevealAnimation } from '../hooks/useScrollAnimations';
 

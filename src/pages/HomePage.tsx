@@ -1,3 +1,4 @@
+"use client";
 import { lazy, Suspense } from 'react';
 import Hero from '../components/Hero';
 import PageTransition from '../components/PageTransition';

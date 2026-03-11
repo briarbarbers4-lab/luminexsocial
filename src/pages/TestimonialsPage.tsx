@@ -1,3 +1,4 @@
+"use client";
 import { Play, Star, Quote } from 'lucide-react';
 import { useEffect, useState } from 'react';
 

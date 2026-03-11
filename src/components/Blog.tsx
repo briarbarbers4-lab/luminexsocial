@@ -1,3 +1,4 @@
+"use client";
 import { useState } from 'react';
 import { Calendar, User, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';

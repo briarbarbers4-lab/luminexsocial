@@ -1,3 +1,4 @@
+"use client";
 import { Bot, Sparkles, TrendingUp, CheckCircle2, ArrowRight, Zap, Star, Users, Award } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useState } from 'react';

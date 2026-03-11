@@ -1,3 +1,4 @@
+"use client";
 import { Phone, ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';

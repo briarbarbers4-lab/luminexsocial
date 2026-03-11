@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from 'react';
 import FloatingVideoCard from './FloatingVideoCard';
 import VideoModal from './VideoModal';
