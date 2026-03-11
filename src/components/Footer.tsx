@@ -42,11 +42,11 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <a href="/" className="block">
                 <div className="w-10 h-10 bg-royal-blue rounded-lg flex items-center justify-center overflow-hidden">
-                  <img 
-                    src="https://ik.imagekit.io/luminexsocial/Logo_V1.png?updatedAt=1765875231435" 
-                    alt="Luminex Social Logo" 
+                  <img
+                    src="https://ik.imagekit.io/luminexsocial/Logo_V1.png?updatedAt=1765875231435"
+                    alt="Luminex Social Logo"
                     className="w-full h-full object-cover"
-                  / loading="lazy">
+                    loading="lazy" />
                 </div>
               </a>
               <span className="font-coolvetica text-2xl text-soft-white">Luminex Social</span>
@@ -87,8 +87,8 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.contact.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="font-inter text-soft-white/60 hover:text-royal-blue transition-colors text-sm"
                     {...(link.href.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   >
