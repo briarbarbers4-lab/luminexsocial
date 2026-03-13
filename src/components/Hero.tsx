@@ -74,47 +74,23 @@ export default function Hero() {
           borderRadius: '50%',
         }} />
 
-        {/* 2. Organic hill/wave shapes — bottom-right, layered for depth */}
-        <svg
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            right: 0,
-            width: '70%',
-            height: '80%',
-            zIndex: 1,
-            pointerEvents: 'none',
-          }}
-          viewBox="0 0 700 600"
-          preserveAspectRatio="xMaxYMax meet"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* Back hill — deep blue */}
-          <path
-            d="M700,600 L700,320 C620,280 520,200 400,230 C280,260 180,310 80,340 C20,360 -20,380 0,600 Z"
-            fill="rgba(0,60,255,0.08)"
-          />
-          {/* Second hill — deep purple */}
-          <path
-            d="M700,600 L700,370 C640,330 560,270 450,285 C340,300 240,350 140,375 C60,395 0,410 0,600 Z"
-            fill="rgba(80,0,180,0.07)"
-          />
-          {/* Third hill — mid blue */}
-          <path
-            d="M700,600 L700,420 C660,390 590,345 490,350 C390,355 290,390 200,415 C110,440 30,455 0,600 Z"
-            fill="rgba(0,80,255,0.06)"
-          />
-          {/* Fourth hill — blue-purple blend */}
-          <path
-            d="M700,600 L700,470 C670,448 620,415 540,415 C460,415 380,440 300,462 C210,486 100,500 0,600 Z"
-            fill="rgba(120,80,255,0.05)"
-          />
-          {/* Front hill — dark gold tint, barely visible */}
-          <path
-            d="M700,600 L700,520 C680,505 650,488 610,485 C560,480 510,495 460,510 C400,527 320,545 220,560 C130,572 50,580 0,600 Z"
-            fill="rgba(180,140,0,0.04)"
-          />
-        </svg>
+        {/* 2. Atmospheric depth — CREO-style layered radial gradients, bottom-right */}
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          width: '100%',
+          height: '50%',
+          zIndex: 1,
+          pointerEvents: 'none',
+          background: `
+            radial-gradient(ellipse 80% 60% at 85% 100%, rgba(30,10,100,0.55) 0%, transparent 70%),
+            radial-gradient(ellipse 60% 50% at 100% 90%, rgba(10,20,120,0.45) 0%, transparent 65%),
+            radial-gradient(ellipse 50% 40% at 75% 100%, rgba(60,20,160,0.35) 0%, transparent 60%),
+            radial-gradient(ellipse 40% 35% at 95% 80%, rgba(0,50,200,0.25) 0%, transparent 55%),
+            radial-gradient(ellipse 30% 25% at 70% 95%, rgba(180,140,0,0.06) 0%, transparent 50%)
+          `,
+        }} />
 
         {/* 3. Grid overlay */}
         <div style={{
@@ -272,6 +248,18 @@ export default function Hero() {
       <div className="lg:hidden absolute bottom-5 left-1/2 -translate-x-1/2">
         <ChevronDown className="w-6 h-6 text-[#0D21A1] animate-bounce" />
       </div>
+
+      {/* Seamless fade into next section (#0B0D12 = WorkShowcase bg) */}
+      <div style={{
+        position: 'absolute',
+        bottom: '-2px',
+        left: 0,
+        right: 0,
+        height: '150px',
+        zIndex: 30,
+        pointerEvents: 'none',
+        background: 'linear-gradient(to bottom, transparent 0%, #0B0D12 100%)',
+      }} />
     </section>
   );
 }
