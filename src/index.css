@@ -44,7 +44,7 @@
   }
 
   .font-allura {
-    font-family: 'Allura', cursive !important;
+    font-family: var(--font-allura), 'Allura', cursive !important;
   }
 }
 

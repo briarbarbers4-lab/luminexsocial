@@ -1,4 +1,5 @@
 import { ReactNode, Suspense } from 'react';
+import { Allura } from 'next/font/google';
 import '../index.css';
 import Navigation from '../components/Navigation';
 import ScrollProgress from '../components/ScrollProgress';
@@ -10,6 +11,13 @@ import SectionIndicators from '../components/SectionIndicators';
 import Link from 'next/link';
 import LoadingSpinner from '../components/LoadingSpinner';
 
+const allura = Allura({
+    weight: '400',
+    subsets: ['latin'],
+    variable: '--font-allura',
+    display: 'swap',
+});
+
 export const metadata = {
     title: 'Luminex Social',
     description: 'Luminex Social Platform',
@@ -17,7 +25,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
-        <html lang="en">
+        <html lang="en" className={allura.variable}>
             <body>
                 <Suspense fallback={null}>
                     <BackgroundOverlay />
