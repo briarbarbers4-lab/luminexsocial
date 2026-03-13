@@ -19,51 +19,76 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen bg-[#080c0c] overflow-hidden flex flex-col justify-center" data-testid="section-hero">
-      {/* BACKGROUND EFFECTS — static CSS orbs only, no JS */}
+    <section className="relative w-full min-h-screen bg-[#070a0a] overflow-hidden flex flex-col justify-center" data-testid="section-hero">
+      {/* BACKGROUND EFFECTS — static CSS only, no JS */}
       <div className="absolute inset-0 z-0">
-        {/* Orb 1 — large teal glow, right side */}
+
+        {/* Orb 1 — large dramatic teal, top-right */}
         <div
           style={{
             position: 'absolute',
-            width: '800px',
-            height: '800px',
-            top: '-10%',
-            right: '-15%',
-            background: 'radial-gradient(circle, rgba(0,180,140,0.18) 0%, rgba(0,120,100,0.08) 45%, transparent 70%)',
-            filter: 'blur(80px)',
+            width: '700px',
+            height: '700px',
+            top: '-8%',
+            right: '-12%',
+            background: 'radial-gradient(circle, rgba(0,191,165,0.40) 0%, rgba(0,137,123,0.18) 40%, transparent 70%)',
+            filter: 'blur(90px)',
             borderRadius: '50%',
             pointerEvents: 'none',
           }}
         />
-        {/* Orb 2 — smaller green, bottom left */}
+
+        {/* Orb 2 — medium emerald, center-right */}
         <div
           style={{
             position: 'absolute',
-            width: '500px',
-            height: '500px',
-            bottom: '-10%',
-            left: '-10%',
-            background: 'radial-gradient(circle, rgba(0,120,80,0.14) 0%, rgba(0,80,60,0.06) 50%, transparent 70%)',
+            width: '450px',
+            height: '450px',
+            top: '30%',
+            right: '5%',
+            background: 'radial-gradient(circle, rgba(0,200,120,0.20) 0%, rgba(0,150,90,0.08) 50%, transparent 70%)',
+            filter: 'blur(70px)',
+            borderRadius: '50%',
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/* Orb 3 — subtle dark teal, bottom-left */}
+        <div
+          style={{
+            position: 'absolute',
+            width: '350px',
+            height: '350px',
+            bottom: '-5%',
+            left: '-8%',
+            background: 'radial-gradient(circle, rgba(0,120,100,0.15) 0%, transparent 70%)',
             filter: 'blur(60px)',
             borderRadius: '50%',
             pointerEvents: 'none',
           }}
         />
-        {/* Orb 3 — very subtle, top center */}
+
+        {/* Dot-grid texture overlay */}
         <div
           style={{
             position: 'absolute',
-            width: '600px',
-            height: '400px',
-            top: '-5%',
-            left: '30%',
-            background: 'radial-gradient(circle, rgba(0,150,120,0.07) 0%, transparent 65%)',
-            filter: 'blur(100px)',
-            borderRadius: '50%',
+            inset: 0,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(255,255,255,0.045)'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
             pointerEvents: 'none',
           }}
         />
+
+        {/* Vignette — dark edges all around */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'radial-gradient(ellipse at center, transparent 40%, rgba(7,10,10,0.75) 100%)',
+            pointerEvents: 'none',
+          }}
+        />
+
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto w-full px-10 md:px-20 pt-20">
