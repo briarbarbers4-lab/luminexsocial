@@ -74,30 +74,46 @@ export default function Hero() {
           borderRadius: '50%',
         }} />
 
-        {/* 2. Geometric wireframe — diamond + inner square (right-center) */}
+        {/* 2. Organic hill/wave shapes — bottom-right, layered for depth */}
         <svg
-          style={{ position: 'absolute', top: '50%', right: '8%', transform: 'translateY(-50%)', overflow: 'visible' }}
-          width="400" height="400"
-          viewBox="-200 -200 400 400"
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            right: 0,
+            width: '70%',
+            height: '80%',
+            zIndex: 1,
+            pointerEvents: 'none',
+          }}
+          viewBox="0 0 700 600"
+          preserveAspectRatio="xMaxYMax meet"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Outer diamond */}
-          <polygon
-            points="0,-190 190,0 0,190 -190,0"
-            fill="none"
-            stroke="rgba(0,100,255,0.18)"
-            strokeWidth="1"
+          {/* Back hill — deep blue */}
+          <path
+            d="M700,600 L700,320 C620,280 520,200 400,230 C280,260 180,310 80,340 C20,360 -20,380 0,600 Z"
+            fill="rgba(0,60,255,0.08)"
           />
-          {/* Inner rotated square */}
-          <rect
-            x="-90" y="-90" width="180" height="180"
-            fill="none"
-            stroke="rgba(180,140,0,0.10)"
-            strokeWidth="1"
-            transform="rotate(45)"
+          {/* Second hill — deep purple */}
+          <path
+            d="M700,600 L700,370 C640,330 560,270 450,285 C340,300 240,350 140,375 C60,395 0,410 0,600 Z"
+            fill="rgba(80,0,180,0.07)"
           />
-          {/* Cross-hair center lines */}
-          <line x1="-190" y1="0" x2="190" y2="0" stroke="rgba(0,100,255,0.07)" strokeWidth="1" />
-          <line x1="0" y1="-190" x2="0" y2="190" stroke="rgba(0,100,255,0.07)" strokeWidth="1" />
+          {/* Third hill — mid blue */}
+          <path
+            d="M700,600 L700,420 C660,390 590,345 490,350 C390,355 290,390 200,415 C110,440 30,455 0,600 Z"
+            fill="rgba(0,80,255,0.06)"
+          />
+          {/* Fourth hill — blue-purple blend */}
+          <path
+            d="M700,600 L700,470 C670,448 620,415 540,415 C460,415 380,440 300,462 C210,486 100,500 0,600 Z"
+            fill="rgba(120,80,255,0.05)"
+          />
+          {/* Front hill — dark gold tint, barely visible */}
+          <path
+            d="M700,600 L700,520 C680,505 650,488 610,485 C560,480 510,495 460,510 C400,527 320,545 220,560 C130,572 50,580 0,600 Z"
+            fill="rgba(180,140,0,0.04)"
+          />
         </svg>
 
         {/* 3. Grid overlay */}
