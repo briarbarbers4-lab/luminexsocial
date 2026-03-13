@@ -1,5 +1,0 @@
-1:"$Sreact.fragment"
-2:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"ViewportBoundary"]
-3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"MetadataBoundary"]
-4:"$Sreact.suspense"
-0:{"buildId":"BxnnaPxYI-L4DYTe_0FrW","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Luminex Social | Scale Your Business with AI & Premium Content"}],["$","meta","1",{"name":"description","content":"Unlock your business potential with professional video editing, AI automation, and strategic content creation. Save 20+ hours weekly with Luminex Social."}],["$","meta","2",{"name":"keywords","content":"AI Automation,Video Editing,Content Creation,Digital Strategy,Luminex Social"}]]}]}]}],null]}],"loading":null,"isPartial":false}
