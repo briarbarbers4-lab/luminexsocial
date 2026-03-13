@@ -2,7 +2,6 @@
 import { Phone, ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
-import AbstractWaves from './AbstractWaves';
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -20,10 +19,51 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen bg-[#0B0D12] overflow-hidden flex flex-col justify-center" data-testid="section-hero">
-      {/* BACKGROUND EFFECTS */}
+    <section className="relative w-full min-h-screen bg-[#080c0c] overflow-hidden flex flex-col justify-center" data-testid="section-hero">
+      {/* BACKGROUND EFFECTS — static CSS orbs only, no JS */}
       <div className="absolute inset-0 z-0">
-        <AbstractWaves />
+        {/* Orb 1 — large teal glow, right side */}
+        <div
+          style={{
+            position: 'absolute',
+            width: '800px',
+            height: '800px',
+            top: '-10%',
+            right: '-15%',
+            background: 'radial-gradient(circle, rgba(0,180,140,0.18) 0%, rgba(0,120,100,0.08) 45%, transparent 70%)',
+            filter: 'blur(80px)',
+            borderRadius: '50%',
+            pointerEvents: 'none',
+          }}
+        />
+        {/* Orb 2 — smaller green, bottom left */}
+        <div
+          style={{
+            position: 'absolute',
+            width: '500px',
+            height: '500px',
+            bottom: '-10%',
+            left: '-10%',
+            background: 'radial-gradient(circle, rgba(0,120,80,0.14) 0%, rgba(0,80,60,0.06) 50%, transparent 70%)',
+            filter: 'blur(60px)',
+            borderRadius: '50%',
+            pointerEvents: 'none',
+          }}
+        />
+        {/* Orb 3 — very subtle, top center */}
+        <div
+          style={{
+            position: 'absolute',
+            width: '600px',
+            height: '400px',
+            top: '-5%',
+            left: '30%',
+            background: 'radial-gradient(circle, rgba(0,150,120,0.07) 0%, transparent 65%)',
+            filter: 'blur(100px)',
+            borderRadius: '50%',
+            pointerEvents: 'none',
+          }}
+        />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto w-full px-10 md:px-20 pt-20">
@@ -32,7 +72,7 @@ export default function Hero() {
             className={`font-allura text-[24px] text-[#0D21A1] mb-6 transition-all duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'
               }`}
           >
-            Digital Intelligence & Automation
+            Digital Intelligence &amp; Automation
           </p>
 
           <h1
@@ -91,7 +131,7 @@ export default function Hero() {
 
           {/* Influencer Strip */}
           <div className="w-full mt-24 overflow-hidden relative group">
-            <p className="text-[#F7F8FC]/40 text-sm font-inter mb-6 uppercase tracking-[0.2em]">You're in good hands:</p>
+            <p className="text-[#F7F8FC]/40 text-sm font-inter mb-6 uppercase tracking-[0.2em]">You&apos;re in good hands:</p>
             <div className="flex animate-scroll-influencers whitespace-nowrap items-center hover:pause">
               {[...influencers, ...influencers, ...influencers].map((person, index) => (
                 <div key={index} className="inline-flex items-center gap-4 px-12">
@@ -138,4 +178,3 @@ const influencers = [
   { name: "Steven Baterina", stat: "5k followers", image: "https://ik.imagekit.io/5pahp6yywb/Pics/Steven%20Baterina.jpg" },
   { name: "Kahyl Jadavji", stat: "12.6k followers", image: "https://ik.imagekit.io/5pahp6yywb/Pics/Kahyl.jpg" },
 ];
-
