@@ -8,101 +8,169 @@ export default function Hero() {
   const [showTypewriter, setShowTypewriter] = useState(false);
 
   useEffect(() => {
-    // Start typewriter after a brief delay to ensure smooth rendering
     const timer = setTimeout(() => {
       setShowTypewriter(true);
     }, 2000);
-
     setIsLoaded(true);
-
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen bg-[#070a0a] overflow-hidden flex flex-col justify-center" data-testid="section-hero">
-      {/* BACKGROUND EFFECTS — static CSS only, no JS */}
-      <div className="absolute inset-0 z-0">
+    <section
+      className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center"
+      style={{ background: '#04050f' }}
+      data-testid="section-hero"
+    >
+      {/* ─── BACKGROUND LAYERS (pure CSS/SVG, no JS) ─── */}
+      <div className="absolute inset-0" style={{ zIndex: 0, pointerEvents: 'none' }}>
 
-        {/* Orb 1 — large dramatic teal, top-right */}
-        <div
-          style={{
-            position: 'absolute',
-            width: '700px',
-            height: '700px',
-            top: '-8%',
-            right: '-12%',
-            background: 'radial-gradient(circle, rgba(0,191,165,0.40) 0%, rgba(0,137,123,0.18) 40%, transparent 70%)',
-            filter: 'blur(90px)',
-            borderRadius: '50%',
-            pointerEvents: 'none',
-          }}
-        />
+        {/* 1a. Massive blue orb — top-right */}
+        <div style={{
+          position: 'absolute',
+          width: '900px', height: '900px',
+          top: '-15%', right: '-18%',
+          background: 'radial-gradient(circle, rgba(0,80,255,0.40) 0%, rgba(0,50,200,0.18) 40%, transparent 70%)',
+          filter: 'blur(100px)',
+          borderRadius: '50%',
+        }} />
 
-        {/* Orb 2 — medium emerald, center-right */}
-        <div
-          style={{
-            position: 'absolute',
-            width: '450px',
-            height: '450px',
-            top: '30%',
-            right: '5%',
-            background: 'radial-gradient(circle, rgba(0,200,120,0.20) 0%, rgba(0,150,90,0.08) 50%, transparent 70%)',
-            filter: 'blur(70px)',
-            borderRadius: '50%',
-            pointerEvents: 'none',
-          }}
-        />
+        {/* 1b. Large purple orb — bottom-left */}
+        <div style={{
+          position: 'absolute',
+          width: '600px', height: '600px',
+          bottom: '-12%', left: '-10%',
+          background: 'radial-gradient(circle, rgba(80,0,180,0.30) 0%, rgba(60,0,140,0.12) 50%, transparent 70%)',
+          filter: 'blur(80px)',
+          borderRadius: '50%',
+        }} />
 
-        {/* Orb 3 — subtle dark teal, bottom-left */}
-        <div
-          style={{
-            position: 'absolute',
-            width: '350px',
-            height: '350px',
-            bottom: '-5%',
-            left: '-8%',
-            background: 'radial-gradient(circle, rgba(0,120,100,0.15) 0%, transparent 70%)',
-            filter: 'blur(60px)',
-            borderRadius: '50%',
-            pointerEvents: 'none',
-          }}
-        />
+        {/* 1c. Medium blue orb — center-right */}
+        <div style={{
+          position: 'absolute',
+          width: '400px', height: '400px',
+          top: '35%', right: '8%',
+          background: 'radial-gradient(circle, rgba(0,80,255,0.22) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+          borderRadius: '50%',
+        }} />
 
-        {/* Dot-grid texture overlay */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(255,255,255,0.045)'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            pointerEvents: 'none',
-          }}
-        />
+        {/* 1d. Small gold accent — top-left */}
+        <div style={{
+          position: 'absolute',
+          width: '200px', height: '200px',
+          top: '4%', left: '3%',
+          background: 'radial-gradient(circle, rgba(180,140,0,0.14) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+          borderRadius: '50%',
+        }} />
 
-        {/* Vignette — dark edges all around */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'radial-gradient(ellipse at center, transparent 40%, rgba(7,10,10,0.75) 100%)',
-            pointerEvents: 'none',
-          }}
-        />
+        {/* 1e. Tiny gold orb — bottom-right */}
+        <div style={{
+          position: 'absolute',
+          width: '150px', height: '150px',
+          bottom: '6%', right: '6%',
+          background: 'radial-gradient(circle, rgba(180,140,0,0.12) 0%, transparent 70%)',
+          filter: 'blur(35px)',
+          borderRadius: '50%',
+        }} />
+
+        {/* 2. Geometric wireframe — diamond + inner square (right-center) */}
+        <svg
+          style={{ position: 'absolute', top: '50%', right: '8%', transform: 'translateY(-50%)', overflow: 'visible' }}
+          width="400" height="400"
+          viewBox="-200 -200 400 400"
+        >
+          {/* Outer diamond */}
+          <polygon
+            points="0,-190 190,0 0,190 -190,0"
+            fill="none"
+            stroke="rgba(0,100,255,0.18)"
+            strokeWidth="1"
+          />
+          {/* Inner rotated square */}
+          <rect
+            x="-90" y="-90" width="180" height="180"
+            fill="none"
+            stroke="rgba(180,140,0,0.10)"
+            strokeWidth="1"
+            transform="rotate(45)"
+          />
+          {/* Cross-hair center lines */}
+          <line x1="-190" y1="0" x2="190" y2="0" stroke="rgba(0,100,255,0.07)" strokeWidth="1" />
+          <line x1="0" y1="-190" x2="0" y2="190" stroke="rgba(0,100,255,0.07)" strokeWidth="1" />
+        </svg>
+
+        {/* 3. Grid overlay */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `
+            repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 50px),
+            repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 50px)
+          `,
+        }} />
+
+        {/* 4. Diagonal accent lines — right half */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `
+            linear-gradient(135deg, transparent 0%, transparent 48%, rgba(0,100,255,0.10) 50%, transparent 52%, transparent 100%),
+            linear-gradient(135deg, transparent 0%, transparent 62%, rgba(0,100,255,0.07) 64%, transparent 66%, transparent 100%),
+            linear-gradient(135deg, transparent 0%, transparent 74%, rgba(0,100,255,0.05) 76%, transparent 78%, transparent 100%),
+            linear-gradient(135deg, transparent 0%, transparent 35%, rgba(80,0,180,0.06) 37%, transparent 39%, transparent 100%)
+          `,
+        }} />
+
+        {/* 5a. Top-left corner bracket */}
+        <svg style={{ position: 'absolute', top: 32, left: 32, width: 48, height: 48 }} viewBox="0 0 48 48">
+          <polyline points="0,24 0,0 24,0" fill="none" stroke="rgba(180,140,0,0.32)" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+
+        {/* 5b. Bottom-right corner bracket */}
+        <svg style={{ position: 'absolute', bottom: 32, right: 32, width: 48, height: 48 }} viewBox="0 0 48 48">
+          <polyline points="48,24 48,48 24,48" fill="none" stroke="rgba(180,140,0,0.22)" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+
+        {/* 5c. Thin horizontal gold line across middle-right */}
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          right: 0,
+          width: '40%',
+          height: '1px',
+          background: 'linear-gradient(to right, transparent, rgba(180,140,0,0.10), transparent)',
+        }} />
+
+        {/* 6. Vignette */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(ellipse at center, transparent 38%, rgba(0,0,0,0.75) 100%)',
+        }} />
+
+        {/* 7. Noise/grain texture via SVG feTurbulence */}
+        <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.03 }}>
+          <filter id="hero-noise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#hero-noise)" />
+        </svg>
 
       </div>
+      {/* ─── END BACKGROUND ─── */}
 
       <div className="relative z-10 max-w-[1400px] mx-auto w-full px-10 md:px-20 pt-20">
         <div className="flex flex-col items-start">
           <p
-            className={`font-allura text-[24px] text-[#0D21A1] mb-6 transition-all duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
+            className={`font-allura text-[24px] text-[#0D21A1] mb-6 transition-all duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           >
             Digital Intelligence &amp; Automation
           </p>
 
           <h1
-            className={`text-4xl md:text-[72px] font-bold text-[#F7F8FC] leading-[1.1] tracking-[-0.02em] max-w-[1100px] transition-all duration-500 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+            className={`text-4xl md:text-[72px] font-bold text-[#F7F8FC] leading-[1.1] tracking-[-0.02em] max-w-[1100px] transition-all duration-500 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
           >
             Scale your business with{' '}
@@ -128,15 +196,13 @@ export default function Hero() {
           </h1>
 
           <p
-            className={`font-inter text-[18px] md:text-[20px] text-[#F7F8FC]/75 leading-[1.5] max-w-[800px] mt-6 transition-all duration-500 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+            className={`font-inter text-[18px] md:text-[20px] text-[#F7F8FC]/75 leading-[1.5] max-w-[800px] mt-6 transition-all duration-500 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             Struggling with content creation AND repetitive tasks? We edit your videos to perfection and automate your workflows to save 20+ hours weekly
           </p>
 
           <div
-            className={`flex flex-col sm:flex-row gap-5 mt-12 transition-all duration-500 delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+            className={`flex flex-col sm:flex-row gap-5 mt-12 transition-all duration-500 delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             <a
               href="#contact"
