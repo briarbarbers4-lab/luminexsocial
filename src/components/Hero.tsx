@@ -24,6 +24,23 @@ export default function Hero() {
       {/* ─── BACKGROUND LAYERS (pure CSS/SVG, no JS) ─── */}
       <div className="absolute inset-0" style={{ zIndex: 0, pointerEvents: 'none' }}>
 
+        {/* 0. Full-bleed background photo */}
+        <img
+          src="https://ik.imagekit.io/rqhbqqo2qx/ElevenLabs_image_nano-banana-2_Cinematic%20da..._2026-03-26T04_38_37%20(1).png?tr=w-1920,q-100,fo-auto"
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center center',
+            imageRendering: 'auto',
+          }}
+        />
+
         {/* 1a. Massive blue orb — top-right */}
         <div style={{
           position: 'absolute',
