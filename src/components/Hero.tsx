@@ -18,156 +18,25 @@ export default function Hero() {
   return (
     <section
       className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center"
-      style={{ background: '#04050f' }}
       data-testid="section-hero"
     >
-      {/* ─── BACKGROUND LAYERS (pure CSS/SVG, no JS) ─── */}
-      <div className="absolute inset-0" style={{ zIndex: 0, pointerEvents: 'none' }}>
-
-        {/* 0. Full-bleed background photo */}
-        <img
-          src="https://ik.imagekit.io/rqhbqqo2qx/ElevenLabs_image_nano-banana-2_Cinematic%20da..._2026-03-26T04_38_37%20(1).png?tr=w-1920,q-100,fo-auto"
-          alt=""
-          aria-hidden="true"
-          fetchPriority="high"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center center',
-            imageRendering: 'auto',
-          }}
-        />
-
-        {/* 1a. Massive blue orb — top-right */}
-        <div style={{
+      {/* ─── BACKGROUND ─── */}
+      <img
+        src="https://ik.imagekit.io/rqhbqqo2qx/ElevenLabs_image_nano-banana-2_Cinematic%20da..._2026-03-26T04_38_37%20(1).png?tr=w-1920,q-100,fo-auto"
+        alt=""
+        aria-hidden="true"
+        fetchPriority="high"
+        style={{
           position: 'absolute',
-          width: '900px', height: '900px',
-          top: '-15%', right: '-18%',
-          background: 'radial-gradient(circle, rgba(0,80,255,0.40) 0%, rgba(0,50,200,0.18) 40%, transparent 70%)',
-          filter: 'blur(100px)',
-          borderRadius: '50%',
-        }} />
-
-        {/* 1b. Large purple orb — bottom-left */}
-        <div style={{
-          position: 'absolute',
-          width: '600px', height: '600px',
-          bottom: '-12%', left: '-10%',
-          background: 'radial-gradient(circle, rgba(80,0,180,0.30) 0%, rgba(60,0,140,0.12) 50%, transparent 70%)',
-          filter: 'blur(80px)',
-          borderRadius: '50%',
-        }} />
-
-        {/* 1c. Medium blue orb — center-right */}
-        <div style={{
-          position: 'absolute',
-          width: '400px', height: '400px',
-          top: '35%', right: '8%',
-          background: 'radial-gradient(circle, rgba(0,80,255,0.22) 0%, transparent 70%)',
-          filter: 'blur(60px)',
-          borderRadius: '50%',
-        }} />
-
-        {/* 1d. Small gold accent — top-left */}
-        <div style={{
-          position: 'absolute',
-          width: '200px', height: '200px',
-          top: '4%', left: '3%',
-          background: 'radial-gradient(circle, rgba(180,140,0,0.14) 0%, transparent 70%)',
-          filter: 'blur(40px)',
-          borderRadius: '50%',
-        }} />
-
-        {/* 1e. Tiny gold orb — bottom-right */}
-        <div style={{
-          position: 'absolute',
-          width: '150px', height: '150px',
-          bottom: '6%', right: '6%',
-          background: 'radial-gradient(circle, rgba(180,140,0,0.12) 0%, transparent 70%)',
-          filter: 'blur(35px)',
-          borderRadius: '50%',
-        }} />
-
-        {/* 2. Atmospheric depth — CREO-style layered radial gradients, bottom-right */}
-        <div style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
+          inset: 0,
           width: '100%',
-          height: '50%',
-          zIndex: 1,
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center center',
+          zIndex: 0,
           pointerEvents: 'none',
-          background: `
-            radial-gradient(ellipse 80% 60% at 85% 100%, rgba(30,10,100,0.55) 0%, transparent 70%),
-            radial-gradient(ellipse 60% 50% at 100% 90%, rgba(10,20,120,0.45) 0%, transparent 65%),
-            radial-gradient(ellipse 50% 40% at 75% 100%, rgba(60,20,160,0.35) 0%, transparent 60%),
-            radial-gradient(ellipse 40% 35% at 95% 80%, rgba(0,50,200,0.25) 0%, transparent 55%),
-            radial-gradient(ellipse 30% 25% at 70% 95%, rgba(180,140,0,0.06) 0%, transparent 50%)
-          `,
-        }} />
-
-        {/* 3. Grid overlay */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: `
-            repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 50px),
-            repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 50px)
-          `,
-        }} />
-
-        {/* 4. Diagonal accent lines — right half */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: `
-            linear-gradient(135deg, transparent 0%, transparent 48%, rgba(0,100,255,0.10) 50%, transparent 52%, transparent 100%),
-            linear-gradient(135deg, transparent 0%, transparent 62%, rgba(0,100,255,0.07) 64%, transparent 66%, transparent 100%),
-            linear-gradient(135deg, transparent 0%, transparent 74%, rgba(0,100,255,0.05) 76%, transparent 78%, transparent 100%),
-            linear-gradient(135deg, transparent 0%, transparent 35%, rgba(80,0,180,0.06) 37%, transparent 39%, transparent 100%)
-          `,
-        }} />
-
-        {/* 5a. Top-left corner bracket */}
-        <svg style={{ position: 'absolute', top: 32, left: 32, width: 48, height: 48 }} viewBox="0 0 48 48">
-          <polyline points="0,24 0,0 24,0" fill="none" stroke="rgba(180,140,0,0.32)" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-
-        {/* 5b. Bottom-right corner bracket */}
-        <svg style={{ position: 'absolute', bottom: 32, right: 32, width: 48, height: 48 }} viewBox="0 0 48 48">
-          <polyline points="48,24 48,48 24,48" fill="none" stroke="rgba(180,140,0,0.22)" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-
-        {/* 5c. Thin horizontal gold line across middle-right */}
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          right: 0,
-          width: '40%',
-          height: '1px',
-          background: 'linear-gradient(to right, transparent, rgba(180,140,0,0.10), transparent)',
-        }} />
-
-        {/* 6. Vignette */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'radial-gradient(ellipse at center, transparent 38%, rgba(0,0,0,0.75) 100%)',
-        }} />
-
-        {/* 7. Noise/grain texture via SVG feTurbulence */}
-        <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.03 }}>
-          <filter id="hero-noise">
-            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
-            <feColorMatrix type="saturate" values="0" />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#hero-noise)" />
-        </svg>
-
-      </div>
+        }}
+      />
       {/* ─── END BACKGROUND ─── */}
 
       <div className="relative z-10 max-w-[1400px] mx-auto w-full px-10 md:px-20 pt-20">
