@@ -22,7 +22,7 @@ export default function Hero() {
     >
       {/* ─── BACKGROUND ─── */}
       <img
-        src="https://ik.imagekit.io/rqhbqqo2qx/ElevenLabs_image_nano-banana-2_Cinematic%20da..._2026-03-26T04_38_37%20(1).png?tr=w-1920,q-100,fo-auto"
+        src="https://ik.imagekit.io/rqhbqqo2qx/ElevenLabs_image_nano-banana-2_Cinematic%20da..._2026-03-26T04_38_37%20(1)%20(1).png"
         alt=""
         aria-hidden="true"
         fetchPriority="high"
