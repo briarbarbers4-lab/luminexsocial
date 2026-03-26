@@ -9,7 +9,7 @@ const WorkShowcase = dynamic(() => import('./WorkShowcase'), {
   loading: () => <div className="h-96 flex items-center justify-center bg-[#0B0D12] rounded-2xl border border-white/5 animate-pulse" />
 });
 
-const Services = dynamic(() => import('./Services'), {
+const ServicesCards = dynamic(() => import('./ServicesCards'), {
   loading: () => <div className="py-20 bg-[#0B0D12]" />
 });
 
@@ -37,7 +37,7 @@ export default function DynamicComponents() {
         <WorkShowcase />
       </section>
       <section id="services" className="relative">
-        <Services />
+        <ServicesCards />
       </section>
       <section id="portfolio">
         <OurWorkPortfolio />
