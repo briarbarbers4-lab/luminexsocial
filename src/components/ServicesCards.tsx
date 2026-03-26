@@ -100,9 +100,9 @@ export default function ServicesCards() {
 
         {/* ─── HEADING ─── */}
         <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-          <h2 className="font-coolvetica" style={{ color: '#fff', marginBottom: '16px' }}>
+          <h2 style={{ color: '#fff', marginBottom: '16px', fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontSize: '48px', fontWeight: 700 }}>
             What We{' '}
-            <span className="font-allura" style={{ color: '#0D21A1', fontStyle: 'italic' }}>
+            <span style={{ fontFamily: "'Allura', cursive", color: '#0D21A1', fontSize: '36px', fontWeight: 700 }}>
               Do
             </span>
           </h2>
@@ -204,7 +204,8 @@ export default function ServicesCards() {
                     />
 
                     {/* Title */}
-                    <h3 className="font-coolvetica" style={{
+                    <h3 style={{
+                      fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                       color: '#fff', fontSize: '32px', fontWeight: 700,
                       letterSpacing: '-0.02em', margin: '8px 0 4px',
                       textAlign: 'center', lineHeight: 1.1,
@@ -213,16 +214,18 @@ export default function ServicesCards() {
                     </h3>
 
                     {/* Teaser */}
-                    <p className="font-inter" style={{
-                      color: 'rgba(255,255,255,0.45)', fontSize: '15px',
+                    <p style={{
+                      fontFamily: "'Inter', system-ui, sans-serif",
+                      color: 'rgba(255,255,255,0.5)', fontSize: '16px', fontWeight: 400,
                       textAlign: 'center', lineHeight: '1.5', margin: 0,
                     }}>
                       {service.teaser}
                     </p>
 
                     {/* Hint with pulsing arrow */}
-                    <div className="font-inter" style={{
-                      color: 'rgba(255,255,255,0.3)', fontSize: '12px',
+                    <div style={{
+                      fontFamily: "'Inter', system-ui, sans-serif",
+                      color: 'rgba(255,255,255,0.3)', fontSize: '13px', fontWeight: 400,
                       marginTop: '20px', display: 'flex', alignItems: 'center', gap: '4px',
                     }}>
                       <span>Hover to explore</span>
@@ -250,8 +253,10 @@ export default function ServicesCards() {
                     }} />
 
                     {/* Title */}
-                    <h3 className="font-coolvetica" style={{
-                      color: '#fff', fontSize: '24px', marginBottom: '20px', lineHeight: 1.2,
+                    <h3 style={{
+                      fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+                      color: '#fff', fontSize: '32px', fontWeight: 700,
+                      marginBottom: '20px', lineHeight: 1.2,
                     }}>
                       {service.title}
                     </h3>
@@ -270,7 +275,7 @@ export default function ServicesCards() {
                             : 'none',
                         }}>
                           <span style={{ color: '#0D21A1', fontSize: '14px', flexShrink: 0, fontWeight: 700 }}>✓</span>
-                          <span className="font-inter" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px' }}>
+                          <span style={{ fontFamily: "'Inter', system-ui, sans-serif", color: 'rgba(255,255,255,0.8)', fontSize: '16px', fontWeight: 400 }}>
                             {feature}
                           </span>
                         </li>
@@ -295,7 +300,7 @@ export default function ServicesCards() {
                         marginTop: '20px',
                         width: '100%',
                         boxSizing: 'border-box',
-                        fontFamily: 'Inter, system-ui, sans-serif',
+                        fontFamily: "'Inter', system-ui, sans-serif",
                         transition: 'filter 0.2s ease, transform 0.2s ease',
                         filter: hoveredBtn === index ? 'brightness(1.2)' : 'brightness(1)',
                         transform: hoveredBtn === index ? 'translateY(-1px)' : 'translateY(0)',
