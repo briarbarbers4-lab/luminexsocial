@@ -22,10 +22,11 @@ export default function Hero() {
     >
       {/* ─── BACKGROUND ─── */}
       <img
-        src="https://ik.imagekit.io/rqhbqqo2qx/ElevenLabs_image_nano-banana-2_Cinematic%20da..._2026-03-26T04_38_37%20(1)%20(1).png"
+        src="https://ik.imagekit.io/rqhbqqo2qx/ElevenLabs_image_nano-banana-2_Cinematic%20da..._2026-03-26T04_38_37%20(1)%20(1).png?tr=orig-true"
         alt=""
         aria-hidden="true"
         fetchPriority="high"
+        decoding="async"
         style={{
           position: 'absolute',
           inset: 0,
@@ -35,6 +36,10 @@ export default function Hero() {
           objectPosition: 'center center',
           zIndex: 0,
           pointerEvents: 'none',
+          imageRendering: 'auto',
+          WebkitBackfaceVisibility: 'hidden',
+          backfaceVisibility: 'hidden',
+          transform: 'translateZ(0)',
         }}
       />
       {/* ─── END BACKGROUND ─── */}
